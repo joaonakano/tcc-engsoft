@@ -1,0 +1,47 @@
+{
+    "version": 1,
+    "name": "Controles Jogador",
+    "maps": [
+        {
+            "name": "Song Manager Map",
+            "id": "fa2cc684-980f-41ac-9fb9-d55d83aeaef1",
+            "actions": [
+                {
+                    "name": "Play/Pause Music",
+                    "type": "Button",
+                    "id": "20fb383a-7652-4bdf-b085-53fa6aaf4e96",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "1f5d8b43-9488-42b8-aff2-746205e3d15b",
+                    "path": "<Keyboard>/f",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Play/Pause Music",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": [
+        {
+            "name": "Music Manager",
+            "bindingGroup": "Music Manager",
+            "devices": [
+                {
+                    "devicePath": "<Keyboard>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
+        }
+    ]
+}
