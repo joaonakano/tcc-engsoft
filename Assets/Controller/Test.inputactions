@@ -1,15 +1,15 @@
 {
     "version": 1,
-    "name": "Controles Jogador",
+    "name": "Test",
     "maps": [
         {
-            "name": "Song Manager Map",
-            "id": "fa2cc684-980f-41ac-9fb9-d55d83aeaef1",
+            "name": "Song",
+            "id": "b011e09a-231e-43d3-ba65-689dcec8e002",
             "actions": [
                 {
-                    "name": "Play/Pause Music",
+                    "name": "Play",
                     "type": "Button",
-                    "id": "20fb383a-7652-4bdf-b085-53fa6aaf4e96",
+                    "id": "ed023010-e652-49e4-ae04-0264f5f92fd7",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -19,12 +19,12 @@
             "bindings": [
                 {
                     "name": "",
-                    "id": "1f5d8b43-9488-42b8-aff2-746205e3d15b",
+                    "id": "63fb21db-cf3e-4f3f-ae2d-6ec634b2b3bc",
                     "path": "<Keyboard>/f",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
-                    "action": "Play/Pause Music",
+                    "groups": ";Keyboard",
+                    "action": "Play",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -33,8 +33,8 @@
     ],
     "controlSchemes": [
         {
-            "name": "Music Manager",
-            "bindingGroup": "Music Manager",
+            "name": "Keyboard",
+            "bindingGroup": "Keyboard",
             "devices": [
                 {
                     "devicePath": "<Keyboard>",

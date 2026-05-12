@@ -3,13 +3,10 @@ using UnityEngine.InputSystem;
 
 public class SongManager : MonoBehaviour
 {
-    private bool isMusicPlaying = false;
+    private bool isMusicPlaying = true;
     
     [SerializeField]
     private AudioSource audioSrc;
-
-    [SerializeField]
-    private KeyCode playKey;
 
     public void Tocar(InputAction.CallbackContext context)
     {
@@ -24,10 +21,15 @@ public class SongManager : MonoBehaviour
         }
     }
 
+    private void Awake()
+    {
+        audioSrc.Play();
+    }
+
     void Update()
     {
-        if (audioSrc.isPlaying)
-            Debug.Log($"Current Music Time: {((int)audioSrc.time)}s");
+        //if (audioSrc.isPlaying)
+            //Debug.Log($"Current Music Time: {((int)audioSrc.time)}s");
 
     }
 }
