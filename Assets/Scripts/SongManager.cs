@@ -23,7 +23,6 @@ public class SongManager : MonoBehaviour
 
     private void Awake()
     {
-        audioSrc.Play();
     }
 
     void Update()

@@ -2,13 +2,13 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!78 &1
 TagManager:
-  serializedVersion: 2
+  serializedVersion: 3
   tags: []
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Kitchen
   - Water
   - UI
   - 
@@ -38,6 +38,20 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Kitchen
+    uniqueID: 2211619225
+    locked: 0
+  - name: Table
+    uniqueID: 3335993089
+    locked: 0
+  - name: Decorations
+    uniqueID: 3331269129
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: HUD
+    uniqueID: 1145200169
+    locked: 0
+  m_RenderingLayers:
+  - Default
