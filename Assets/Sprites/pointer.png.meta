@@ -100,15 +100,15 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: pointer_0
+      name: pointer_1
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 24
+        width: 12
         height: 15
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -121,11 +121,33 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: pointer_2
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 0
+        width: 12
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5c38c78a377b407fb9162fa73e8951c
+      internalID: 76167281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 4b66d15e3f93546bba69b326bed65ae6
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +157,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      pointer_0: 2395158100669332950
+      pointer_1: 2395158100669332950
+      pointer_2: 76167281
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
