@@ -1,13 +1,10 @@
 fileFormatVersion: 2
-guid: 3cda627b13e5ac54ba36f45f5eab47fc
+guid: f891e6b4da076df44a14c52a18257f89
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4321832919896367110
-    second: pear_0
-  - first:
-      213: 3086798389385420701
-    second: pear_1
+      213: -3386785472604074690
+    second: kitchen_background_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -77,8 +74,8 @@ TextureImporter:
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
+    textureFormat: 4
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -103,45 +100,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: pera
+      name: kitchen_background_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 10
-        height: 12
+        width: 640
+        height: 360
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6002301842c3afb30800000000000000
-      internalID: 4321832919896367110
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: uva
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 1
-        width: 10
-        height: 10
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: d9fd094d7c286da20800000000000000
-      internalID: 3086798389385420701
+      spriteID: e3d0bfe7e88bff0d0800000000000000
+      internalID: -3386785472604074690
       vertices: []
       indices: 
       edges: []
@@ -150,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: d9d49413c5cd81d4ea458a2de871d300
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -160,8 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      pera: 4321832919896367110
-      uva: 3086798389385420701
+      kitchen_background_0: -3386785472604074690
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

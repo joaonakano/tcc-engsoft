@@ -1,10 +1,25 @@
 fileFormatVersion: 2
-guid: 4d805fa6bc2da91409dd0e2edc4080b2
+guid: 5ab7205d8dc2bb04da5e9b9dded85e36
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8503656266843440658
-    second: tile-spritesheet_0
+      213: 1171810843172980750
+    second: faca-spritesheet_0
+  - first:
+      213: 631222364955503607
+    second: faca-spritesheet_1
+  - first:
+      213: -3085619160856621232
+    second: faca-spritesheet_2
+  - first:
+      213: -9135180930742030362
+    second: faca-spritesheet_3
+  - first:
+      213: -1798465333134413287
+    second: faca-spritesheet_4
+  - first:
+      213: -7986561807962621075
+    second: faca-spritesheet_5
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -74,7 +89,7 @@ TextureImporter:
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: -1
+    textureFormat: 4
     textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
@@ -100,13 +115,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: tile-spritesheet_0
+      name: faca-spritesheet
       rect:
         serializedVersion: 2
         x: 0
-        y: 16
-        width: 16
-        height: 16
+        y: 0
+        width: 160
+        height: 176
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,74 +130,118 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2164a35025e030670800000000000000
-      internalID: 8503656266843440658
+      spriteID: e08c64bd0cb134010800000000000000
+      internalID: 1171810843172980750
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tile-spritesheet_1
+      name: faca-spritesheet_1
       rect:
         serializedVersion: 2
-        x: 16
-        y: 16
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 03704562835d7114cb65ebc929516374
-      internalID: -1789410922
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: tile-spritesheet_2
-      rect:
-        serializedVersion: 2
-        x: 0
+        x: 160
         y: 0
-        width: 16
-        height: 16
+        width: 160
+        height: 176
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: a657faf2ae0bbee4f9a7f42b9b804f87
-      internalID: 923624754
+      spriteID: 7fb6475856d82c800800000000000000
+      internalID: 631222364955503607
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tile-spritesheet_3
+      name: faca-spritesheet_2
       rect:
         serializedVersion: 2
-        x: 16
+        x: 320
         y: 0
-        width: 16
-        height: 16
+        width: 160
+        height: 176
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: b84b0c30e76fccb4cbd261bbc4a157d7
-      internalID: -486899007
+      spriteID: 05f8005b8bdad25d0800000000000000
+      internalID: -3085619160856621232
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: faca-spritesheet_3
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 0
+        width: 160
+        height: 176
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6efe2300851593180800000000000000
+      internalID: -9135180930742030362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: faca-spritesheet_4
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 0
+        width: 160
+        height: 176
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9123ba5ee419a07e0800000000000000
+      internalID: -1798465333134413287
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: faca-spritesheet_5
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 0
+        width: 160
+        height: 176
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d6bbfaba9580a2190800000000000000
+      internalID: -7986561807962621075
       vertices: []
       indices: 
       edges: []
@@ -191,7 +250,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 64e76d8b66af26c438419b04910de7ff
+    spriteID: c21f9099723e1014880bcb8ff03dbd82
     internalID: 0
     vertices: []
     indices: 
@@ -201,12 +260,14 @@ TextureImporter:
     spriteCustomMetadata:
       entries:
       - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":16.0,"y":16.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":160.0,"y":176.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      tile-spritesheet_0: 8503656266843440658
-      tile-spritesheet_1: -1789410922
-      tile-spritesheet_2: 923624754
-      tile-spritesheet_3: -486899007
+      faca-spritesheet: 1171810843172980750
+      faca-spritesheet_1: 631222364955503607
+      faca-spritesheet_2: -3085619160856621232
+      faca-spritesheet_3: -9135180930742030362
+      faca-spritesheet_4: -1798465333134413287
+      faca-spritesheet_5: -7986561807962621075
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
