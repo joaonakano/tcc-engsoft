@@ -249,28 +249,6 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: faca-spritesheet-mask_6
-      rect:
-        serializedVersion: 2
-        x: 960
-        y: 0
-        width: 160
-        height: 176
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 4c7dce006dff53980800000000000000
-      internalID: -8559654222144153660
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     customData: 
     physicsShape: []
@@ -293,7 +271,6 @@ TextureImporter:
       faca-spritesheet-mask_3: -8988198118733718399
       faca-spritesheet-mask_4: -4722298259591429152
       faca-spritesheet-mask_5: -691796625189276407
-      faca-spritesheet-mask_6: -8559654222144153660
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

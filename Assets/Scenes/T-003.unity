@@ -7272,7 +7272,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 11.5625
+  orthographic size: 12.640625
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -9230,6 +9230,7 @@ GameObject:
   - component: {fileID: 1411312831}
   - component: {fileID: 1411312829}
   - component: {fileID: 1411312830}
+  - component: {fileID: 1411312832}
   m_Layer: 0
   m_Name: Hammer
   m_TagString: Untagged
@@ -9306,7 +9307,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_MaskInteraction: 0
   m_Sprite: {fileID: 8355423952969877516, guid: cbdc01660c1826340bdf9c6c4f943946, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -9333,6 +9334,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 810034703}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1411312832
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1411312828}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4ca93cd4d05eed488269f4ca2e6c900, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EffectController
+  smokePrefab: {fileID: 3135435542280617618, guid: 70294f0702df1424e8eff7c96c8f2eb0, type: 3}
+  hitPoint: {fileID: 1891699820}
 --- !u!1 &1415620678
 GameObject:
   m_ObjectHideFlags: 0
@@ -9462,7 +9477,7 @@ MonoBehaviour:
   lanes:
   - {fileID: 1207009986}
   - {fileID: 709979758}
-  interval: 1
+  interval: 0.5
 --- !u!1 &1693763509
 GameObject:
   m_ObjectHideFlags: 0
@@ -9550,14 +9565,14 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7744243957902701061, guid: f27370032cfb60f46aa2ff3523440584, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 10, y: 11}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -9576,6 +9591,37 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 810034703}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1891699819
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1891699820}
+  m_Layer: 0
+  m_Name: HammerSpawnEffect
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1891699820
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1891699819}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.12, y: 0.29, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2103005210
 GameObject:
@@ -9729,3 +9775,4 @@ SceneRoots:
   - {fileID: 810034703}
   - {fileID: 1100759378}
   - {fileID: 1415620681}
+  - {fileID: 1891699820}
