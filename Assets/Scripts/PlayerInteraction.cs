@@ -8,15 +8,18 @@ public class PlayerAttack : MonoBehaviour
     public Animator animator_knife;
     public Animator animator_hammer;
 
+    [Header("Referencia ao Placar")]
+    public ScoreDisplayController scoreDisplay; // Arraste o objeto PlacarUI aqui no Inspector
+
     private void Start()
     {
         contadorCliques = 0;
-        attackText.text = "Cliques: " + contadorCliques;
-    }
 
-    public void Update()
-    {
-        attackText.text = "Cliques: " + contadorCliques;
+        // Atualiza o placar com 0 logo no início do jogo
+        if (scoreDisplay != null)
+        {
+            scoreDisplay.UpdateScoreUI(contadorCliques);
+        }
     }
 
     public void OnHammerAttack(InputAction.CallbackContext context)
@@ -42,5 +45,10 @@ public class PlayerAttack : MonoBehaviour
         targetAnimator.SetTrigger(triggerName);
         contadorCliques++;
         Debug.Log("Ataque executado: " + triggerName);
+        // Envia o novo valor do contador para o script do placar em pixel art!
+        if (scoreDisplay != null)
+        {
+            scoreDisplay.UpdateScoreUI(contadorCliques);
+        }
     }
 }
