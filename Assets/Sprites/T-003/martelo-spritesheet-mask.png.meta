@@ -122,11 +122,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
+        y: 352
         width: 160
         height: 176
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 6
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -144,11 +144,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 160
-        y: 0
+        y: 352
         width: 160
         height: 176
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 6
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -166,11 +166,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 320
-        y: 0
+        y: 352
         width: 160
         height: 176
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 6
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -187,12 +187,12 @@ TextureImporter:
       name: martelo-spritesheet-mask_3
       rect:
         serializedVersion: 2
-        x: 480
-        y: 0
+        x: 479
+        y: 352
         width: 160
         height: 176
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 6
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -210,11 +210,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 640
-        y: 0
+        y: 352
         width: 160
         height: 176
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 6
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -232,11 +232,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 800
-        y: 0
+        y: 352
         width: 160
         height: 176
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 6
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -253,12 +253,12 @@ TextureImporter:
       name: martelo-spritesheet-mask_6
       rect:
         serializedVersion: 2
-        x: 960
-        y: 0
+        x: 961
+        y: 352
         width: 160
         height: 176
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 6
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -267,6 +267,380 @@ TextureImporter:
       bones: []
       spriteID: 91bedfade8b64fea0800000000000000
       internalID: -5839924555489088743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: martelo-spritesheet-mask_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 176
+        width: 160
+        height: 176
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04b17ef65d9222d4aba79b88090dc620
+      internalID: -1622207041
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: martelo-spritesheet-mask_8
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 176
+        width: 160
+        height: 176
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7bfc6f7008afbf54bb67f95b6331fc87
+      internalID: -437914798
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: martelo-spritesheet-mask_9
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 176
+        width: 160
+        height: 176
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: acb3b6947a0c47f43bb55a8698b61ffa
+      internalID: -554636829
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: martelo-spritesheet-mask_10
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 176
+        width: 160
+        height: 176
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8bbf3593bafb52a4eabbf800d01faf00
+      internalID: 1186225832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: martelo-spritesheet-mask_11
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 176
+        width: 160
+        height: 176
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: afb4536d4a2cdd74f897e1a05eded42b
+      internalID: -1379892680
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: martelo-spritesheet-mask_12
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 176
+        width: 160
+        height: 176
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b334e3d9bfa0c044b1d61f098125b54
+      internalID: -832472224
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: martelo-spritesheet-mask_13
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 176
+        width: 160
+        height: 176
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4dedd46627a163d45a37269eddaeb425
+      internalID: -1271688318
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: martelo-spritesheet-mask_14
+      rect:
+        serializedVersion: 2
+        x: 1120
+        y: 176
+        width: 160
+        height: 176
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f38e6d9caa97514db6d6964a08827b2
+      internalID: -212577841
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: martelo-spritesheet-mask_15
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 176
+        width: 160
+        height: 176
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 581d0b1b63fd38d49a641b0ac8aabb54
+      internalID: 801778742
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: martelo-spritesheet-mask_16
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 176
+        width: 160
+        height: 176
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec4a232c8137cc743a9cb5430feae895
+      internalID: 1358043073
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: martelo-spritesheet-mask_17
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 160
+        height: 176
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e7b034a595fcac48930a6b41b9a6d56
+      internalID: 1872657870
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: martelo-spritesheet-mask_18
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 0
+        width: 160
+        height: 176
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: afdc71c19a015a240b6e30ce3fe068c0
+      internalID: 362982864
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: martelo-spritesheet-mask_19
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 160
+        height: 176
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5be27c5086456145a79cec991e93a6b
+      internalID: 210524327
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: martelo-spritesheet-mask_20
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 0
+        width: 160
+        height: 176
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 03343ccd82eca8a48bf8f65d785c8b3e
+      internalID: 1443153991
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: martelo-spritesheet-mask_21
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 0
+        width: 160
+        height: 176
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 48f4a75f6c72565429edfb3f69118245
+      internalID: 1091659758
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: martelo-spritesheet-mask_22
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 1
+        width: 160
+        height: 176
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d969e3fd57b7fc94c8ec8739a8b865ba
+      internalID: 30572890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: martelo-spritesheet-mask_23
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 0
+        width: 160
+        height: 176
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 957f2925c754a2d4e8ef569866b7aee6
+      internalID: -1628337975
       vertices: []
       indices: 
       edges: []
@@ -289,11 +663,28 @@ TextureImporter:
     nameFileIdTable:
       martelo-spritesheet-mask_0: 8355423952969877516
       martelo-spritesheet-mask_1: 985818644910957967
+      martelo-spritesheet-mask_10: 1186225832
+      martelo-spritesheet-mask_11: -1379892680
+      martelo-spritesheet-mask_12: -832472224
+      martelo-spritesheet-mask_13: -1271688318
+      martelo-spritesheet-mask_14: -212577841
+      martelo-spritesheet-mask_15: 801778742
+      martelo-spritesheet-mask_16: 1358043073
+      martelo-spritesheet-mask_17: 1872657870
+      martelo-spritesheet-mask_18: 362982864
+      martelo-spritesheet-mask_19: 210524327
       martelo-spritesheet-mask_2: -6867106226757212970
+      martelo-spritesheet-mask_20: 1443153991
+      martelo-spritesheet-mask_21: 1091659758
+      martelo-spritesheet-mask_22: 30572890
+      martelo-spritesheet-mask_23: -1628337975
       martelo-spritesheet-mask_3: -457121913246620079
       martelo-spritesheet-mask_4: 684488242531288411
       martelo-spritesheet-mask_5: -7361751425951846652
       martelo-spritesheet-mask_6: -5839924555489088743
+      martelo-spritesheet-mask_7: -1622207041
+      martelo-spritesheet-mask_8: -437914798
+      martelo-spritesheet-mask_9: -554636829
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

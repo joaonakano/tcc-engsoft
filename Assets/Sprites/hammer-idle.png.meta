@@ -1,25 +1,37 @@
 fileFormatVersion: 2
-guid: 5ab7205d8dc2bb04da5e9b9dded85e36
+guid: 3c5bd5db3bcd6a4429fce82d09b120ee
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1171810843172980750
-    second: faca-spritesheet_0
+      213: -2966911049446930693
+    second: hammer-idle_0
   - first:
-      213: 631222364955503607
-    second: faca-spritesheet_1
+      213: -4981769709879176195
+    second: hammer-idle_1
   - first:
-      213: -3085619160856621232
-    second: faca-spritesheet_2
+      213: 2542405863412669663
+    second: hammer-idle_2
   - first:
-      213: -9135180930742030362
-    second: faca-spritesheet_3
+      213: -3376703665489457170
+    second: hammer-idle_3
   - first:
-      213: -1798465333134413287
-    second: faca-spritesheet_4
+      213: -8358443655115422028
+    second: hammer-idle_4
   - first:
-      213: -7986561807962621075
-    second: faca-spritesheet_5
+      213: -4816633555985542207
+    second: hammer-idle_5
+  - first:
+      213: -6293784526318294630
+    second: hammer-idle_6
+  - first:
+      213: -877642508992742140
+    second: hammer-idle_7
+  - first:
+      213: -6010178547749880822
+    second: hammer-idle_8
+  - first:
+      213: -2119660331198924752
+    second: hammer-idle_9
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -115,7 +127,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: faca-spritesheet
+      name: hammer-idle_0
       rect:
         serializedVersion: 2
         x: 0
@@ -130,14 +142,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e08c64bd0cb134010800000000000000
-      internalID: 1171810843172980750
+      spriteID: bf6c881be1a63d6d0800000000000000
+      internalID: -2966911049446930693
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: faca-spritesheet_1
+      name: hammer-idle_1
       rect:
         serializedVersion: 2
         x: 160
@@ -152,14 +164,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7fb6475856d82c800800000000000000
-      internalID: 631222364955503607
+      spriteID: df3d9d9e7d23ddab0800000000000000
+      internalID: -4981769709879176195
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: faca-spritesheet_2
+      name: hammer-idle_2
       rect:
         serializedVersion: 2
         x: 320
@@ -174,14 +186,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 05f8005b8bdad25d0800000000000000
-      internalID: -3085619160856621232
+      spriteID: fdc159b99a0784320800000000000000
+      internalID: 2542405863412669663
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: faca-spritesheet_3
+      name: hammer-idle_3
       rect:
         serializedVersion: 2
         x: 480
@@ -196,14 +208,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6efe2300851593180800000000000000
-      internalID: -9135180930742030362
+      spriteID: eefcdb228e98321d0800000000000000
+      internalID: -3376703665489457170
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: faca-spritesheet_4
+      name: hammer-idle_4
       rect:
         serializedVersion: 2
         x: 640
@@ -218,14 +230,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9123ba5ee419a07e0800000000000000
-      internalID: -1798465333134413287
+      spriteID: 4b64ab5d7c7d00c80800000000000000
+      internalID: -8358443655115422028
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: faca-spritesheet_5
+      name: hammer-idle_5
       rect:
         serializedVersion: 2
         x: 800
@@ -240,8 +252,96 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d6bbfaba9580a2190800000000000000
-      internalID: -7986561807962621075
+      spriteID: 1c3514aec41e72db0800000000000000
+      internalID: -4816633555985542207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hammer-idle_6
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 0
+        width: 160
+        height: 176
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a99a2f7b15cf7a8a0800000000000000
+      internalID: -6293784526318294630
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hammer-idle_7
+      rect:
+        serializedVersion: 2
+        x: 1120
+        y: 0
+        width: 160
+        height: 176
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 40d74bbb9ccf1d3f0800000000000000
+      internalID: -877642508992742140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hammer-idle_8
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 0
+        width: 160
+        height: 176
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a0cf1b0447e879ca0800000000000000
+      internalID: -6010178547749880822
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hammer-idle_9
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 0
+        width: 160
+        height: 176
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 038b662c8247592e0800000000000000
+      internalID: -2119660331198924752
       vertices: []
       indices: 
       edges: []
@@ -250,7 +350,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: c21f9099723e1014880bcb8ff03dbd82
+    spriteID: b33b5206a2fa92b48a806aad6ebe1f1c
     internalID: 0
     vertices: []
     indices: 
@@ -262,12 +362,16 @@ TextureImporter:
       - key: SpriteEditor.SliceSettings
         value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":160.0,"y":176.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      faca-spritesheet: 1171810843172980750
-      faca-spritesheet_1: 631222364955503607
-      faca-spritesheet_2: -3085619160856621232
-      faca-spritesheet_3: -9135180930742030362
-      faca-spritesheet_4: -1798465333134413287
-      faca-spritesheet_5: -7986561807962621075
+      hammer-idle_0: -2966911049446930693
+      hammer-idle_1: -4981769709879176195
+      hammer-idle_2: 2542405863412669663
+      hammer-idle_3: -3376703665489457170
+      hammer-idle_4: -8358443655115422028
+      hammer-idle_5: -4816633555985542207
+      hammer-idle_6: -6293784526318294630
+      hammer-idle_7: -877642508992742140
+      hammer-idle_8: -6010178547749880822
+      hammer-idle_9: -2119660331198924752
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
