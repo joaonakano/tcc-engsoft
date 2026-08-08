@@ -44,6 +44,9 @@ TagManager:
   - name: Table
     uniqueID: 3335993089
     locked: 0
+  - name: Aim
+    uniqueID: 2684685159
+    locked: 0
   - name: Decorations
     uniqueID: 3331269129
     locked: 0

@@ -2,27 +2,40 @@ using UnityEngine;
 
 public class Note : MonoBehaviour
 {
-    float distance;
+    public float assignedTime;
 
-    private Transform hitLine;
-
-    public void SetHitline(Transform line)
+    private void Update()
     {
-        hitLine = line;
-    }
+        // Momento exato em que esta nota deveria nascer (spawn)
+        float spawnTime = assignedTime - SongManager.Instance.noteTime;
 
-    void Update()
-    {
-        gameObject.transform.Translate(Vector3.left * Time.deltaTime * 5f);
+        // Momento exato em que ela some (despawn)
+        float despawnTime = assignedTime + SongManager.Instance.noteTime;
 
-        distance = Mathf.Abs(transform.position.x - hitLine.position.x);
+        // Tempo atual da música
+        double audioTime = SongManager.GetAudioSourceTime();
 
-        if (distance < 0.5f)
+        // Progresso normalizado de 0 (no spawn) a 1 (no despawn)
+        float totalDuration = despawnTime - spawnTime;
+        float timeSinceSpawn = (float)(audioTime - spawnTime);
+        float t = timeSinceSpawn / totalDuration;
+
+        if (audioTime >= despawnTime)
         {
-            //Debug.Log("Hit!");
             Destroy(gameObject);
         }
+        else
+        {
+            // O Mathf.Clamp01 impede que a nota ultrapasse os limites se nascer com frações de atraso,
+            // garantindo que ela comece exatamente no noteSpawnX.
+            t = Mathf.Clamp01(t);
 
-        //Debug.Log($"Distancia Nota: {distance}");
+            transform.localPosition = Vector3.Lerp(
+                Vector3.right * SongManager.Instance.noteSpawnX,
+                Vector3.right * SongManager.Instance.noteDespawnX,
+                t
+            );
+            GetComponent<SpriteRenderer>().enabled = true;
+        }
     }
 }

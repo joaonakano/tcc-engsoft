@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 9015027056036486414}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.67776, y: 0.33238, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -41,7 +41,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9015027056036486414}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -82,7 +82,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -2494357646659240120, guid: 7cad093c1ae517b4c9336ac51e66f7da, type: 3}
+  m_Sprite: {fileID: -5623194428626525839, guid: 04dc2b5f47039f54fad349b198df5c65, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -104,4 +104,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4657a9d1c95f012479cc4ee21213c38d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Note
-  destroyPosition: -20
+  assignedTime: 0

@@ -1,13 +1,13 @@
 fileFormatVersion: 2
-guid: 7cad093c1ae517b4c9336ac51e66f7da
+guid: d55cbdb013b70b54c92c0b916706692e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3956631845772295726
-    second: Sprite-0013_0
+      213: 58537775430694542
+    second: aim_0
   - first:
-      213: -2494357646659240120
-    second: Sprite-0013_1
+      213: -772569725044374977
+    second: aim_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -77,8 +77,8 @@ TextureImporter:
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
+    textureFormat: 4
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -103,45 +103,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: pera
+      name: aim_1
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        width: 109
+        height: 66
+      alignment: 6
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2d18eb5ac483719c0800000000000000
-      internalID: -3956631845772295726
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: uva
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 84fb810afe2426dd0800000000000000
-      internalID: -2494357646659240120
+      spriteID: f324286ade74745f0800000000000000
+      internalID: -772569725044374977
       vertices: []
       indices: 
       edges: []
@@ -150,7 +128,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 6388ab85756927c4b9f59a7fb127d0c6
+    spriteID: e1df95d35eafaf641bbfaa9383bd3e3a
     internalID: 0
     vertices: []
     indices: 
@@ -158,12 +136,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries:
-      - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":16.0,"y":16.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+      entries: []
     nameFileIdTable:
-      pera: -3956631845772295726
-      uva: -2494357646659240120
+      aim_0: 58537775430694542
+      aim_1: -772569725044374977
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
