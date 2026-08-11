@@ -35,7 +35,6 @@ public class Note : MonoBehaviour
                 Vector3.right * SongManager.Instance.noteDespawnX,
                 t
             );
-            GetComponent<SpriteRenderer>().enabled = true;
         }
     }
 }

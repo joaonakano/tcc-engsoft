@@ -6,6 +6,12 @@ public class CursorUI : MonoBehaviour
     [SerializeField]
     private InputActionReference pointerPositionAction;
 
+    [SerializeField]
+    private InputActionReference clickAction;
+
+    [SerializeField]
+    private Animator cursorAnimator;
+
     private RectTransform _cursorTransform;
     private Canvas _parentCanvas;
     private RectTransform _canvasRectTransform;
@@ -37,15 +43,32 @@ public class CursorUI : MonoBehaviour
         }
     }
 
+    private void OnClick(InputAction.CallbackContext ctx)
+    {
+        if (!ctx.ReadValueAsButton())
+            return;
+
+        if (cursorAnimator != null)
+        {
+            cursorAnimator.SetTrigger("onClick");
+        }
+    }
+
     private void OnEnable()
     {
         Cursor.visible = false;
         pointerPositionAction.action.performed += OnPointerPositionChanged;
+
+        if (clickAction != null && clickAction.action != null)
+            clickAction.action.performed += OnClick;
     }
 
     private void OnDisable()
     {
         Cursor.visible = true;
         pointerPositionAction.action.performed -= OnPointerPositionChanged;
+
+        if (clickAction != null && clickAction.action != null)
+            clickAction.action.performed -= OnClick;
     }
 }

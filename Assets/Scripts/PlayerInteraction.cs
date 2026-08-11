@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -9,13 +10,15 @@ public class PlayerAttack : MonoBehaviour
     public Animator animator_hammer;
 
     [Header("Referencia ao Placar")]
-    public ScoreDisplayController scoreDisplay; // Arraste o objeto PlacarUI aqui no Inspector
+    public ScoreDisplayController scoreDisplay;
+
+    // Evento de ataque do jogador
+    public event Action<string> OnAttack;
 
     private void Start()
     {
         contadorCliques = 0;
 
-        // Atualiza o placar com 0 logo no início do jogo
         if (scoreDisplay != null)
         {
             scoreDisplay.UpdateScoreUI(contadorCliques);
@@ -43,12 +46,14 @@ public class PlayerAttack : MonoBehaviour
     {
         targetAnimator.ResetTrigger(triggerName);
         targetAnimator.SetTrigger(triggerName);
+
         contadorCliques++;
-        Debug.Log("Ataque executado: " + triggerName);
-        // Envia o novo valor do contador para o script do placar em pixel art!
+
         if (scoreDisplay != null)
         {
             scoreDisplay.UpdateScoreUI(contadorCliques);
         }
+
+        OnAttack?.Invoke(triggerName);
     }
 }

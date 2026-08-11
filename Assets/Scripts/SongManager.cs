@@ -1,7 +1,10 @@
 using Melanchall.DryWetMidi.Core;
 using Melanchall.DryWetMidi.Interaction;
+using System.Collections;
+using System.IO;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Networking;
 
 public class SongManager : MonoBehaviour
 {
@@ -18,7 +21,8 @@ public class SongManager : MonoBehaviour
 
     public int inputDelayInMilliseconds;
 
-    public string filePath;
+    public string fileName;
+
     public float noteTime;
     public float noteSpawnX;
     public float noteTapX;
@@ -35,13 +39,54 @@ public class SongManager : MonoBehaviour
     void Awake()
     {
         Instance = this;
-        ReadFromFile();
     }
 
-    private void ReadFromFile()
+    void Start()
     {
-        midiFile = MidiFile.Read(filePath);
-        GetDataFromMidi();
+        StartCoroutine(LoadMidiFile(fileName));
+    }
+
+    IEnumerator LoadMidiFile(string fileName)
+    {
+        byte[] fileContent = null;
+        string filePath = Path.Combine(Application.streamingAssetsPath, fileName);
+
+        // Se Android ou Web
+        if (filePath.StartsWith("jar") || filePath.StartsWith("http"))
+        {
+            UnityWebRequest request = UnityWebRequest.Get(filePath);
+            yield return request.SendWebRequest();
+
+            if (request.result == UnityWebRequest.Result.Success)
+            {
+                fileContent = request.downloadHandler.data;
+            }
+            else
+            {
+                Debug.LogError("Erro ao carregar o arquivo MIDI: " + request.error);
+            }
+        }
+        else
+        {
+            // Maioria das plataformas (Windows, macOS, Linux)
+            if (File.Exists(filePath))
+            {
+                fileContent = File.ReadAllBytes(filePath);
+            }
+            else
+            {
+                Debug.LogError("Arquivo MIDI não encontrado em: " + filePath);
+            }
+        }
+
+        if (fileContent != null)
+        {
+            using (var stream = new MemoryStream(fileContent))
+            {
+                midiFile = MidiFile.Read(stream);
+                GetDataFromMidi();
+            }
+        }
     }
 
     private void GetDataFromMidi()
