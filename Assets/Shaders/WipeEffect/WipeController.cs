@@ -29,11 +29,6 @@ public class WipeController : MonoBehaviour
         _image.materialForRendering.SetFloat(_circleSizeID, circleSize);
     }
 
-    private void StartLevel()
-    {
-        SongManager.Instance.StartSong();
-    }
-
     private void PlayRoundStart()
     {
         audioSource.clip = roundStartClip;

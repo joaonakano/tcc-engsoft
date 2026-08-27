@@ -1232,8 +1232,8 @@
     "m_ObjectId": "117a9c2fed44446b97722c16286b7b4b",
     "m_Title": "Left",
     "m_Position": {
-        "x": -2102.000244140625,
-        "y": -29.000123977661134
+        "x": -2102.0,
+        "y": -29.0
     }
 }
 
@@ -1330,7 +1330,7 @@
         "m_SerializableColors": []
     },
     "m_Texture": {
-        "m_SerializedTexture": "{\"texture\":{\"fileID\":2800000,\"guid\":\"04dc2b5f47039f54fad349b198df5c65\",\"type\":3}}",
+        "m_SerializedTexture": "",
         "m_Guid": ""
     }
 }
@@ -1528,7 +1528,7 @@
         "m_SerializableColors": []
     },
     "m_Texture": {
-        "m_SerializedTexture": "{\"texture\":{\"fileID\":2800000,\"guid\":\"04dc2b5f47039f54fad349b198df5c65\",\"type\":3}}",
+        "m_SerializedTexture": "",
         "m_Guid": ""
     }
 }
@@ -1686,7 +1686,7 @@
         "m_SerializableColors": []
     },
     "m_Texture": {
-        "m_SerializedTexture": "{\"texture\":{\"fileID\":2800000,\"guid\":\"04dc2b5f47039f54fad349b198df5c65\",\"type\":3}}",
+        "m_SerializedTexture": "",
         "m_Guid": ""
     }
 }
@@ -2236,7 +2236,7 @@
     "m_ObjectId": "3b832dd0ada14ab5a4bf9018dde8fdf8",
     "m_Title": "Down",
     "m_Position": {
-        "x": -2085.000244140625,
+        "x": -2085.0,
         "y": 1654.0
     }
 }
@@ -2576,7 +2576,7 @@
     "m_ObjectId": "44f84c20f19c4c94bd45b2918b1f210b",
     "m_Title": "Right",
     "m_Position": {
-        "x": -2085.000244140625,
+        "x": -2085.0,
         "y": 587.0
     }
 }
@@ -3946,7 +3946,7 @@
     "m_PerRendererData": false,
     "m_customAttributes": [],
     "m_Value": {
-        "m_SerializedTexture": "{\"texture\":{\"fileID\":2800000,\"guid\":\"04dc2b5f47039f54fad349b198df5c65\",\"type\":3}}",
+        "m_SerializedTexture": "",
         "m_Guid": ""
     },
     "isMainTexture": false,
@@ -4327,7 +4327,7 @@
         "m_SerializableColors": []
     },
     "m_Texture": {
-        "m_SerializedTexture": "{\"texture\":{\"fileID\":2800000,\"guid\":\"04dc2b5f47039f54fad349b198df5c65\",\"type\":3}}",
+        "m_SerializedTexture": "",
         "m_Guid": ""
     }
 }
@@ -4772,7 +4772,7 @@
         "m_SerializableColors": []
     },
     "m_Texture": {
-        "m_SerializedTexture": "{\"texture\":{\"fileID\":2800000,\"guid\":\"04dc2b5f47039f54fad349b198df5c65\",\"type\":3}}",
+        "m_SerializedTexture": "",
         "m_Guid": ""
     }
 }
@@ -6532,8 +6532,8 @@
     "m_ObjectId": "fb7775c79e3f4e54ab145694ad3c26d0",
     "m_Title": "Up",
     "m_Position": {
-        "x": -2084.000244140625,
-        "y": 1119.9996337890625
+        "x": -2084.0,
+        "y": 1120.0
     }
 }
 
