@@ -2,18 +2,26 @@ using UnityEngine;
 
 public class NoteController : MonoBehaviour
 {
-    private double targetTime; // O tempo em segundos em que a nota deve atingir o alvo
-    private float fallSpeed; // A velocidade de queda da nota
-    private float spawnY; // A altura onde a nota nasce
-    private float targetY; // A altura da linha de hit
+    public double TargetTime { get; private set; }      // O tempo em segundos em que a fruta deve atingir o alvo
+    private double spawnTime;       // Momento exato que o dispenser soltou a fruta
+    private float fallDuration;     // Tempo de duração da queda
+    private float spawnY;           // Altura onde a fruta nasce
+    private float targetY;          // Altura da tábua
+    private double songStartTime;   // Relógio da música
     private bool isInitialized = false;
 
-    public void Initialize(double targetTime, float spawnY, float targetY, float fallSpeed)
+    [Header("Configuração de Erro")]
+    [Tooltip("Tempo limite em segundos que a fruta fica na tábua após o targetTime antes de 'morrer'")]
+    private float missThreshold = 0.6f;
+
+    public void Initialize(double targetTime, double spawnTime, float fallDuration, float spawnY, float targetY, double songStartTime)
     {
-        this.targetTime = targetTime;
+        this.TargetTime = targetTime;
+        this.spawnTime = spawnTime; // Agora o spawnTime é recebido corretamente!
+        this.fallDuration = fallDuration;
         this.spawnY = spawnY;
         this.targetY = targetY;
-        this.fallSpeed = fallSpeed;
+        this.songStartTime = songStartTime;
         this.isInitialized = true;
     }
 
@@ -21,20 +29,30 @@ public class NoteController : MonoBehaviour
     {
         if (!isInitialized) return;
 
-        // Quanto tempo falta para a nota atingir o alvo
-        double timeRemaining = targetTime - AudioSettings.dspTime;  // dspTime é o relogio da musica
+        double currentSongTime = AudioSettings.dspTime - songStartTime;
 
-        // Cálculo da posição Y com base no tempo restante e na velocidade (linear e previsivel)
-        float distanceToTravel = (float)(timeRemaining * fallSpeed);
+        // FASE 1: A fruta está caindo de forma suave até a tábua
+        if (currentSongTime < TargetTime)
+        {
+            double timeElapsedSinceSpawn = currentSongTime - spawnTime;
+            float progress = (float)(timeElapsedSinceSpawn / fallDuration);
+            progress = Mathf.Clamp01(progress);
 
-        Vector3 newPosition = transform.position;
-        newPosition.y = targetY + distanceToTravel;
-        transform.position = newPosition;
+            float currentY = Mathf.Lerp(spawnY, targetY, progress);
+            transform.position = new Vector3(transform.position.x, currentY, transform.position.z);
+        }
+        // FASE 2: A fruta já aterrissou na tábua e aguarda o corte
+        else
+        {
+            // Trava estaticamente na tábua
+            transform.position = new Vector3(transform.position.x, targetY, transform.position.z);
 
-        // Se a nota passou do tempo e nao foi destruida, limpa-se a memoria
-        if (timeRemaining < -1.0)
-        { 
-            Destroy(gameObject);
+            // FASE 3: Passou o limite aceitável sem ser cortada -> "Morre" (Miss)
+            if (currentSongTime > TargetTime + missThreshold)
+            {
+                // TODO: Chamar lógica de erro/miss aqui futuramente
+                Destroy(gameObject);
+            }
         }
     }
 }

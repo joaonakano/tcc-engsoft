@@ -7,7 +7,7 @@
             "id": "e7e37e51-4200-441e-852f-f4cc0673370d",
             "actions": [
                 {
-                    "name": "Knife",
+                    "name": "Left",
                     "type": "Button",
                     "id": "6480eef9-0577-416a-b7c1-e148b64bc7bf",
                     "expectedControlType": "",
@@ -16,7 +16,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Hammer",
+                    "name": "Right",
                     "type": "Button",
                     "id": "9a6fdd8c-7efb-443c-9522-df651b0c17cd",
                     "expectedControlType": "",
@@ -33,7 +33,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";PC Default",
-                    "action": "Knife",
+                    "action": "Left",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -44,7 +44,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";PC Default",
-                    "action": "Knife",
+                    "action": "Left",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -55,7 +55,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";PC Default",
-                    "action": "Hammer",
+                    "action": "Right",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -66,7 +66,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";PC Default",
-                    "action": "Hammer",
+                    "action": "Right",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

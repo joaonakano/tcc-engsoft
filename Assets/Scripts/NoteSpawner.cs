@@ -5,8 +5,9 @@ public class NoteSpawner : MonoBehaviour
 {
     [Header("Referências")]
     public MidiReaderManager midiReader;
-    public GameObject leftNotePrefab;
-    public GameObject rightNotePrefab;
+    
+    public List<GameObject> notePrefabs = new List<GameObject>();
+
     public Animator leftExaustorAnimator;
     public Animator rightExaustorAnimator;
 
@@ -15,9 +16,11 @@ public class NoteSpawner : MonoBehaviour
     public Transform rightLaneTransform;
 
     [Header("Configurações do Movimento")]
-    public float targetY = -4f; // Altura de Hitline
-    public float spawnY = 6f;   // Altura onde a nota nasce
-    public float fallSpeed = 5f;    // Unidades por segundo que a nota desce
+    public float targetY = -4f; // Altura da Tábua (Hitline)
+    public float spawnY = 6f;   // Altura do Dispenser
+
+    [Tooltip("Tempo em segundos que a fruta leva caindo do dispenser até a tábua")]
+    public float fallDuration = 0.4f;
 
     [Header("Configurações da Partida")]
     [Tooltip("Atraso para começar a música em segundos")]
@@ -29,41 +32,36 @@ public class NoteSpawner : MonoBehaviour
 
     private int nextIndex = 0;
     private int nextExhaustIndex = 0;
-    private double songStartTime;
+    public double SongStartTime;
     private bool isPlaying = false;
-    private float preSpawnTime; // Quanto tempo antes a nota deve descer
 
     void Start()
     {
-        // Calcula o tempo a nota leva para ir do spawn ao alvo
-        float distance = Mathf.Abs(spawnY - targetY);
-        preSpawnTime = distance / fallSpeed;
-
-        // Tocar musica apos 2 segundos de preparacao
         Invoke(nameof(StartSong), songDelay);
     }
 
     void StartSong()
     {
-        // dspTime para ter um relógio de precisão para o audio/tempo
-        songStartTime = AudioSettings.dspTime;
+        SongStartTime = AudioSettings.dspTime;
         isPlaying = true;
-
-        GetComponent<AudioSource>().PlayScheduled(songStartTime);
+        GetComponent<AudioSource>().PlayScheduled(SongStartTime);
     }
 
     void Update()
     {
-        if (!isPlaying || midiReader.SongNotes == null || nextIndex >= midiReader.SongNotes.Count) return;
+        if (!isPlaying || midiReader.SongNotes == null) return;
 
-        // Tempo atual da musica em segundos
-        double currentSongTime = AudioSettings.dspTime - songStartTime;
+        double currentSongTime = AudioSettings.dspTime - SongStartTime;
 
+        // 1. Controle do Exaustor (dispara antes da fruta nascer)
         while (nextExhaustIndex < midiReader.SongNotes.Count)
         {
             NoteData noteData = midiReader.SongNotes[nextExhaustIndex];
-            double spawnTime = noteData.TimeInSeconds - preSpawnTime;
-            double exhaustTriggerTime = spawnTime - exhaustLeadTime; // Dispara antes do spawn
+
+            // A fruta nasce em: targetTime - fallDuration
+            double spawnTime = noteData.TimeInSeconds - fallDuration;
+            // O exaustor dispara um tempo antes da fruta nascer
+            double exhaustTriggerTime = spawnTime - exhaustLeadTime;
 
             if (currentSongTime >= exhaustTriggerTime)
             {
@@ -76,13 +74,11 @@ public class NoteSpawner : MonoBehaviour
             }
         }
 
-        // Verifica se esta na hora de spawnar proximas notas
+        // 2. Controle do Spawn da Fruta
         while (nextIndex < midiReader.SongNotes.Count)
         {
             NoteData noteData = midiReader.SongNotes[nextIndex];
-
-            // Hora do spawn = tempo da nota - tempo que ela leva para viajar ate a Hitline
-            double spawnTime = noteData.TimeInSeconds - preSpawnTime;
+            double spawnTime = noteData.TimeInSeconds - fallDuration;
 
             if (currentSongTime >= spawnTime)
             {
@@ -110,20 +106,28 @@ public class NoteSpawner : MonoBehaviour
 
     void SpawnNote(NoteData noteData)
     {
-        GameObject prefabToSpawn = (noteData.Lane == LaneType.Left) ? leftNotePrefab : rightNotePrefab;
+        int randomIndex = Random.Range(0, notePrefabs.Count);
+        GameObject prefabToSpawn = notePrefabs[randomIndex];
         Transform targetLaneTransform = (noteData.Lane == LaneType.Left) ? leftLaneTransform : rightLaneTransform;
 
         if (prefabToSpawn == null || targetLaneTransform == null) return;
 
-        // Instancia a nota na posicao X da lane e Y no topo
         Vector3 spawnPosition = new Vector3(targetLaneTransform.position.x, spawnY, 0f);
         GameObject noteObj = Instantiate(prefabToSpawn, spawnPosition, Quaternion.identity);
 
-        // Inicializa o controlador da nota
+        // Calcula o spawnTime exato para passar ao controller
+        double spawnTime = noteData.TimeInSeconds - fallDuration;
+
         NoteController controller = noteObj.GetComponent<NoteController>();
         if (controller != null)
         {
-            controller.Initialize(songStartTime + noteData.TimeInSeconds, spawnY, targetY, fallSpeed);
+            controller.Initialize(noteData.TimeInSeconds, spawnTime, fallDuration, spawnY, targetY, SongStartTime);
+
+            HitManager hitManager = FindFirstObjectByType<HitManager>();
+            if (hitManager != null)
+            {
+                hitManager.RegisterNote(controller, noteData.Lane);
+            }
         }
     }
 }

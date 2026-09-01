@@ -4,21 +4,41 @@ public class ScoreManager : MonoBehaviour
 {
     public static ScoreManager Instance;
 
-    public AudioSource hitSFX;
-    //public AudioSource missSFX;
+    [Header("Referências")]
+    public ScoreDisplayController scoreDisplay;
+
+    private int currentScore = 0;
+
+    void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
 
     void Start()
     {
-        Instance = this;
+        currentScore = 0;
+        UpdateUI();
     }
 
-    public static void Hit()
+    public void AddScore(int amount)
     {
-        Instance.hitSFX.Play();
+        currentScore += amount;
+        UpdateUI();
+        Debug.Log($"Score: {currentScore}");
     }
 
-    public static void Miss()
+    private void UpdateUI()
     {
-        return;
+        if (scoreDisplay != null)
+        {
+            scoreDisplay.UpdateScoreUI(currentScore);
+        }
     }
 }
