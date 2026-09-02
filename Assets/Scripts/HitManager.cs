@@ -9,6 +9,11 @@ public class HitManager : MonoBehaviour
     public Animator hammerAnimator;
     public Animator knifeAnimator;
 
+    [Header("Efeitos Visuais")]
+    public GameObject hitEffectPrefab;
+    public GameObject perfectEffectPrefab;
+    public GameObject goodEffectPrefab;
+
     [Header("Input Actions")]
     [Tooltip("Arraste ou configure a Action 'Left' aqui (F + Clique Esquerdo)")]
     public InputActionReference leftActionRef;
@@ -139,19 +144,35 @@ public class HitManager : MonoBehaviour
                 Debug.Log($"[{laneName}] **PERFECT! ({perfectPoints})** (Diferença: {timeDiff:F3}s)");
                 // TODO: adicionar pontuacao alta, efeito visual
                 pointsEarned = perfectPoints;
+                if (hitEffectPrefab != null && targetNote != null)
+                {
+                    // Instancia na posição exata onde a fruta estava na tábua
+                    Instantiate(perfectEffectPrefab, targetNote.transform.position, Quaternion.identity);
+                }
             }
             else if (absDiff <= goodWindow)
             {
                 Debug.Log($"[{laneName}] *GOOD! ({goodPoints})* (Diferença: {timeDiff:F3}s)");
                 // TODO: adicionar pontuacao media
                 pointsEarned = goodPoints;
+                if (hitEffectPrefab != null && targetNote != null)
+                {
+                    // Instancia na posição exata onde a fruta estava na tábua
+                    Instantiate(goodEffectPrefab, targetNote.transform.position, Quaternion.identity);
+                }
             } else
             {
                 Debug.Log($"[{laneName}] Bad / Late ({badPoints}) (Diferença: {timeDiff:F3}s)");
                 // TODO: pontuacao baixa
                 pointsEarned = badPoints;
+                if (hitEffectPrefab != null && targetNote != null)
+                {
+                    // Instancia na posição exata onde a fruta estava na tábua
+                    Instantiate(hitEffectPrefab, targetNote.transform.position, Quaternion.identity);
+                }
             }
 
+  
             if (ScoreManager.Instance != null)
             {
                 ScoreManager.Instance.AddScore(pointsEarned);
