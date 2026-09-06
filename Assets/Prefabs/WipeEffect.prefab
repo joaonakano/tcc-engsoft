@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 8066894698185496676}
   - component: {fileID: 1764593216116608094}
   - component: {fileID: 4492451033711271166}
-  - component: {fileID: 3746591225170913731}
   - component: {fileID: 859677747791415412}
+  - component: {fileID: 3746591225170913731}
   - component: {fileID: 2113696236183130015}
   m_Layer: 5
   m_Name: WipeEffect
@@ -63,7 +63,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 2100000, guid: 0f577825c52833e49904c0a92fcf19a9, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -93,6 +93,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.AspectRatioFitter
   m_AspectMode: 4
   m_AspectRatio: 1
+--- !u!114 &859677747791415412
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 269380243355600315}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36348c054d706fe46918a857a64e9525, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WipeController
+  audioSource: {fileID: 2113696236183130015}
+  onWipeOutComplete:
+    m_PersistentCalls:
+      m_Calls: []
+  onWipeInComplete:
+    m_PersistentCalls:
+      m_Calls: []
+  wipeStart: {fileID: 0}
+  circleSize: 0
 --- !u!95 &3746591225170913731
 Animator:
   serializedVersion: 7
@@ -115,22 +136,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &859677747791415412
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 269380243355600315}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36348c054d706fe46918a857a64e9525, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::WipeController
-  audioSource: {fileID: 2113696236183130015}
-  roundStartClip: {fileID: 8300000, guid: 6130e6f8da2d335458167af16e2548bc, type: 3}
-  roundEndClip: {fileID: 8300000, guid: 1c7e978b3fd03024290bbd3822b9c31d, type: 3}
-  circleSize: 0
 --- !u!82 &2113696236183130015
 AudioSource:
   m_ObjectHideFlags: 0

@@ -1,53 +1,31 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
-public class WipeControllerMenu : MonoBehaviour
+public class MenuController : MonoBehaviour
 {
-    private Animator _animator;
-    private Image _image;
-    private readonly int _circleSizeID = Shader.PropertyToID("_Circle_Size");
+    [Header("References")]
+    [SerializeField]
+    private Animator wipeAnimator;
 
     [SerializeField]
-    private string sceneToLoad;
-
-    [SerializeField]
-    private AudioSource audioSource;
+    private WipeController wipeController;
 
     [SerializeField]
     private AudioSource backgroundAudioSource;
 
     [SerializeField]
-    private AudioClip roundStartClip;
+    private string sceneToLoad;
 
-    [SerializeField]
-    private AudioClip roundEndClip;
-
-    public float circleSize = 0;
-
-    void Start()
+    private void Start()
     {
-        _animator = gameObject.GetComponent<Animator>();
-        _image = gameObject.GetComponent<Image>();
+        wipeAnimator.Play("IdleOut", 0, 1f);
     }
 
-    void Update()
+    public void StartWipeIn()
     {
-        _image.materialForRendering.SetFloat(_circleSizeID, circleSize);
-    }
-
-    public void StartWipe()
-    {
-        _animator.SetTrigger("WipeIn");
-    }
-
-    private void PlayRoundEnd()
-    {
-        audioSource.clip = roundEndClip;
-        audioSource.Play();
+        wipeController.StartWipeIn();
         FadeOutSong();
-
     }
 
     private void FadeOutSong()
@@ -82,5 +60,10 @@ public class WipeControllerMenu : MonoBehaviour
         {
             SceneManager.LoadScene(sceneToLoad);
         }
+    }
+
+    public void OnPlayPressed()
+    {
+        ChangeScene();
     }
 }
