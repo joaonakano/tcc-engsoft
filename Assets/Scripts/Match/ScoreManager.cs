@@ -7,13 +7,14 @@ public class ScoreManager : MonoBehaviour
     [Header("Referências")]
     public ScoreDisplayController scoreDisplay;
 
-    private int currentScore = 0;
+    public int CurrentScore { get; private set; }
 
     void Awake()
     {
         if (Instance == null)
         {
             Instance = this;
+            DontDestroyOnLoad(gameObject);
         }
         else
         {
@@ -21,24 +22,30 @@ public class ScoreManager : MonoBehaviour
         }
     }
 
-    void Start()
+    private void Start()
     {
-        currentScore = 0;
+        ResetScore();
+        
+    }
+
+    public void ResetScore()
+    {
+        CurrentScore = 0;
         UpdateUI();
     }
 
     public void AddScore(int amount)
     {
-        currentScore += amount;
+        CurrentScore += amount;
         UpdateUI();
-        Debug.Log($"Score: {currentScore}");
+        Debug.Log($"Score: {CurrentScore}");
     }
 
     private void UpdateUI()
     {
         if (scoreDisplay != null)
         {
-            scoreDisplay.UpdateScoreUI(currentScore);
+            scoreDisplay.UpdateScoreUI(CurrentScore);
         }
     }
 }

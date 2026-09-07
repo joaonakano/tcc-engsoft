@@ -1,5 +1,7 @@
 using System.Collections;
+using Unity.VectorGraphics;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -50,6 +52,6 @@ public class GameManager : MonoBehaviour
 
     public void OnMatchEnded()
     {
-        Debug.Log("MATCH ENDED");
+        SceneManager.LoadScene("S01");
     }
 }
