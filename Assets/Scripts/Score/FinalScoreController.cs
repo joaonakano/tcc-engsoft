@@ -1,33 +1,36 @@
 using System.Collections;
-using UnityEngine;
 using TMPro;
+using UnityEngine;
+using UnityEngine.Events;
 
 public class FinalScoreController : MonoBehaviour
 {
-    [Header("Referências")]
+    [Header("References")]
     [SerializeField]
     private Transform liquid;
 
     [SerializeField]
-    private TMP_Text mlText;
+    private Animator scoreHudAnimator;
 
-    [Header("Configurações do Líquido")]
+    [SerializeField]
+    private WipeController wipeController;
+
+    public mlDisplayController mlDisplay;
+
+    [Header("Liquid Settings")]
     [SerializeField]
     private float maxY = 3f;
 
     [SerializeField]
-    private int maxScore = 1000;
-
-    [SerializeField]
     private float fillDuration = 2f;
 
-    [Header("Resultado")]
+    [Header("Settings")]
+    [SerializeField]
+    private float startDelay = 2f;
+
+    [Header("Results")]
     [SerializeField]
     private int maxMl = 500;
-
-    [Header("Teste")]
-    [SerializeField]
-    private int scoreVindoDoManager = 1000;
 
     private float initialY;
 
@@ -36,21 +39,51 @@ public class FinalScoreController : MonoBehaviour
         // Guarda a posição inicial do líquido.
         initialY = liquid.position.y;
 
-        int score = ScoreManager.Instance.CurrentScore;
-
-        StartCoroutine(ShowFinalScore(score));
+        StartCoroutine(StartScoreSequence());
     }
 
-    private IEnumerator ShowFinalScore(int score)
+    private IEnumerator StartScoreSequence()
     {
-        mlText.text = "0";
+        yield return new WaitForSeconds(startDelay);
+        wipeController.StartWipeOut();
+    }
 
-        // Garante que o líquido começa na posição original.
+    public void StartFinalScore()
+    {
+        if (ScoreManager.Instance == null)
+        {
+            Debug.LogError("ScoreManager não encontrado.");
+            return;
+        }
+
+        int score = ScoreManager.Instance.CurrentScore;
+
+        int maxScore = ScoreManager.Instance.MaxPossibleScore;
+
+        if (maxScore <= 0)
+        {
+            Debug.LogError("MaxPossibleScore é zero ou negativo.");
+            return;
+        }
+
+        scoreHudAnimator.SetTrigger("startAnimation");
+
+        StartCoroutine(ShowFinalScore(score, maxScore));
+    }
+
+    private IEnumerator ShowFinalScore(int score, int maxScore)
+    {
+        mlDisplay.UpdateScoreUI(0);
+
+        // Reseta o líquido.
         Vector3 position = liquid.position;
         position.y = initialY;
         liquid.position = position;
 
-        // Converte o score para uma porcentagem de 0 a 1.
+        // =========================
+        // PORCENTAGEM DO SCORE
+        // =========================
+
         float normalizedScore = Mathf.Clamp01(
             (float)score / maxScore
         );
@@ -96,7 +129,7 @@ public class FinalScoreController : MonoBehaviour
                 Mathf.Lerp(0, ml, t)
             );
 
-            mlText.text = $"{currentMl}";
+            mlDisplay.UpdateScoreUI(currentMl);
 
             yield return null;
         }
@@ -107,14 +140,18 @@ public class FinalScoreController : MonoBehaviour
         liquid.position = finalPosition;
 
         // Garante o valor final do contador.
-        mlText.text = $"{ml}";
+        mlDisplay.UpdateScoreUI(ml);
 
-        Debug.Log($"Score: {score}");
+        Debug.Log(
+            $"Score: {score}/{maxScore}"
+        );
+
+        Debug.Log(
+            $"Desempenho: {normalizedScore * 100f:F1}%"
+        );
+
         Debug.Log($"Resultado: {ml} mL");
     }
 
-    private void ShowMl(int ml)
-    {
-        Debug.Log($"Você conseguiu {ml} mL!");
-    }
+    
 }

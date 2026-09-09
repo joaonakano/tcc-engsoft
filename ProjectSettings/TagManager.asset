@@ -56,5 +56,11 @@ TagManager:
   - name: HUD
     uniqueID: 1145200169
     locked: 0
+  - name: Score HUD
+    uniqueID: 76643053
+    locked: 0
+  - name: Juice
+    uniqueID: 1348291657
+    locked: 0
   m_RenderingLayers:
   - Default

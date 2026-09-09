@@ -1058,10 +1058,10 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0
+    x: -0.25
     y: 0
-    width: 1
-    height: 1
+    width: 0.5
+    height: 0
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
@@ -1106,7 +1106,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 388267486}
-  - component: {fileID: 388267489}
   - component: {fileID: 388267488}
   - component: {fileID: 388267487}
   m_Layer: 0
@@ -1244,32 +1243,17 @@ MonoBehaviour:
   songManager: {fileID: 1511418449}
   hammerAnimator: {fileID: 1978506075}
   knifeAnimator: {fileID: 50692847}
-  perfectSfx: {fileID: 8300000, guid: 91d10571650196547b5b73f96311152e, type: 3}
-  goodSfx: {fileID: 8300000, guid: a8a03f8e6b4bc0a4690300b297b80302, type: 3}
+  perfectSfx: {fileID: 8300000, guid: a8a03f8e6b4bc0a4690300b297b80302, type: 3}
+  goodSfx: {fileID: 8300000, guid: 91d10571650196547b5b73f96311152e, type: 3}
   missSfx: {fileID: 8300000, guid: 256d34edb3beddd489e026b00306a8e9, type: 3}
   hitEffectPrefab: {fileID: 3803692857904003987, guid: 041499de3c5985045b23e28b3b99b60d, type: 3}
-  perfectEffectPrefab: {fileID: 6822823733639241710, guid: 3dca8e6301772554cac23c7fe6b57687, type: 3}
-  goodEffectPrefab: {fileID: 4529830870200574776, guid: 6a8d234f66fe07740b54034efc30240b, type: 3}
+  perfectEffectPrefab: {fileID: 4529830870200574776, guid: 6a8d234f66fe07740b54034efc30240b, type: 3}
+  goodEffectPrefab: {fileID: 6822823733639241710, guid: 3dca8e6301772554cac23c7fe6b57687, type: 3}
   leftActionRef: {fileID: 8529580086089024627, guid: e1fcf75a242d1a643b11a40fe9701a4e, type: 3}
   rightActionRef: {fileID: 1673267669760871434, guid: e1fcf75a242d1a643b11a40fe9701a4e, type: 3}
   perfectWindow: 0.03
   goodWindow: 0.1
   rottenWindow: 0.25
-  perfectPoints: 5
-  goodPoints: 2
---- !u!114 &388267489
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 388267485}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bb71866cb0bb7d54f86ab1bfdeed85f1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ScoreManager
-  scoreDisplay: {fileID: 1970243838}
 --- !u!1 &391379394
 GameObject:
   m_ObjectHideFlags: 0
@@ -7927,9 +7911,9 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: 03ed599ce8f92bc41a9777c121097243, type: 3}
+  m_Resource: {fileID: 8300000, guid: 7b2bebd7f6e90574e8d20e0fef4759fb, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.7
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -8283,7 +8267,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5540ee535b42b104aab0f0ae3c020228, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MidiReaderManager
-  midiFileName: i-want-you-back
+  midiFileName: american-idiot
 --- !u!1 &1825709503
 GameObject:
   m_ObjectHideFlags: 0
@@ -13109,6 +13093,53 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 1336398902136664646, guid: dfcbd27b2fa7c7243bd9c15657ab94ee, type: 3}
   m_PrefabInstance: {fileID: 5316822054819245458}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2003343857
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2003343859}
+  - component: {fileID: 2003343858}
+  m_Layer: 0
+  m_Name: ScoreManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2003343858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2003343857}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb71866cb0bb7d54f86ab1bfdeed85f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ScoreManager
+  scoreDisplay: {fileID: 1970243838}
+  perfectPoints: 2
+  goodPoints: 1
+--- !u!4 &2003343859
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2003343857}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.24231, y: -0.40178, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2007849848
 GameObject:
   m_ObjectHideFlags: 0
@@ -13623,6 +13654,7 @@ SceneRoots:
   - {fileID: 619394802}
   - {fileID: 852396133}
   - {fileID: 1602154540}
+  - {fileID: 2003343859}
   - {fileID: 1639959056}
   - {fileID: 265768381}
   - {fileID: 896217484}

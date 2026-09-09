@@ -70,6 +70,13 @@ public class MidiReaderManager : MonoBehaviour
             SongNotes = SongNotes.OrderBy(n => n.TimeInSeconds).ToList();
 
             Debug.Log($"Midi carregado com sucesso! Total de notas válidas (C e D): {SongNotes.Count}");
+
+            if (ScoreManager.Instance != null)
+            {
+                ScoreManager.Instance.ConfigureForSong(
+                    SongNotes.Count
+                );
+            }
         }
     }
 }

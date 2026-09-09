@@ -37,10 +37,6 @@ public class HitManager : MonoBehaviour
     [Tooltip("Tempo APÓS o TargetTime até a fruta apodrecer")]
     public float rottenWindow = 0.25f;
 
-    [Header("Pontuação")]
-    public int perfectPoints = 5;
-    public int goodPoints = 2;
-
     private readonly List<NoteController> leftLaneNotes = new();
     private readonly List<NoteController> rightLaneNotes = new();
 
@@ -294,7 +290,7 @@ public class HitManager : MonoBehaviour
                 if (ScoreManager.Instance != null)
                 {
                     ScoreManager.Instance.AddScore(
-                        perfectPoints
+                        ScoreManager.Instance.GetPerfectPoints()
                     );
                 }
 
@@ -319,7 +315,7 @@ public class HitManager : MonoBehaviour
                 if (ScoreManager.Instance != null)
                 {
                     ScoreManager.Instance.AddScore(
-                        goodPoints
+                        ScoreManager.Instance.GetGoodPoints()
                     );
                 }
 
