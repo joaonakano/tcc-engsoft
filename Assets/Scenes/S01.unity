@@ -437,12 +437,12 @@ SpriteMask:
   m_MaskInteraction: 0
   m_Sprite: {fileID: 3625043607559282579, guid: 045b15ec09bba42448d89db77fa6f20a, type: 3}
   m_MaskAlphaCutoff: 0.2
-  m_FrontSortingLayerID: 1348291657
-  m_BackSortingLayerID: 76643053
-  m_FrontSortingLayer: 3
-  m_BackSortingLayer: 2
-  m_FrontSortingOrder: 0
-  m_BackSortingOrder: 0
+  m_FrontSortingLayerID: 326784887
+  m_BackSortingLayerID: 326784887
+  m_FrontSortingLayer: 1
+  m_BackSortingLayer: 1
+  m_FrontSortingOrder: 3
+  m_BackSortingOrder: 3
   m_IsCustomRangeActive: 1
   m_SpriteSortPoint: 0
   m_MaskSource: 0
@@ -630,11 +630,9 @@ MonoBehaviour:
   wipeController: {fileID: 2063660543}
   mlDisplay: {fileID: 829729918}
   maxY: 3
-  maxScore: 1000
   fillDuration: 5
   startDelay: 2
   maxMl: 500
-  scoreVindoDoManager: 1000
 --- !u!4 &829729917
 Transform:
   m_ObjectHideFlags: 0
@@ -754,9 +752,9 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 76643053
-  m_SortingLayer: 2
-  m_SortingOrder: 5
+  m_SortingLayerID: 326784887
+  m_SortingLayer: 1
+  m_SortingOrder: 1
   m_MaskInteraction: 1
   m_Sprite: {fileID: -3995186109752522961, guid: 60dfa328e42fcab4cbac8fc00bf4c3b0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -971,9 +969,9 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 4
+  m_SortingLayerID: 326784887
+  m_SortingLayer: 1
+  m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 6938252318218917337, guid: 5a9f5b44489cc4143b95c1040e034a80, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1097,9 +1095,9 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 76643053
-  m_SortingLayer: 2
-  m_SortingOrder: 5
+  m_SortingLayerID: 326784887
+  m_SortingLayer: 1
+  m_SortingOrder: 1
   m_MaskInteraction: 1
   m_Sprite: {fileID: -3995186109752522961, guid: 60dfa328e42fcab4cbac8fc00bf4c3b0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1166,9 +1164,9 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0
+    x: 0.1
     y: 0
-    width: 1
+    width: 0.8
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
@@ -1221,7 +1219,7 @@ MonoBehaviour:
   m_AssetsPPU: 16
   m_RefResolutionX: 320
   m_RefResolutionY: 180
-  m_CropFrame: 2
+  m_CropFrame: 3
   m_GridSnapping: 1
   m_FilterMode: 0
   m_UpscaleRT: 0
@@ -1441,9 +1439,9 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 76643053
-  m_SortingLayer: 2
-  m_SortingOrder: 5
+  m_SortingLayerID: 326784887
+  m_SortingLayer: 1
+  m_SortingOrder: 1
   m_MaskInteraction: 1
   m_Sprite: {fileID: -3995186109752522961, guid: 60dfa328e42fcab4cbac8fc00bf4c3b0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

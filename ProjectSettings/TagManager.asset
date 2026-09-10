@@ -38,29 +38,17 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: Kitchen
-    uniqueID: 2211619225
-    locked: 0
-  - name: Table
-    uniqueID: 3335993089
-    locked: 0
-  - name: Aim
-    uniqueID: 2684685159
-    locked: 0
-  - name: Decorations
-    uniqueID: 3331269129
+  - name: Background
+    uniqueID: 4054655849
     locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
   - name: HUD
-    uniqueID: 1145200169
+    uniqueID: 326784887
     locked: 0
-  - name: Score HUD
-    uniqueID: 76643053
-    locked: 0
-  - name: Juice
-    uniqueID: 1348291657
+  - name: Overlays
+    uniqueID: 1953612205
     locked: 0
   m_RenderingLayers:
   - Default
