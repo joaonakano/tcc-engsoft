@@ -7911,7 +7911,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: 7b2bebd7f6e90574e8d20e0fef4759fb, type: 3}
+  m_Resource: {fileID: 8300000, guid: 03ed599ce8f92bc41a9777c121097243, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.7
   m_Pitch: 1
@@ -8267,7 +8267,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5540ee535b42b104aab0f0ae3c020228, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MidiReaderManager
-  midiFileName: american-idiot
+  midiFileName: i-want-you-back
 --- !u!1 &1825709503
 GameObject:
   m_ObjectHideFlags: 0
