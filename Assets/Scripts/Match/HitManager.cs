@@ -3,6 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+public enum ArduinoConnectionMode
+{
+    USB,
+    BLE
+}
+
 public class HitManager : MonoBehaviour
 {
     [Header("Referências")]
@@ -12,6 +18,15 @@ public class HitManager : MonoBehaviour
 
     public Animator hammerAnimator;
     public Animator knifeAnimator;
+
+    [SerializeField]
+    private ArduinoConnectionMode connectionMode = ArduinoConnectionMode.USB;
+
+    [SerializeField]
+    private ArduinoUSBInput usbInput;
+
+    [SerializeField]
+    private ArduinoBLEInput bleInput;
 
     [Header("SFX")]
     public AudioClip perfectSfx;
@@ -67,6 +82,12 @@ public class HitManager : MonoBehaviour
             rightActionRef.action.Enable();
             rightActionRef.action.performed += OnRightPerformed;
         }
+
+        if (connectionMode == ArduinoConnectionMode.USB && usbInput != null)
+            usbInput.OnHit += OnArduinoHit;
+
+        //if (connectionMode == ArduinoConnectionMode.BLE && bleInput != null)
+            //bleInput.OnHit += OnArduinoHit;
     }
 
     private void OnDisable()
@@ -82,6 +103,20 @@ public class HitManager : MonoBehaviour
             rightActionRef.action.performed -= OnRightPerformed;
             rightActionRef.action.Disable();
         }
+
+        if (usbInput != null)
+            usbInput.OnHit -= OnArduinoHit;
+
+        //if (bleInput != null)
+            //bleInput.OnHit -= OnArduinoHit;
+    }
+
+    private void OnArduinoHit(int lane)
+    {
+        if (lane == 0)
+            ProcessHit(leftLaneNotes, LaneType.Left);
+        else if (lane == 1)
+            ProcessHit(rightLaneNotes, LaneType.Right);
     }
 
     public void RegisterNote(NoteController note, LaneType lane)

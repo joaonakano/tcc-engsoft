@@ -409,7 +409,7 @@ SpriteMask:
   m_SmallMeshCulling: 1
   m_ForceMeshLod: -1
   m_MeshLodSelectionBias: 0
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 15d0c3709176029428a0da2f8cecf0b5, type: 2}
@@ -441,7 +441,7 @@ SpriteMask:
   m_BackSortingLayerID: 326784887
   m_FrontSortingLayer: 1
   m_BackSortingLayer: 1
-  m_FrontSortingOrder: 3
+  m_FrontSortingOrder: 4
   m_BackSortingOrder: 3
   m_IsCustomRangeActive: 1
   m_SpriteSortPoint: 0
@@ -633,6 +633,7 @@ MonoBehaviour:
   fillDuration: 5
   startDelay: 2
   maxMl: 500
+  scoreTeste: 1000
 --- !u!4 &829729917
 Transform:
   m_ObjectHideFlags: 0
@@ -754,7 +755,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 326784887
   m_SortingLayer: 1
-  m_SortingOrder: 1
+  m_SortingOrder: 4
   m_MaskInteraction: 1
   m_Sprite: {fileID: -3995186109752522961, guid: 60dfa328e42fcab4cbac8fc00bf4c3b0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1097,7 +1098,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 326784887
   m_SortingLayer: 1
-  m_SortingOrder: 1
+  m_SortingOrder: 4
   m_MaskInteraction: 1
   m_Sprite: {fileID: -3995186109752522961, guid: 60dfa328e42fcab4cbac8fc00bf4c3b0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1164,10 +1165,10 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.1
-    y: 0
-    width: 0.8
-    height: 1
+    x: 0.03147877
+    y: 0.03846154
+    width: 0.9370425
+    height: 0.9230769
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
@@ -1441,7 +1442,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 326784887
   m_SortingLayer: 1
-  m_SortingOrder: 1
+  m_SortingOrder: 4
   m_MaskInteraction: 1
   m_Sprite: {fileID: -3995186109752522961, guid: 60dfa328e42fcab4cbac8fc00bf4c3b0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

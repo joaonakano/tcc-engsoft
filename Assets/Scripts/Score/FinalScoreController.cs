@@ -32,6 +32,8 @@ public class FinalScoreController : MonoBehaviour
     [SerializeField]
     private int maxMl = 500;
 
+    public int scoreTeste = 1000;
+
     private float initialY;
 
     private void Start()
@@ -57,7 +59,6 @@ public class FinalScoreController : MonoBehaviour
         }
 
         int score = ScoreManager.Instance.CurrentScore;
-
         int maxScore = ScoreManager.Instance.MaxPossibleScore;
 
         if (maxScore <= 0)
