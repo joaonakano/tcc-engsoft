@@ -3,15 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public enum ArduinoConnectionMode
-{
-    USB,
-    BLE
-}
-
 public class HitManager : MonoBehaviour
 {
-    [Header("Referências")]
+    [Header("Referï¿½ncias")]
     public NoteSpawner noteSpawner;
 
     public SongManager songManager;
@@ -20,13 +14,7 @@ public class HitManager : MonoBehaviour
     public Animator knifeAnimator;
 
     [SerializeField]
-    private ArduinoConnectionMode connectionMode = ArduinoConnectionMode.USB;
-
-    [SerializeField]
     private ArduinoUSBInput usbInput;
-
-    [SerializeField]
-    private ArduinoBLEInput bleInput;
 
     [Header("SFX")]
     public AudioClip perfectSfx;
@@ -43,13 +31,13 @@ public class HitManager : MonoBehaviour
     public InputActionReference rightActionRef;
 
     [Header("Timing")]
-    [Tooltip("Erro máximo para PERFECT antes ou depois do TargetTime")]
+    [Tooltip("Erro mï¿½ximo para PERFECT antes ou depois do TargetTime")]
     public float perfectWindow = 0.03f;
 
-    [Tooltip("Erro máximo para GOOD antes ou depois do TargetTime")]
+    [Tooltip("Erro mï¿½ximo para GOOD antes ou depois do TargetTime")]
     public float goodWindow = 0.10f;
 
-    [Tooltip("Tempo APÓS o TargetTime até a fruta apodrecer")]
+    [Tooltip("Tempo APï¿½S o TargetTime atï¿½ a fruta apodrecer")]
     public float rottenWindow = 0.25f;
 
     private readonly List<NoteController> leftLaneNotes = new();
@@ -83,11 +71,10 @@ public class HitManager : MonoBehaviour
             rightActionRef.action.performed += OnRightPerformed;
         }
 
-        if (connectionMode == ArduinoConnectionMode.USB && usbInput != null)
+        if (usbInput != null)
+        {
             usbInput.OnHit += OnArduinoHit;
-
-        //if (connectionMode == ArduinoConnectionMode.BLE && bleInput != null)
-            //bleInput.OnHit += OnArduinoHit;
+        }
     }
 
     private void OnDisable()
@@ -105,19 +92,26 @@ public class HitManager : MonoBehaviour
         }
 
         if (usbInput != null)
+        {
             usbInput.OnHit -= OnArduinoHit;
-
-        //if (bleInput != null)
-            //bleInput.OnHit -= OnArduinoHit;
+        }
     }
 
     private void OnArduinoHit(int lane)
+{
+    Debug.Log($"===== HIT ARDUINO RECEBIDO: LANE {lane} =====");
+
+    if (lane == 0)
     {
-        if (lane == 0)
-            ProcessHit(leftLaneNotes, LaneType.Left);
-        else if (lane == 1)
-            ProcessHit(rightLaneNotes, LaneType.Right);
+        Debug.Log($"Processando LEFT. Notas: {leftLaneNotes.Count}");
+        ProcessHit(leftLaneNotes, LaneType.Left);
     }
+    else if (lane == 1)
+    {
+        Debug.Log($"Processando RIGHT. Notas: {rightLaneNotes.Count}");
+        ProcessHit(rightLaneNotes, LaneType.Right);
+    }
+}
 
     public void RegisterNote(NoteController note, LaneType lane)
     {
@@ -176,7 +170,7 @@ public class HitManager : MonoBehaviour
 
                 PlaySfx(missSfx);
                 
-                Debug.Log($"MISS! Fruta apodreceu. " + $"Atraso: {lateTime:F3}s");
+                //Debug.Log($"MISS! Fruta apodreceu. " + $"Atraso: {lateTime:F3}s");
 
                 Destroy(note.gameObject);
 
@@ -243,7 +237,7 @@ public class HitManager : MonoBehaviour
             if (timingError > goodWindow)
                 continue;
 
-            // Escolhe a fruta mais próxima
+            // Escolhe a fruta mais prï¿½xima
             // do momento ideal.
             if (absoluteError < smallestError)
             {
@@ -255,9 +249,9 @@ public class HitManager : MonoBehaviour
         // Nenhuma fruta estava dentro da janela.
         if (bestNote == null)
         {
-            Debug.Log(
+            /*Debug.Log(
                 $"[{lane}] Input sem fruta na janela."
-            );
+            );*/
 
             return;
         }
@@ -268,7 +262,7 @@ public class HitManager : MonoBehaviour
     }
 
     // =========================================================
-    // AVALIAÇÃO
+    // AVALIAï¿½ï¿½O
     // =========================================================
 
     private HitResult EvaluateHit(double currentSongTime, NoteController note)
@@ -308,10 +302,10 @@ public class HitManager : MonoBehaviour
         {
             case HitResult.Perfect:
 
-                Debug.Log(
+                /*Debug.Log(
                     $"[{lane}] PERFECT! " +
                     $"Erro: {timingError:F4}s"
-                );
+                );*/
 
                 PlaySfx(perfectSfx);
 
@@ -333,10 +327,10 @@ public class HitManager : MonoBehaviour
 
             case HitResult.Good:
 
-                Debug.Log(
+                /*Debug.Log(
                     $"[{lane}] GOOD! " +
                     $"Erro: {timingError:F4}s"
-                );
+                );*/
 
                 PlaySfx(goodSfx);
 
@@ -399,7 +393,7 @@ public class HitManager : MonoBehaviour
     }
 
     // =========================================================
-    // ÁUDIO
+    // ï¿½UDIO
     // =========================================================
 
     private void PlaySfx(AudioClip clip)

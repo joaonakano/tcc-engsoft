@@ -3,14 +3,13 @@ using System;
 using System.IO.Ports;
 public class ArduinoUSBInput : MonoBehaviour
 {
-    [SerializeField] private string portName = "COM8";
+    [SerializeField] private string portName = "/dev/cu.usbserial-5B070071601";
     [SerializeField] private int baudRate = 115200;
 
     private SerialPort serialPort;
 
     public event Action<int> OnHit;
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    
     private void Start()
     {
         serialPort = new SerialPort(portName, baudRate);
@@ -23,7 +22,9 @@ public class ArduinoUSBInput : MonoBehaviour
         }
         catch (Exception e)
         {
-            Debug.LogError($"Não foi possível conectar ao Arduino USB: {e.Message}");
+            Debug.LogError($"NÃ£o foi possÃ­vel conectar ao ESP32 USB.");
+            Debug.LogError($"Porta: {portName}");
+            Debug.LogError($"Erro: {e}");
         }
     }
 
@@ -39,13 +40,19 @@ public class ArduinoUSBInput : MonoBehaviour
             switch (data)
             {
                 case 0x01:
-                    Debug.Log("ARDUINO: SENSOR 1");
-                    OnHit?.Invoke(0);
+                    Debug.Log("ARDUINO: SENSOR 1 - RECEBIDO");
+
+    //Debug.Log("ANTES DO ONHIT");
+    OnHit?.Invoke(0);
+    //Debug.Log("DEPOIS DO ONHIT");
                     break;
 
                 case 0x02:
-                    Debug.Log("ARDUINO: SENSOR 2");
-                    OnHit?.Invoke(1);
+                    Debug.Log("ARDUINO: SENSOR 2 - RECEBIDO");
+
+    //Debug.Log("ANTES DO ONHIT");
+    OnHit?.Invoke(1);
+    //Debug.Log("DEPOIS DO ONHIT");
                     break;
             }
         }
