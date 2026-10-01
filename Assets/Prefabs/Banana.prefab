@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20d0b587e31986947ae3b55c26bf7a39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NoteController
+  slicedFruitPrefab: {fileID: 1274743616805447350, guid: dea436cec8a81e643b26840901bd4d34, type: 3}
 --- !u!212 &6048687012489710631
 SpriteRenderer:
   serializedVersion: 2

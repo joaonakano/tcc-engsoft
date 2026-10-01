@@ -103,12 +103,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: cutting-table_0
+      name: cutting_table_left
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 83
+        width: 81
         height: 52
       alignment: 6
       pivot: {x: 0, y: 0}
@@ -125,15 +125,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cutting-table_1
+      name: cutting_table_right
       rect:
         serializedVersion: 2
         x: 83
         y: 0
         width: 83
         height: 52
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 8
+      pivot: {x: 1, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -162,8 +162,8 @@ TextureImporter:
       - key: SpriteEditor.SliceSettings
         value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":83.0,"y":52.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":1,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      cutting-table_0: 6590435383929342489
-      cutting-table_1: -2096601858478831480
+      cutting_table_left: 6590435383929342489
+      cutting_table_right: -2096601858478831480
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
