@@ -1,21 +1,25 @@
 using UnityEngine;
 
+/// <summary>
+/// Mesmos campos serializados de antes (as refer√™ncias no prefab continuam valendo).
+/// Mudan√ßas: volta ao pool em vez de Destroy, e n√£o faz FindFirstObjectByType a cada corte.
+/// </summary>
 public class SlicedFruit : MonoBehaviour
 {
-    [Header("ReferÍncias")]
+    [Header("Refer√™ncias")]
     [SerializeField] private Rigidbody2D leftHalf;
     [SerializeField] private Rigidbody2D rightHalf;
 
-    [Header("ConfiguraÁ„o dos Arcos")]
-    [Tooltip("ForÁa mÌnima/m·xima de impulso lateral")]
+    [Header("Configura√ß√£o dos Arcos")]
+    [Tooltip("For√ßa m√≠nima/m√°xima de impulso lateral")]
     [SerializeField] private float minHorizontalForce = 3f;
     [SerializeField] private float maxHorizontalForce = 6f;
 
-    [Tooltip("ForÁa mÌnima/m·xima de pulo vertical")]
+    [Tooltip("For√ßa m√≠nima/m√°xima de pulo vertical")]
     [SerializeField] private float minUpwardForce = 4f;
     [SerializeField] private float maxUpwardForce = 7f;
 
-    [Tooltip("Velocidade de rotaÁ„o (gira ao voar)")]
+    [Tooltip("Velocidade de rota√ß√£o (gira ao voar)")]
     [SerializeField] private float minTorque = 120f;
     [SerializeField] private float maxTorque = 300f;
 
@@ -28,14 +32,14 @@ public class SlicedFruit : MonoBehaviour
 
     public void Initialize()
     {
-        songManager = FindFirstObjectByType<SongManager>();
+        if (songManager == null)
+            songManager = FindFirstObjectByType<SongManager>(); // s√≥ na 1¬™ vez; a inst√¢ncia √© reutilizada
 
         // --- Metade Esquerda ---
         float forceXLeft = Random.Range(minHorizontalForce, maxHorizontalForce);
         float forceYLeft = Random.Range(minUpwardForce, maxUpwardForce);
         float torqueLeft = Random.Range(minTorque, maxTorque);
 
-        // Impulso para a esquerda + cima
         leftHalf.AddForce(new Vector2(-forceXLeft, forceYLeft), ForceMode2D.Impulse);
         leftHalf.AddTorque(torqueLeft, ForceMode2D.Impulse);
 
@@ -44,12 +48,16 @@ public class SlicedFruit : MonoBehaviour
         float forceYRight = Random.Range(minUpwardForce, maxUpwardForce);
         float torqueRight = Random.Range(minTorque, maxTorque);
 
-        // Impulso para a direita + cima
         rightHalf.AddForce(new Vector2(forceXRight, forceYRight), ForceMode2D.Impulse);
         rightHalf.AddTorque(-torqueRight, ForceMode2D.Impulse);
 
         lifeTimer = 0f;
         initialized = true;
+    }
+
+    private void OnDisable()
+    {
+        initialized = false;
     }
 
     private void Update()
@@ -61,6 +69,10 @@ public class SlicedFruit : MonoBehaviour
 
         lifeTimer += Time.deltaTime;
 
-        if (lifeTimer >= destroyDelay) Destroy(gameObject);
+        if (lifeTimer >= destroyDelay)
+        {
+            initialized = false;
+            PoolService.Release(gameObject); // antes: Destroy(gameObject)
+        }
     }
 }

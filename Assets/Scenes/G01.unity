@@ -810,9 +810,9 @@ Camera:
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
-    y: 0.055555556
-    width: 0.33333334
-    height: 0.3333333
+    y: 0
+    width: 1
+    height: 1
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
@@ -1294,9 +1294,9 @@ Camera:
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
-    y: 0.055555556
-    width: 0.33333334
-    height: 0.3333333
+    y: 0
+    width: 1
+    height: 1
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
@@ -1455,6 +1455,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::HitManager
   songManager: {fileID: 1511418449}
   healthManager: {fileID: 150127523}
+  noteSpawner: {fileID: 1064568889}
   knifeAnimator: {fileID: 50692847}
   hammerAnimator: {fileID: 1978506075}
   leftActionRef: {fileID: 8529580086089024627, guid: e1fcf75a242d1a643b11a40fe9701a4e, type: 3}
@@ -1470,6 +1471,7 @@ MonoBehaviour:
   earlyMissSfx: {fileID: 8300000, guid: 3b4f0c827dee81142acc875df24b41b2, type: 3}
   perfectEffectPrefab: {fileID: 4529830870200574776, guid: 6a8d234f66fe07740b54034efc30240b, type: 3}
   goodEffectPrefab: {fileID: 6822823733639241710, guid: 3dca8e6301772554cac23c7fe6b57687, type: 3}
+  effectLifetime: 1
 --- !u!114 &388267489
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1759,6 +1761,7 @@ MonoBehaviour:
   _cursorManager: {fileID: 1466260151}
   nextSceneName: G01
   songManager: {fileID: 1511418449}
+  noteSpawner: {fileID: 1064568889}
   startDelay: 2
 --- !u!4 &472123579
 Transform:
@@ -1817,7 +1820,7 @@ Transform:
   m_GameObject: {fileID: 474122153}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7.01, y: -2.37, z: 0}
+  m_LocalPosition: {x: 6.35, y: -2.37, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3909,7 +3912,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e1357afe1cdf8645851ae4957a60132, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NoteSpawner
-  midiReader: {fileID: 1816992527}
   songManager: {fileID: 1511418449}
   hitManager: {fileID: 388267488}
   notePrefabs:
@@ -3920,11 +3922,16 @@ MonoBehaviour:
   leftExaustorAnimator: {fileID: 697666408}
   rightExaustorAnimator: {fileID: 1336071956}
   exhaustLeadTime: 0.4
+  scrollMode: 0
   spawnY: 3
   targetY: -2.98
   spawnXLeft: -2.7
   spawnXRight: 2.74
   fallDuration: 0.6
+  fallBeats: 1
+  continueFallingPastTarget: 1
+  warmupVisibleFrames: 2
+  lingerTime: 0.3
 --- !u!1 &1185998146
 GameObject:
   m_ObjectHideFlags: 0
@@ -4965,7 +4972,7 @@ GameObject:
   - component: {fileID: 1511418449}
   - component: {fileID: 1511418450}
   m_Layer: 0
-  m_Name: Gameplay Music
+  m_Name: Song Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4984,6 +4991,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SongManager
   musicSource: {fileID: 1511418450}
+  beatmap: {fileID: 11400000, guid: 7de02562c57e74ccc9510ed7070af013, type: 2}
   songDelay: 6
 --- !u!82 &1511418450
 AudioSource:
@@ -5856,9 +5864,9 @@ Camera:
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
-    y: 0.055555556
-    width: 0.33333334
-    height: 0.3333333
+    y: 0
+    width: 1
+    height: 1
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
@@ -6272,51 +6280,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1816992525
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1816992526}
-  - component: {fileID: 1816992527}
-  m_Layer: 0
-  m_Name: Midi Manager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1816992526
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1816992525}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1816992527
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1816992525}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5540ee535b42b104aab0f0ae3c020228, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MidiReaderManager
-  midiFileName: chess-remaster
 --- !u!1 &1825709503
 GameObject:
   m_ObjectHideFlags: 0
@@ -8504,7 +8467,6 @@ SceneRoots:
   - {fileID: 1744209633}
   - {fileID: 165381835}
   - {fileID: 1602154540}
-  - {fileID: 1511418451}
   - {fileID: 744691848}
   - {fileID: 1745490111}
   - {fileID: 1281918412}
@@ -8513,10 +8475,10 @@ SceneRoots:
   - {fileID: 472123579}
   - {fileID: 150127524}
   - {fileID: 388267486}
-  - {fileID: 1816992526}
   - {fileID: 1064568887}
   - {fileID: 1320440249}
   - {fileID: 2003343859}
+  - {fileID: 1511418451}
   - {fileID: 1639959056}
   - {fileID: 810034703}
   - {fileID: 265768381}

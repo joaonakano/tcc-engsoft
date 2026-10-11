@@ -1,15 +1,27 @@
 using System;
+using System.Collections;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
+/// <summary>
+/// Relógio central do jogo.
+/// - AudioSettings.dspTime só avança em "degraus" do tamanho do buffer de áudio (~10-23 ms).
+///   Usar ele cru faz a fruta andar em soquinhos e quantiza o julgamento do golpe.
+///   Aqui o dspTime é interpolado com o relógio real => tempo contínuo, mas ancorado no áudio.
+/// - O jogo só começa quando o clip está carregado (PrepareRoutine) e StartSong() é chamado.
+/// </summary>
+[DefaultExecutionOrder(-1000)]
 public class SongManager : MonoBehaviour
 {
-    [Header("M�sica")]
+    [Header("Música")]
     public AudioSource musicSource;
+    [SerializeField] private BeatmapAsset beatmap;
 
-    [Header("Configura��o")]
+    [Header("Configuração")]
+    [Tooltip("Tempo entre StartSong() e o primeiro instante da música. Deve ser maior que o tempo de queda das frutas.")]
     public float songDelay = 2f;
 
+    public BeatmapAsset Beatmap => beatmap;
+    public bool IsReady { get; private set; }
     public double SongStartTime { get; private set; }
     public bool IsPlaying { get; private set; }
     public bool HasFinished { get; private set; }
@@ -18,35 +30,124 @@ public class SongManager : MonoBehaviour
     public event Action OnPaused;
     public event Action OnResumed;
 
-    private double _pauseStartDspTime;
+    private const double ClockDriftPerSecond = 0.0002; // tolerância de deriva entre relógio de áudio e do sistema
 
-    // O menu s� pode abrir durante a partida (depois do delay inicial e antes do fim)
-    public bool CanPause => IsPlaying && !IsPaused && !HasFinished && AudioSettings.dspTime >= SongStartTime;
+    private double _clockOffset;
+    private double _lastReal;
+    private bool _clockInit;
+    private double _pausedAudioTime;
+    private double _chartOffset;
 
-    private void Start()
+    public bool CanPause => IsPlaying && !IsPaused && !HasFinished && NowDsp() >= SongStartTime;
+
+    // =========================================================
+    // RELÓGIO
+    // =========================================================
+
+    /// <summary>
+    /// dspTime "contínuo". Pode ser chamado a qualquer momento (inclusive dentro de callbacks de input).
+    /// Como cada amostra de dspTime é <= ao valor verdadeiro (quantização), usamos o MAIOR (dsp - real) visto.
+    /// </summary>
+    public double NowDsp()
     {
-        StartSong();
+        double real = Time.realtimeSinceStartupAsDouble;
+        double sample = AudioSettings.dspTime - real;
+
+        if (!_clockInit)
+        {
+            _clockOffset = sample;
+            _clockInit = true;
+        }
+        else if (sample > _clockOffset)
+        {
+            _clockOffset = sample;                       // amostra mais "fresca" do relógio de áudio
+        }
+        else if (sample < _clockOffset - 0.1)
+        {
+            _clockOffset = sample;                       // áudio ficou parado (perda de foco etc.): ressincroniza
+        }
+        else
+        {
+            _clockOffset -= (real - _lastReal) * ClockDriftPerSecond; // acompanha deriva lenta
+        }
+
+        _lastReal = real;
+        return real + _clockOffset;
     }
+
+    /// <summary>Tempo do ÁUDIO em segundos (0 = início do clip; negativo durante o songDelay).</summary>
+    public double GetAudioTime()
+    {
+        return IsPaused ? _pausedAudioTime : NowDsp() - SongStartTime;
+    }
+
+    /// <summary>Tempo do CHART em segundos (já com o songOffset do beatmap). Use este para notas e julgamento.</summary>
+    public double GetSongTime() => GetAudioTime() - _chartOffset;
+
+    public double GetSongBeat() => beatmap != null ? beatmap.SecondsToBeats(GetSongTime()) : 0.0;
+    public double GetCurrentBpm() => beatmap != null ? beatmap.BpmAtSeconds(GetSongTime()) : 0.0;
+
+    // =========================================================
+    // PRÉ-CARGA
+    // =========================================================
+
+    public IEnumerator PrepareRoutine()
+    {
+        IsReady = false;
+
+        if (musicSource == null) { Debug.LogError("SongManager: Music Source não foi configurado."); yield break; }
+        if (beatmap == null) { Debug.LogError("SongManager: Beatmap não foi configurado."); yield break; }
+
+        AudioClip clip = beatmap.clip != null ? beatmap.clip : musicSource.clip;
+        if (clip == null) { Debug.LogError("SongManager: nenhum AudioClip (beatmap.clip ou AudioSource.clip)."); yield break; }
+
+        musicSource.playOnAwake = false;
+        musicSource.clip = clip;
+        _chartOffset = beatmap.songOffset;
+
+        if (clip.loadType != AudioClipLoadType.DecompressOnLoad)
+            Debug.LogWarning($"SongManager: '{clip.name}' não está em Decompress On Load. Decodificar durante o jogo causa engasgos e desync.");
+
+        if (clip.loadState == AudioDataLoadState.Unloaded)
+            clip.LoadAudioData();
+
+        while (clip.loadState == AudioDataLoadState.Loading)
+            yield return null;
+
+        if (clip.loadState == AudioDataLoadState.Failed)
+        {
+            Debug.LogError("SongManager: falha ao carregar os dados do AudioClip.");
+            yield break;
+        }
+
+        AudioSettings.GetDSPBufferSize(out int bufferLength, out int numBuffers);
+        Debug.Log($"[SongManager] Pronto. DSP buffer {bufferLength} x {numBuffers} @ {AudioSettings.outputSampleRate} Hz " +
+                  $"(~{bufferLength * 1000f / AudioSettings.outputSampleRate:0.#} ms por buffer).");
+
+        NowDsp(); // inicia o filtro do relógio
+        IsReady = true;
+    }
+
+    // =========================================================
+    // CONTROLE
+    // =========================================================
 
     private void Update()
     {
+        NowDsp(); // amostra o relógio todo frame, mantém o filtro afiado
+
         if (!IsPlaying || IsPaused) return;
 
-        if (GetSongTime() >= musicSource.clip.length)
-        {
+        if (GetAudioTime() >= musicSource.clip.length)
             FinishSong();
-        }
     }
 
-    private void StartSong()
+    public void StartSong()
     {
-        if (musicSource == null)
-        {
-            Debug.LogError("SongManager: Music Source n�o foi configurado.");
-            return;
-        }
+        if (IsPlaying || HasFinished) return;
+        if (!IsReady) { Debug.LogError("SongManager: StartSong() chamado antes do PrepareRoutine() terminar."); return; }
 
-        SongStartTime = AudioSettings.dspTime + songDelay;
+        SongStartTime = NowDsp() + songDelay;
         musicSource.PlayScheduled(SongStartTime);
 
         IsPlaying = true;
@@ -58,7 +159,7 @@ public class SongManager : MonoBehaviour
     {
         if (!CanPause) return;
 
-        _pauseStartDspTime = AudioSettings.dspTime;
+        _pausedAudioTime = NowDsp() - SongStartTime;
         IsPaused = true;
 
         musicSource.Pause();
@@ -69,13 +170,14 @@ public class SongManager : MonoBehaviour
     {
         if (!IsPaused || HasFinished) return;
 
-        SongStartTime += AudioSettings.dspTime - _pauseStartDspTime;
+        // Posição exata onde o áudio parou => reancora o relógio sem acumular erro a cada pause
+        double position = musicSource.timeSamples / (double)musicSource.clip.frequency;
+        musicSource.UnPause();
+        SongStartTime = NowDsp() - position;
 
         IsPaused = false;
-        musicSource.UnPause();
         OnResumed?.Invoke();
     }
-
 
     public void FinishSong()
     {
@@ -86,12 +188,5 @@ public class SongManager : MonoBehaviour
         HasFinished = true;
 
         musicSource.Stop();
-    }
-
-    public double GetSongTime()
-    {
-        if (IsPaused) return _pauseStartDspTime - SongStartTime;
-
-        return AudioSettings.dspTime - SongStartTime;
     }
 }

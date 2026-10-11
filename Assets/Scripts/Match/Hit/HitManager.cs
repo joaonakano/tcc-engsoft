@@ -1,12 +1,15 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.LowLevel;
 
 public class HitManager : MonoBehaviour
 {
-    [Header("Refer�ncias")]
+    [Header("Referências")]
     public SongManager songManager;
     public HealthManager healthManager;
+    public NoteSpawner noteSpawner;
     public Animator knifeAnimator;   // lane esquerda
     public Animator hammerAnimator;  // lane direita
 
@@ -25,7 +28,7 @@ public class HitManager : MonoBehaviour
     public float goodWindow = 0.12f;
     [Tooltip("Golpe mais cedo que goodWindow, mas dentro disso = erro de precipitacao. Mais cedo ainda = ignorado")]
     public float earlyWindow = 0.30f;
-    [Tooltip("Compensa latencia do input (+ = considera o golpe mais tarde). Util pro Arduino")]
+    [Tooltip("Calibração de latência de SAÍDA de áudio/tela (+ = considera o golpe mais tarde). A latência do INPUT do teclado já é compensada automaticamente.")]
     public float hitOffset = 0f;
 
     [Header("SFX")]
@@ -37,6 +40,12 @@ public class HitManager : MonoBehaviour
     [Header("Efeitos Visuais")]
     public GameObject perfectEffectPrefab;
     public GameObject goodEffectPrefab;
+    [Tooltip("Segundos até o efeito voltar ao pool. Se o prefab tiver Destroy(gameObject, x), remova.")]
+    public float effectLifetime = 1f;
+
+    private const double MaxInputAge = 0.1; // limite de sanidade para a idade do evento de input
+
+    private static readonly int AttackHash = Animator.StringToHash("attack");
 
     private readonly Queue<NoteController> leftNotes = new();
     private readonly Queue<NoteController> rightNotes = new();
@@ -66,7 +75,7 @@ public class HitManager : MonoBehaviour
             rightActionRef.action.performed += OnRightPerformed;
         }
         if (useArduino && usbInput != null)
-            usbInput.OnHit += OnArduinoHit;
+            usbInput.OnHitTimed += OnArduinoHit;
     }
 
     private void OnDisable()
@@ -82,7 +91,13 @@ public class HitManager : MonoBehaviour
             rightActionRef.action.Disable();
         }
         if (useArduino && usbInput != null)
-            usbInput.OnHit -= OnArduinoHit;
+            usbInput.OnHitTimed -= OnArduinoHit;
+    }
+
+    public IEnumerator PrewarmRoutine(Vector3 warmPosition, int visibleFrames)
+    {
+        yield return StartCoroutine(PoolService.Prewarm(perfectEffectPrefab, 3, warmPosition, visibleFrames));
+        yield return StartCoroutine(PoolService.Prewarm(goodEffectPrefab, 3, warmPosition, visibleFrames));
     }
 
     public void RegisterNote(NoteController note, LaneType lane)
@@ -100,12 +115,24 @@ public class HitManager : MonoBehaviour
     // INPUT
     // =========================================================
 
-    private void OnLeftPerformed(InputAction.CallbackContext ctx) => ProcessHit(LaneType.Left);
-    private void OnRightPerformed(InputAction.CallbackContext ctx) => ProcessHit(LaneType.Right);
+    private void OnLeftPerformed(InputAction.CallbackContext ctx) => ProcessHit(LaneType.Left, InputAge(ctx));
+    private void OnRightPerformed(InputAction.CallbackContext ctx) => ProcessHit(LaneType.Right, InputAge(ctx));
 
-    private void OnArduinoHit(int lane)
+    // O Input System entrega o evento no começo do frame, mas ele aconteceu antes (até ~1 frame).
+    // ctx.time é o instante real do evento: a diferença é o quanto o golpe "envelheceu" até aqui.
+    private static double InputAge(InputAction.CallbackContext ctx)
     {
-        ProcessHit(lane == 0 ? LaneType.Left : LaneType.Right);
+        double age = InputState.currentTime - ctx.time;
+        if (age < 0) return 0;
+        return age > MaxInputAge ? MaxInputAge : age;
+    }
+
+    private void OnArduinoHit(int lane, double age)
+    {
+        // age = quanto tempo o byte ficou esperando desde que chegou na thread de leitura
+        if (age < 0) age = 0;
+        if (age > MaxInputAge) age = MaxInputAge;
+        ProcessHit(lane == 0 ? LaneType.Left : LaneType.Right, age);
     }
 
     // =========================================================
@@ -114,9 +141,9 @@ public class HitManager : MonoBehaviour
 
     private void Update()
     {
-        if (songManager == null || songManager.IsPaused) return;
+        if (songManager == null || songManager.IsPaused || !songManager.IsPlaying) return;
 
-        double songTime = songManager.GetSongTime();
+        double songTime = songManager.GetSongTime() + hitOffset;
         ProcessLate(leftNotes, songTime);
         ProcessLate(rightNotes, songTime);
     }
@@ -147,9 +174,9 @@ public class HitManager : MonoBehaviour
     // HIT
     // =========================================================
 
-    private void ProcessHit(LaneType lane)
+    private void ProcessHit(LaneType lane, double inputAge)
     {
-        if (songManager == null || songManager.IsPaused || songManager.HasFinished) return;
+        if (songManager == null || songManager.IsPaused || songManager.HasFinished || !songManager.IsPlaying) return;
 
         PlayAttackAnimation(lane);
 
@@ -164,7 +191,8 @@ public class HitManager : MonoBehaviour
         NoteController note = queue.Peek();
 
         // erro > 0 = golpe tarde, erro < 0 = golpe cedo
-        double error = (songManager.GetSongTime() + hitOffset) - note.TargetTime;
+        double hitTime = songManager.GetSongTime() - inputAge + hitOffset;
+        double error = hitTime - note.TargetTime;
 
         // Fruta ainda longe demais: o golpe e ignorado
         if (error < -earlyWindow) return;
@@ -194,7 +222,7 @@ public class HitManager : MonoBehaviour
 
         healthManager.RegisterHit(perfect);
 
-        Destroy(note.gameObject);
+        noteSpawner.Despawn(note);
     }
 
     // Erro (miss ou precipitado): dano, som e remove a fruta
@@ -202,7 +230,7 @@ public class HitManager : MonoBehaviour
     {
         PlaySfx(sfx);
         healthManager.RegisterMiss();
-        Destroy(note.gameObject);
+        noteSpawner.Despawn(note);
     }
 
     // =========================================================
@@ -214,19 +242,19 @@ public class HitManager : MonoBehaviour
         Animator anim = lane == LaneType.Left ? knifeAnimator : hammerAnimator;
         if (anim == null) return;
 
-        anim.ResetTrigger("attack");
-        anim.SetTrigger("attack");
+        anim.ResetTrigger(AttackHash);
+        anim.SetTrigger(AttackHash);
     }
 
     private void SpawnEffect(GameObject prefab, NoteController note)
     {
         if (prefab == null || note == null) return;
-        Instantiate(prefab, note.transform.position, Quaternion.identity);
+        PoolService.Spawn(prefab, note.transform.position, Quaternion.identity, effectLifetime);
     }
 
     private void PlaySfx(AudioClip clip)
     {
-        if ( clip == null) return;
+        if (clip == null) return;
         SFXManager.Instance?.PlaySFX(clip);
     }
 
@@ -240,11 +268,11 @@ public class HitManager : MonoBehaviour
 
         if (enabled == useArduino) return;
 
-        if (useArduino) usbInput.OnHit -= OnArduinoHit;
+        if (useArduino) usbInput.OnHitTimed -= OnArduinoHit;
 
         useArduino = enabled;
         usbInput.enabled = enabled;
 
-        if (useArduino) usbInput.OnHit += OnArduinoHit;
+        if (useArduino) usbInput.OnHitTimed += OnArduinoHit;
     }
 }

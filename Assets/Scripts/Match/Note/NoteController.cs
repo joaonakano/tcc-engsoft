@@ -1,84 +1,51 @@
 using UnityEngine;
 
+/// <summary>
+/// Fruta. Não tem mais Update próprio: quem move todas as frutas é o NoteSpawner (1 cálculo de tempo por frame).
+/// LaneType e NoteData NÃO ficam mais aqui (LaneType agora está em BeatmapAsset.cs; NoteData foi removido).
+/// </summary>
 public class NoteController : MonoBehaviour
 {
-    public double TargetTime { get; private set; }
-
     [Header("Visual do Corte")]
     [SerializeField] private GameObject slicedFruitPrefab;
 
-    private double spawnTime;
-    private float fallDuration;
+    public GameObject SlicedFruitPrefab => slicedFruitPrefab;
 
-    private float spawnY;
-    private float targetY;
+    public double TargetTime { get; private set; }
+    public double TargetBeat { get; private set; }
+    public LaneType Lane { get; private set; }
 
-    private SongManager songManager;
-
-    private bool initialized;
     private bool resolved;
 
-    public void Initialize(double targetTime, double spawnTime, float fallDuration, float spawnY, float targetY, SongManager songManager)
+    public void Initialize(double targetTime, double targetBeat, LaneType lane)
     {
         TargetTime = targetTime;
-
-        this.spawnTime = spawnTime;
-        this.fallDuration = fallDuration;
-        this.spawnY = spawnY;
-        this.targetY = targetY;
-        this.songManager = songManager;
-
-        initialized = true;
+        TargetBeat = targetBeat;
+        Lane = lane;
         resolved = false;
     }
 
-    private void Update()
+    public void SetY(float y)
     {
-        if (!initialized || resolved || songManager == null)
-            return;
-
-        UpdatePosition(songManager.GetSongTime());
-    }
-
-    private void UpdatePosition(double currentSongTime)
-    {
-        double elapsedSinceSpawn = currentSongTime - spawnTime;
-
-        float progress = (float)(elapsedSinceSpawn / fallDuration);
-        progress = Mathf.Clamp01(progress);
-
-        float currentY = Mathf.Lerp(spawnY, targetY, progress);
-
-        transform.position = new Vector3(
-            transform.position.x,
-            currentY,
-            transform.position.z
-        );
+        Vector3 p = transform.position;
+        p.y = y;
+        transform.position = p;
     }
 
     public void Cut()
     {
-        if (resolved)
-            return;
-
-        if (slicedFruitPrefab != null)
-        {
-            GameObject sliced = Instantiate(slicedFruitPrefab, transform.position, Quaternion.identity);
-
-            if (sliced.TryGetComponent<SlicedFruit>(out var slicedScript))
-            {
-                slicedScript.Initialize();
-            }
-        }
-
+        if (resolved) return;
         resolved = true;
+
+        if (slicedFruitPrefab == null) return;
+
+        GameObject sliced = PoolService.Spawn(slicedFruitPrefab, transform.position, Quaternion.identity); // o SlicedFruit se devolve ao pool sozinho
+        if (sliced != null && sliced.TryGetComponent<SlicedFruit>(out var slicedScript))
+            slicedScript.Initialize();
     }
 
     public void Rotten()
     {
-        if (resolved)
-            return;
-
         resolved = true;
     }
 

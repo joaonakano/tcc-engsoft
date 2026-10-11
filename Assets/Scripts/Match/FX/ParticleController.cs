@@ -2,8 +2,9 @@ using UnityEngine;
 
 public class ParticleController : MonoBehaviour
 {
+    // Continua sendo chamado pelo Animation Event no fim da animação (mesmo nome de antes)
     void DestroyParticle()
     {
-        Destroy(gameObject);
+        PoolService.Release(gameObject); // antes: Destroy(gameObject)
     }
 }
