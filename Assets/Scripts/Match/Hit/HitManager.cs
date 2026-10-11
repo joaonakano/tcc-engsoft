@@ -15,9 +15,8 @@ public class HitManager : MonoBehaviour
     public InputActionReference rightActionRef;
 
     [Header("Arduino")]
-    [Tooltip("Marque para usar o protótipo físico")]
-    public bool useArduino = false;
     [SerializeField] private ArduinoUSBInput usbInput;
+    private bool useArduino;
 
     [Header("Timing (segundos, relativo ao momento em que a fruta chega no Y destino)")]
     [Tooltip("PERFECT: fruta no Y destino +- esse valor")]
@@ -33,7 +32,6 @@ public class HitManager : MonoBehaviour
     public AudioClip perfectSfx;
     public AudioClip goodSfx;
     public AudioClip missSfx;
-    // TODO: adicionar o SFX de erro por precipitacao
     public AudioClip earlyMissSfx;
 
     [Header("Efeitos Visuais")]
@@ -42,7 +40,6 @@ public class HitManager : MonoBehaviour
 
     private readonly Queue<NoteController> leftNotes = new();
     private readonly Queue<NoteController> rightNotes = new();
-    private AudioSource audioSource;
 
     // =========================================================
     // SETUP
@@ -50,10 +47,7 @@ public class HitManager : MonoBehaviour
 
     private void Awake()
     {
-        audioSource = GetComponent<AudioSource>();
-        if (audioSource == null)
-            audioSource = gameObject.AddComponent<AudioSource>();
-        audioSource.playOnAwake = false;
+        useArduino = ArduinoToggle.IsEnabled;
 
         if (usbInput != null)
             usbInput.enabled = useArduino;
@@ -120,7 +114,7 @@ public class HitManager : MonoBehaviour
 
     private void Update()
     {
-        if (songManager == null) return;
+        if (songManager == null || songManager.IsPaused) return;
 
         double songTime = songManager.GetSongTime();
         ProcessLate(leftNotes, songTime);
@@ -155,7 +149,7 @@ public class HitManager : MonoBehaviour
 
     private void ProcessHit(LaneType lane)
     {
-        if (songManager == null) return;
+        if (songManager == null || songManager.IsPaused || songManager.HasFinished) return;
 
         PlayAttackAnimation(lane);
 
@@ -232,7 +226,25 @@ public class HitManager : MonoBehaviour
 
     private void PlaySfx(AudioClip clip)
     {
-        if (audioSource == null || clip == null) return;
-        audioSource.PlayOneShot(clip);
+        if ( clip == null) return;
+        SFXManager.Instance?.PlaySFX(clip);
+    }
+
+    // =========================================================
+    // ARDUINO
+    // =========================================================
+
+    public void SetArduino(bool enabled)
+    {
+        if (usbInput == null) return;
+
+        if (enabled == useArduino) return;
+
+        if (useArduino) usbInput.OnHit -= OnArduinoHit;
+
+        useArduino = enabled;
+        usbInput.enabled = enabled;
+
+        if (useArduino) usbInput.OnHit += OnArduinoHit;
     }
 }

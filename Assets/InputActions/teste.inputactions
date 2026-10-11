@@ -1,0 +1,46 @@
+{
+    "version": 1,
+    "name": "teste",
+    "maps": [
+        {
+            "name": "asdf",
+            "id": "0d88a3e4-4681-4e9e-9651-25c332032ec1",
+            "actions": [
+                {
+                    "name": "shard",
+                    "type": "Button",
+                    "id": "b564204b-d2f9-490a-aefb-3bb3008778ca",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "cc5ea250-f2e8-42df-9508-4ebff5b77e1f",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "shard",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "813d054f-ef97-46b1-b3eb-7f9819fb77bd",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "shard",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

@@ -4,14 +4,14 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    [Header("References")]
-    [SerializeField]
-    private WipeController wipeController;
+    [Header("Referências")]
+    [SerializeField] private WipeController _wipeController;
+    [SerializeField] private InGameMenuController _menuController;
+    [SerializeField] private CursorManager _cursorManager;
+    [SerializeField] private string nextSceneName = "G01";
+    [SerializeField] private SongManager songManager;
 
-    [SerializeField]
-    private SongManager songManager;
-
-    [Header("Settings")]
+    [Header("Configurações")]
     [SerializeField]
     private float startDelay = 2f;
 
@@ -19,6 +19,13 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        if (songManager == null) Debug.LogError("GameManager: SongManager não foi configurado.");
+        if (_wipeController == null) Debug.LogError("GameManager: WipeController não foi configurado.");
+        if (_menuController == null) Debug.LogError("GameManager: InGameMenuController não foi configurado.");
+        if (_cursorManager == null) Debug.LogError("GameManager: CursorManager não foi configurado.");
+
+        _cursorManager.HabilitarCursor(false);
+
         StartCoroutine(StartMatchSequence());
     }
 
@@ -35,13 +42,15 @@ public class GameManager : MonoBehaviour
     private void EndMatch()
     {
         matchEnded = true;
-        wipeController.StartWipeIn();
+
+        ScoreManager.Instance.SaveResult();
+        _wipeController.StartWipeIn(OnMatchEnded);
     }
 
     private IEnumerator StartMatchSequence()
     {
         yield return new WaitForSeconds(startDelay);
-        wipeController.StartWipeOut();
+        _wipeController.StartWipeOut(() => _menuController.Liberar());
     }
 
     public void OnMatchStarted()
@@ -51,6 +60,7 @@ public class GameManager : MonoBehaviour
 
     public void OnMatchEnded()
     {
-        SceneManager.LoadScene("S01");
+        SceneManager.LoadScene(nextSceneName);
     }
 }
+ 

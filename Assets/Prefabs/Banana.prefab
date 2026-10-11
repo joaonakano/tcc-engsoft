@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3934107455053145008}
   - component: {fileID: 5665362369997832843}
   - component: {fileID: 6048687012489710631}
+  - component: {fileID: 4323435692079264155}
   m_Layer: 0
   m_Name: Banana
   m_TagString: Untagged
@@ -105,3 +106,15 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &4323435692079264155
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3067606317898309313}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f863870a78821c4c98b88a0024064cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PausableAnimation

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class HealthManager : MonoBehaviour
 {
@@ -6,6 +7,7 @@ public class HealthManager : MonoBehaviour
     [SerializeField] private SongManager songManager;
     [SerializeField] private ReactionManager reactionManager;
     [SerializeField] private ComboManager comboManager;
+    [SerializeField] private Image damagePanel;
 
     [Header("Vida")]
     [SerializeField] private float maxHealth = 100f;
@@ -84,7 +86,6 @@ public class HealthManager : MonoBehaviour
     // INTERNO
     // =========================================================
 
-    // Chamado so quando a vida muda (nao todo frame)
     private void OnHealthChanged()
     {
         UpdateReaction();
@@ -94,8 +95,8 @@ public class HealthManager : MonoBehaviour
     {
         isDead = true;
         reactionManager.ChangeCurrentStateTo(Reactions.Dead);
+
         songManager.FinishSong();
-        Debug.Log("Acabou Musica");
     }
 
     private void UpdateReaction()
@@ -104,9 +105,25 @@ public class HealthManager : MonoBehaviour
 
         float percent = CurrentHealth / maxHealth * 100f;
 
-        if (percent <= 20f) reactionManager.ChangeCurrentStateTo(Reactions.Bad);
-        else if (percent <= 40f) reactionManager.ChangeCurrentStateTo(Reactions.Sad);
-        else if (percent <= 60f) reactionManager.ChangeCurrentStateTo(Reactions.Neutral);
-        else reactionManager.ChangeCurrentStateTo(Reactions.Good);
+        if (percent <= 20f)
+        {
+            reactionManager.ChangeCurrentStateTo(Reactions.Bad);
+            damagePanel.CrossFadeAlpha(1f, 0.5f, false); // Fade in the damage panel when health is critical
+        }
+        else if (percent <= 40f)
+        {
+            reactionManager.ChangeCurrentStateTo(Reactions.Sad);
+            damagePanel.CrossFadeAlpha(0.5f, 0.5f, false); // Fade in the damage panel when health is low
+        }
+        else if (percent <= 60f)
+        {
+            reactionManager.ChangeCurrentStateTo(Reactions.Neutral);
+            damagePanel.CrossFadeAlpha(0.3f, 0.5f, false); // Fade out the damage panel when health is good
+        }
+        else
+        {
+            reactionManager.ChangeCurrentStateTo(Reactions.Good);
+            damagePanel.CrossFadeAlpha(0f, 0.5f, false); // Fade out the damage panel when health is high
+        }
     }
 }

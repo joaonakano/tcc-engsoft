@@ -13,18 +13,12 @@ public class NoteController : MonoBehaviour
     private float spawnY;
     private float targetY;
 
-    private double songStartTime;
+    private SongManager songManager;
 
     private bool initialized;
     private bool resolved;
 
-    public void Initialize(
-        double targetTime,
-        double spawnTime,
-        float fallDuration,
-        float spawnY,
-        float targetY,
-        double songStartTime)
+    public void Initialize(double targetTime, double spawnTime, float fallDuration, float spawnY, float targetY, SongManager songManager)
     {
         TargetTime = targetTime;
 
@@ -32,7 +26,7 @@ public class NoteController : MonoBehaviour
         this.fallDuration = fallDuration;
         this.spawnY = spawnY;
         this.targetY = targetY;
-        this.songStartTime = songStartTime;
+        this.songManager = songManager;
 
         initialized = true;
         resolved = false;
@@ -40,12 +34,10 @@ public class NoteController : MonoBehaviour
 
     private void Update()
     {
-        if (!initialized || resolved)
+        if (!initialized || resolved || songManager == null)
             return;
 
-        double currentSongTime = AudioSettings.dspTime - songStartTime;
-
-        UpdatePosition(currentSongTime);
+        UpdatePosition(songManager.GetSongTime());
     }
 
     private void UpdatePosition(double currentSongTime)
@@ -53,7 +45,6 @@ public class NoteController : MonoBehaviour
         double elapsedSinceSpawn = currentSongTime - spawnTime;
 
         float progress = (float)(elapsedSinceSpawn / fallDuration);
-
         progress = Mathf.Clamp01(progress);
 
         float currentY = Mathf.Lerp(spawnY, targetY, progress);

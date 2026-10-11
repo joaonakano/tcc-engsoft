@@ -106,13 +106,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WipeController
   audioSource: {fileID: 2113696236183130015}
-  onWipeOutComplete:
-    m_PersistentCalls:
-      m_Calls: []
-  onWipeInComplete:
-    m_PersistentCalls:
-      m_Calls: []
-  wipeStart: {fileID: 0}
+  wipeStart: {fileID: 8300000, guid: e9d97362cb092384cb1a0b3d2ca4f4ad, type: 3}
+  wipeEnd: {fileID: 8300000, guid: 289e6759889612e4c977cbfec330fa63, type: 3}
   circleSize: 0
 --- !u!95 &3746591225170913731
 Animator:
@@ -149,7 +144,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.4
   m_Pitch: 1
   Loop: 0
   Mute: 0

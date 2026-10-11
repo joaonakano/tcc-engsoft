@@ -22,8 +22,14 @@ public class SlicedFruit : MonoBehaviour
     [Header("Tempo de Vida")]
     [SerializeField] private float destroyDelay = 3f;
 
+    private SongManager songManager;
+    private float lifeTimer;
+    private bool initialized;
+
     public void Initialize()
     {
+        songManager = FindFirstObjectByType<SongManager>();
+
         // --- Metade Esquerda ---
         float forceXLeft = Random.Range(minHorizontalForce, maxHorizontalForce);
         float forceYLeft = Random.Range(minUpwardForce, maxUpwardForce);
@@ -42,7 +48,19 @@ public class SlicedFruit : MonoBehaviour
         rightHalf.AddForce(new Vector2(forceXRight, forceYRight), ForceMode2D.Impulse);
         rightHalf.AddTorque(-torqueRight, ForceMode2D.Impulse);
 
-        // Limpeza automática após cair para fora da tela
-        Destroy(gameObject, destroyDelay);
+        lifeTimer = 0f;
+        initialized = true;
+    }
+
+    private void Update()
+    {
+        if (!initialized) return;
+
+        // Pausado o timer nao avanca
+        if (songManager != null && songManager.IsPaused) return;
+
+        lifeTimer += Time.deltaTime;
+
+        if (lifeTimer >= destroyDelay) Destroy(gameObject);
     }
 }

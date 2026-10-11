@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4340142163003018730}
   - component: {fileID: 1315945478422074442}
+  - component: {fileID: -8077802919066943293}
   - component: {fileID: 2827791087804649171}
   m_Layer: 0
   m_Name: Apple
@@ -46,6 +47,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NoteController
   slicedFruitPrefab: {fileID: 1274743616805447350, guid: f4ca7703589767847958b936faea84a0, type: 3}
+--- !u!114 &-8077802919066943293
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2281683776329374312}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f863870a78821c4c98b88a0024064cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PausableAnimation
 --- !u!212 &2827791087804649171
 SpriteRenderer:
   serializedVersion: 2

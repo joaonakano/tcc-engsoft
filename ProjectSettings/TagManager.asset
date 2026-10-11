@@ -8,10 +8,10 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Kitchen
+  - ComboUI
   - Water
   - UI
-  - 
+  - Menu
   - 
   - 
   - 
@@ -47,7 +47,7 @@ TagManager:
   - name: HUD
     uniqueID: 326784887
     locked: 0
-  - name: Overlays
+  - name: Overlay
     uniqueID: 1953612205
     locked: 0
   m_RenderingLayers:

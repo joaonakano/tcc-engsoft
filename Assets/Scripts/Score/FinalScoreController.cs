@@ -6,31 +6,21 @@ using UnityEngine.Events;
 public class FinalScoreController : MonoBehaviour
 {
     [Header("References")]
-    [SerializeField]
-    private Transform liquid;
-
-    [SerializeField]
-    private Animator scoreHudAnimator;
-
-    [SerializeField]
-    private WipeController wipeController;
+    [SerializeField] private Transform liquid;
+    [SerializeField] private Animator scoreHudAnimator;
+    [SerializeField] private WipeController wipeController;
 
     public mlDisplayController mlDisplay;
 
     [Header("Liquid Settings")]
-    [SerializeField]
-    private float maxY = 3f;
-
-    [SerializeField]
-    private float fillDuration = 2f;
+    [SerializeField] private float maxY = 3f;
+    [SerializeField] private float fillDuration = 2f;
 
     [Header("Settings")]
-    [SerializeField]
-    private float startDelay = 2f;
+    [SerializeField] private float startDelay = 2f;
 
     [Header("Results")]
-    [SerializeField]
-    private int maxMl = 500;
+    [SerializeField] private int maxMl = 500;
 
     public int scoreTeste = 1000;
 
@@ -47,19 +37,13 @@ public class FinalScoreController : MonoBehaviour
     private IEnumerator StartScoreSequence()
     {
         yield return new WaitForSeconds(startDelay);
-        wipeController.StartWipeOut();
+        wipeController.StartWipeOut(() => { StartFinalScore(); });
     }
 
     public void StartFinalScore()
     {
-        if (ScoreManager.Instance == null)
-        {
-            Debug.LogError("ScoreManager não encontrado.");
-            return;
-        }
-
-        int score = ScoreManager.Instance.CurrentScore;
-        int maxScore = ScoreManager.Instance.MaxPossibleScore;
+        int score = GameResult.Score;
+        int maxScore = GameResult.MaxScore;
 
         if (maxScore <= 0)
         {

@@ -9,9 +9,26 @@ public class ArduinoUSBInput : MonoBehaviour
     private SerialPort serialPort;
 
     public event Action<int> OnHit;
-    
-    private void Start()
+
+    private void OnEnable()
     {
+        OpenPort();
+    }
+
+    private void OnDisable()
+    {
+        ClosePort();
+    }
+
+    private void OnDestroy()
+    {
+        ClosePort();
+    }
+
+    private void OpenPort()
+    {
+        if (serialPort != null && serialPort.IsOpen) return;
+
         serialPort = new SerialPort(portName, baudRate);
         serialPort.ReadTimeout = 1;
 
@@ -22,9 +39,17 @@ public class ArduinoUSBInput : MonoBehaviour
         }
         catch (Exception e)
         {
-            Debug.LogError($"Não foi possível conectar ao ESP32 USB.");
-            Debug.LogError($"Porta: {portName}");
-            Debug.LogError($"Erro: {e}");
+            Debug.LogError($"Não foi possível conectar ao Arduino em {portName}: {e.Message}");
+        }
+    }
+
+    private void ClosePort()
+    {
+        if (serialPort != null)
+        {
+            if (serialPort.IsOpen) serialPort.Close();
+            serialPort.Dispose();
+            serialPort = null;
         }
     }
 
@@ -40,30 +65,13 @@ public class ArduinoUSBInput : MonoBehaviour
             switch (data)
             {
                 case 0x01:
-                    Debug.Log("ARDUINO: SENSOR 1 - RECEBIDO");
-
-    //Debug.Log("ANTES DO ONHIT");
-    OnHit?.Invoke(0);
-    //Debug.Log("DEPOIS DO ONHIT");
+                    OnHit?.Invoke(0);
                     break;
 
                 case 0x02:
-                    Debug.Log("ARDUINO: SENSOR 2 - RECEBIDO");
-
-    //Debug.Log("ANTES DO ONHIT");
-    OnHit?.Invoke(1);
-    //Debug.Log("DEPOIS DO ONHIT");
+                    OnHit?.Invoke(1);
                     break;
             }
-        }
-    }
-
-    private void OnDestroy()
-    {
-        if (serialPort != null && serialPort.IsOpen)
-        {
-            serialPort.Close();
-            serialPort.Dispose();
         }
     }
 }

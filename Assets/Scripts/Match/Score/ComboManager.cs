@@ -6,8 +6,10 @@ public class ComboManager : MonoBehaviour
     [Header("Multiplicador de cura")]
     [Tooltip("Multiplicador da cura com combo 0")]
     [SerializeField] private float minHealMultiplier = 0.3f;
+
     [Tooltip("Multiplicador da cura no combo maximo")]
     [SerializeField] private float maxHealMultiplier = 1.5f;
+
     [Tooltip("Combo em que o multiplicador chega no maximo")]
     [SerializeField] private int comboForMaxMultiplier = 20;
 

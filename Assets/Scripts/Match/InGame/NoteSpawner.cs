@@ -100,7 +100,7 @@ public class NoteSpawner : MonoBehaviour
             fallDuration,
             spawnY,
             targetY,
-            songManager.SongStartTime
+            songManager
         );
 
         if (hitManager != null)

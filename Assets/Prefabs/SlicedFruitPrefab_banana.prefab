@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 34637881404860830}
   - component: {fileID: 3434898924348006922}
+  - component: {fileID: 5385655935928105503}
   m_Layer: 0
   m_Name: SlicedFruitPrefab_banana
   m_TagString: Untagged
@@ -26,8 +27,8 @@ Transform:
   m_GameObject: {fileID: 1274743616805447350}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
+  m_LocalPosition: {x: -0.88723, y: -2.41886, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 2468126483404595077}
@@ -54,7 +55,19 @@ MonoBehaviour:
   maxUpwardForce: 7
   minTorque: 10
   maxTorque: 30
-  destroyDelay: 4
+  destroyDelay: 3
+--- !u!114 &5385655935928105503
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1274743616805447350}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f863870a78821c4c98b88a0024064cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PausableAnimation
 --- !u!1 &1969148355379345024
 GameObject:
   m_ObjectHideFlags: 0
@@ -137,7 +150,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 5
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 1251309877831849473, guid: 0d136b504761994498703c4fc793547c, type: 3}
+  m_Sprite: {fileID: -504898403, guid: 0d136b504761994498703c4fc793547c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -256,7 +269,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 5
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 1251309877831849473, guid: 0d136b504761994498703c4fc793547c, type: 3}
+  m_Sprite: {fileID: -2095564450, guid: 0d136b504761994498703c4fc793547c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

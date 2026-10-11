@@ -23,15 +23,6 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
-                },
-                {
-                    "name": "Record",
-                    "type": "Button",
-                    "id": "538fff0b-5e8c-48c6-8f43-71cfdf8c7ff6",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -78,15 +69,43 @@
                     "action": "Right",
                     "isComposite": false,
                     "isPartOfComposite": false
-                },
+                }
+            ]
+        },
+        {
+            "name": "Menu",
+            "id": "cb5df879-5d0c-43c5-b76d-075b5908df08",
+            "actions": [
+                {
+                    "name": "New action",
+                    "type": "Button",
+                    "id": "356912f9-7762-45d3-8584-a0d81c3894d6",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
                 {
                     "name": "",
-                    "id": "4e357dc0-ca86-41bd-9c49-393f486ed237",
-                    "path": "<Keyboard>/space",
+                    "id": "d0e8403e-b1e5-45ed-a080-0f792f13cea4",
+                    "path": "<Keyboard>/escape",
                     "interactions": "",
                     "processors": "",
                     "groups": ";PC Default",
-                    "action": "Record",
+                    "action": "New action",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "024fad93-7118-4671-8ad7-7cabe7c76258",
+                    "path": "<Keyboard>/p",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";PC Default",
+                    "action": "New action",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
