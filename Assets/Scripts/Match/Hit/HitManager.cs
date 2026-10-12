@@ -40,6 +40,11 @@ public class HitManager : MonoBehaviour
     [Header("Efeitos Visuais")]
     public GameObject perfectEffectPrefab;
     public GameObject goodEffectPrefab;
+
+    public GameObject perfectText;
+    public GameObject goodText;
+    public GameObject missText;
+
     [Tooltip("Segundos até o efeito voltar ao pool. Se o prefab tiver Destroy(gameObject, x), remova.")]
     public float effectLifetime = 1f;
 
@@ -98,6 +103,10 @@ public class HitManager : MonoBehaviour
     {
         yield return StartCoroutine(PoolService.Prewarm(perfectEffectPrefab, 3, warmPosition, visibleFrames));
         yield return StartCoroutine(PoolService.Prewarm(goodEffectPrefab, 3, warmPosition, visibleFrames));
+
+        yield return StartCoroutine(PoolService.Prewarm(perfectText, 3, warmPosition, visibleFrames));
+        yield return StartCoroutine(PoolService.Prewarm(goodText, 3, warmPosition, visibleFrames));
+        yield return StartCoroutine(PoolService.Prewarm(missText, 3, warmPosition, visibleFrames));
     }
 
     public void RegisterNote(NoteController note, LaneType lane)
@@ -166,7 +175,7 @@ public class HitManager : MonoBehaviour
 
             queue.Dequeue();
             note.Rotten();
-            Fail(note, missSfx);
+            Fail(note, missSfx, missText);
         }
     }
 
@@ -202,7 +211,7 @@ public class HitManager : MonoBehaviour
         // Precipitado
         if (error < -goodWindow)
         {
-            Fail(note, earlyMissSfx); // TODO: SFX de erro por precipitacao
+            Fail(note, earlyMissSfx, missText); // TODO: SFX de erro por precipitacao
             return;
         }
 
@@ -211,6 +220,7 @@ public class HitManager : MonoBehaviour
         note.Cut();
         PlaySfx(perfect ? perfectSfx : goodSfx);
         SpawnEffect(perfect ? perfectEffectPrefab : goodEffectPrefab, note);
+        SpawnText(perfect ? perfectText : goodText, note.transform.position);
 
         if (ScoreManager.Instance != null)
         {
@@ -226,11 +236,21 @@ public class HitManager : MonoBehaviour
     }
 
     // Erro (miss ou precipitado): dano, som e remove a fruta
-    private void Fail(NoteController note, AudioClip sfx)
+    private void Fail(NoteController note, AudioClip sfx, GameObject text)
     {
         PlaySfx(sfx);
+        SpawnText(text, note.transform.position);
         healthManager.RegisterMiss();
         noteSpawner.Despawn(note);
+    }
+
+    private void SpawnText(GameObject prefab, Vector3 position)
+    {
+        if (prefab == null) return;
+
+        GameObject go = PoolService.Spawn(prefab, position, Quaternion.identity);
+        if (go != null && go.TryGetComponent<FloatingText>(out var ft))
+            ft.Play();
     }
 
     // =========================================================

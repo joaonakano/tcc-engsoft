@@ -1471,6 +1471,9 @@ MonoBehaviour:
   earlyMissSfx: {fileID: 8300000, guid: 3b4f0c827dee81142acc875df24b41b2, type: 3}
   perfectEffectPrefab: {fileID: 4529830870200574776, guid: 6a8d234f66fe07740b54034efc30240b, type: 3}
   goodEffectPrefab: {fileID: 6822823733639241710, guid: 3dca8e6301772554cac23c7fe6b57687, type: 3}
+  perfectText: {fileID: 1533189554381864710, guid: 894ef4148499a4d7aaebc836d2b79160, type: 3}
+  goodText: {fileID: 898203569401143113, guid: 8e883680d000d49c48d81d1aded6c605, type: 3}
+  missText: {fileID: 8402168597128931822, guid: b9765e522213b4619b747ec9e139d8e6, type: 3}
   effectLifetime: 1
 --- !u!114 &388267489
 MonoBehaviour:

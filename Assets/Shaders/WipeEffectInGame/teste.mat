@@ -43,7 +43,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _CircleSize: 0
-    - _Circle_Size: 0.32108748
+    - _Circle_Size: 0
     - _Pixel_Size: 335
     - _QueueControl: 0
     - _QueueOffset: 0
