@@ -13,12 +13,30 @@ public static class PoolService
 {
     private static readonly Dictionary<GameObject, Stack<PooledInstance>> pools = new();
     private static Transform root;
+    private static SongManager songManager;
+    private static bool searchedSongManager;
 
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
     private static void ResetStatics()
     {
         pools.Clear();
         root = null;
+        songManager = null;
+        searchedSongManager = false;
+    }
+
+    /// <summary>True enquanto o jogo está pausado (tempos de vida dos itens do pool não correm).</summary>
+    public static bool IsPaused
+    {
+        get
+        {
+            if (songManager == null && !searchedSongManager)
+            {
+                songManager = Object.FindFirstObjectByType<SongManager>();
+                searchedSongManager = true;
+            }
+            return songManager != null && songManager.IsPaused;
+        }
     }
 
     private static Transform GetRoot()
@@ -27,6 +45,8 @@ public static class PoolService
         if (root == null)
         {
             pools.Clear();
+            songManager = null;
+            searchedSongManager = false;
             root = new GameObject("[PoolRoot]").transform;
         }
         return root;
@@ -117,7 +137,9 @@ public class PooledInstance : MonoBehaviour
     public Stack<PooledInstance> Home;
 
     private bool inPool;
-    private float releaseAt;
+    private float remaining;
+    private float[] animatorSpeeds;
+    private bool[] simulated2D;
 
     private Vector3 rootScale;
     private Transform[] children;
@@ -156,6 +178,10 @@ public class PooledInstance : MonoBehaviour
         particles = GetComponentsInChildren<ParticleSystem>(true);
         trails = GetComponentsInChildren<TrailRenderer>(true);
         animators = GetComponentsInChildren<Animator>(true);
+        animatorSpeeds = new float[animators.Length];
+        for (int i = 0; i < animators.Length; i++) animatorSpeeds[i] = animators[i].speed;
+        simulated2D = new bool[bodies2D.Length];
+        for (int i = 0; i < bodies2D.Length; i++) simulated2D[i] = bodies2D[i].simulated;
         sprites = GetComponentsInChildren<SpriteRenderer>(true);
         spriteColors = new Color[sprites.Length];
         for (int i = 0; i < sprites.Length; i++) spriteColors[i] = sprites[i].color;
@@ -176,6 +202,7 @@ public class PooledInstance : MonoBehaviour
         for (int i = 0; i < bodies2D.Length; i++)
         {
             if (bodies2D[i] == null) continue;
+            bodies2D[i].simulated = simulated2D[i]; // desfaz congelamento de pausa que ficou preso
 #if UNITY_6000_0_OR_NEWER
             bodies2D[i].linearVelocity = Vector2.zero;
 #else
@@ -211,6 +238,7 @@ public class PooledInstance : MonoBehaviour
         for (int i = 0; i < animators.Length; i++)
         {
             if (animators[i] == null || !animators[i].isActiveAndEnabled) continue;
+            animators[i].speed = animatorSpeeds[i]; // desfaz congelamento de pausa que ficou preso
             animators[i].Rebind();
             animators[i].Update(0f);
         }
@@ -219,13 +247,16 @@ public class PooledInstance : MonoBehaviour
     public void Arm(float lifetime)
     {
         inPool = false;
-        releaseAt = lifetime > 0f ? Time.time + lifetime : 0f;
+        remaining = lifetime;
         enabled = lifetime > 0f;
     }
 
     private void Update()
     {
-        if (releaseAt > 0f && Time.time >= releaseAt)
+        if (PoolService.IsPaused) return;
+
+        remaining -= Time.deltaTime;
+        if (remaining <= 0f)
             Release();
     }
 
@@ -234,7 +265,7 @@ public class PooledInstance : MonoBehaviour
         if (inPool) return;
 
         inPool = true;
-        releaseAt = 0f;
+        remaining = 0f;
         enabled = false;
         gameObject.SetActive(false);
 
