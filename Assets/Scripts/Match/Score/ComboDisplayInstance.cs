@@ -46,7 +46,7 @@ public class ComboDisplayInstance : MonoBehaviour
 
     private void Awake()
     {
-        songManager = FindFirstObjectByType<SongManager>();
+        songManager = SongManager.Current;
         swayTime = phaseOffset;
     }
 

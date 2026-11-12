@@ -1,0 +1,313 @@
+fileFormatVersion: 2
+guid: ed7443b8171b62d46a6ff80719fbd2c3
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -1267068144095419426
+    second: hud-load_0
+  - first:
+      213: 4635260215234399174
+    second: hud-load_1
+  - first:
+      213: 7268606380086632552
+    second: hud-load_2
+  - first:
+      213: 309848224449733095
+    second: hud-load_3
+  - first:
+      213: 316586718990242605
+    second: hud-load_4
+  - first:
+      213: 5853474593222143716
+    second: hud-load_5
+  - first:
+      213: -2234125549659999904
+    second: hud-load_6
+  - first:
+      213: -1795439029490998202
+    second: hud-load_7
+  - first:
+      213: -836332433642756119
+    second: hud-load_8
+  - first:
+      213: 3449585663823995290
+    second: hud-load_9
+  - first:
+      213: 8067418847484963112
+    second: hud-load_10
+  - first:
+      213: 7873893422941553170
+    second: hud-load_11
+  - first:
+      213: -8606940145026283736
+    second: hud-load_12
+  - first:
+      213: 1922990050181712659
+    second: hud-load_13
+  - first:
+      213: -667455684051472167
+    second: hud-load_14
+  - first:
+      213: 7356003996707494412
+    second: hud-load_15
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: hud-load_2
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 30
+        width: 35
+        height: 45
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 860a331fdf64fd460800000000000000
+      internalID: 7268606380086632552
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hud-load_7
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 16
+        width: 10
+        height: 11
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 644215f17b15517e0800000000000000
+      internalID: -1795439029490998202
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hud-load_9
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 17
+        width: 48
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a91628272e36fdf20800000000000000
+      internalID: 3449585663823995290
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hud-load_10
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 5
+        width: 30
+        height: 9
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 829e1a2e2ba35ff60800000000000000
+      internalID: 8067418847484963112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hud-load_15
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 8
+        width: 48
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c0a9a1649a6c51660800000000000000
+      internalID: 7356003996707494412
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hud-load_0
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 3
+        width: 2
+        height: 2
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07d0a0eb332a9ee4c870143f93ae62b6
+      internalID: -1267068144095419426
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: ec8ad5baafa420b49b3e2c43c8244a94
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      hud-load_0: -1267068144095419426
+      hud-load_1: 4635260215234399174
+      hud-load_10: 8067418847484963112
+      hud-load_11: 7873893422941553170
+      hud-load_12: -8606940145026283736
+      hud-load_13: 1922990050181712659
+      hud-load_14: -667455684051472167
+      hud-load_15: 7356003996707494412
+      hud-load_2: 7268606380086632552
+      hud-load_3: 309848224449733095
+      hud-load_4: 316586718990242605
+      hud-load_5: 5853474593222143716
+      hud-load_6: -2234125549659999904
+      hud-load_7: -1795439029490998202
+      hud-load_8: -836332433642756119
+      hud-load_9: 3449585663823995290
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

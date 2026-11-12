@@ -48,7 +48,7 @@ public class FloatingText : MonoBehaviour
     public void Play()
     {
         if (songManager == null)
-            songManager = FindFirstObjectByType<SongManager>();
+            songManager = SongManager.Current;
 
         startPos = transform.position;
 

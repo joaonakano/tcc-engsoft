@@ -1,22 +1,22 @@
 using System;
 using UnityEngine;
 
+/// <summary>Sequência de acertos. A vida usa o bônus de combo para curar mais quando o jogador está "pegando o ritmo".</summary>
 public class ComboManager : MonoBehaviour
 {
-    [Header("Multiplicador de cura")]
-    [Tooltip("Multiplicador da cura com combo 0")]
-    [SerializeField] private float minHealMultiplier = 0.3f;
+    [Header("Bônus de cura por combo")]
+    [Tooltip("Multiplicador da cura sem combo. 1 = cura normal (errar não deve deixar a recuperação 'travada')")]
+    [SerializeField] private float healBonusAtZero = 1f;
 
-    [Tooltip("Multiplicador da cura no combo maximo")]
-    [SerializeField] private float maxHealMultiplier = 1.5f;
+    [Tooltip("Multiplicador da cura no combo máximo")]
+    [SerializeField] private float healBonusAtMax = 1.5f;
 
-    [Tooltip("Combo em que o multiplicador chega no maximo")]
-    [SerializeField] private int comboForMaxMultiplier = 20;
+    [Tooltip("Combo em que o bônus chega no máximo")]
+    [SerializeField] private int comboForMaxBonus = 10;
 
     public int Combo { get; private set; }
     public int MaxCombo { get; private set; }
 
-    // Para a UI de combo no futuro
     public event Action<int> OnComboChanged;
 
     public void Increment()
@@ -40,9 +40,10 @@ public class ComboManager : MonoBehaviour
         OnComboChanged?.Invoke(Combo);
     }
 
+    /// <summary>Multiplicador da cura para o combo atual (healBonusAtZero → healBonusAtMax).</summary>
     public float GetHealMultiplier()
     {
-        float t = Mathf.Clamp01((float)Combo / comboForMaxMultiplier);
-        return Mathf.Lerp(minHealMultiplier, maxHealMultiplier, t);
+        float t = Mathf.Clamp01((float)Combo / comboForMaxBonus);
+        return Mathf.Lerp(healBonusAtZero, healBonusAtMax, t);
     }
 }

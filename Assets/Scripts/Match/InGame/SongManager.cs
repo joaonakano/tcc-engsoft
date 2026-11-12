@@ -21,6 +21,9 @@ public class SongManager : MonoBehaviour
     public float songDelay = 2f;
 
     public BeatmapAsset Beatmap => beatmap;
+    /// <summary>SongManager da cena atual (evita FindObjectOfType em quem só precisa saber se está pausado).</summary>
+    public static SongManager Current { get; private set; }
+
     public bool IsReady { get; private set; }
     public double SongStartTime { get; private set; }
     public bool IsPlaying { get; private set; }
@@ -39,6 +42,22 @@ public class SongManager : MonoBehaviour
     private double _chartOffset;
 
     public bool CanPause => IsPlaying && !IsPaused && !HasFinished && NowDsp() >= SongStartTime;
+
+    private void Awake()
+    {
+        Current = this;
+
+        // A fase escolhida na seleção define a música; sem seleção (Play direto na cena) vale a beatmap da cena
+        if (GameSession.Level != null && GameSession.Level.beatmap != null)
+            beatmap = GameSession.Level.beatmap;
+
+        Audio.RegisterMusic(musicSource);
+    }
+
+    private void OnDestroy()
+    {
+        if (Current == this) Current = null;
+    }
 
     // =========================================================
     // RELÓGIO

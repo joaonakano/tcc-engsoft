@@ -1,0 +1,1142 @@
+fileFormatVersion: 2
+guid: 71ead404aef4adf4096ca9b219b3dbd1
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -3654593817251309115
+    second: jornal_0
+  - first:
+      213: -7135230971894794868
+    second: jornal_1
+  - first:
+      213: 6103176052490346597
+    second: jornal_2
+  - first:
+      213: 6606804172849402156
+    second: jornal_3
+  - first:
+      213: -1623834866572208828
+    second: jornal_4
+  - first:
+      213: 4714433665343820362
+    second: jornal_5
+  - first:
+      213: 2857372029893952568
+    second: jornal_6
+  - first:
+      213: -1298276887411686492
+    second: jornal_7
+  - first:
+      213: -7086080153995878071
+    second: jornal_8
+  - first:
+      213: 9194639164384547306
+    second: jornal_9
+  - first:
+      213: -7893953479478314603
+    second: jornal_10
+  - first:
+      213: 5480198181418321421
+    second: jornal_11
+  - first:
+      213: -6423482844303178268
+    second: jornal_12
+  - first:
+      213: -4417826384951975922
+    second: jornal_13
+  - first:
+      213: -6450153908424866562
+    second: jornal_14
+  - first:
+      213: 2745380963627507802
+    second: jornal_15
+  - first:
+      213: 1934912102545018581
+    second: jornal_16
+  - first:
+      213: -5946239965912715966
+    second: jornal_17
+  - first:
+      213: 7013840890485340840
+    second: jornal_18
+  - first:
+      213: -6648587398842132612
+    second: jornal_19
+  - first:
+      213: 292771217580197550
+    second: jornal_20
+  - first:
+      213: -3066350341009716627
+    second: jornal_21
+  - first:
+      213: 1862988292360516183
+    second: jornal_22
+  - first:
+      213: 5242387544354658746
+    second: jornal_23
+  - first:
+      213: -726157710748764709
+    second: jornal_24
+  - first:
+      213: -634281991804093330
+    second: jornal_25
+  - first:
+      213: 2183127218407313547
+    second: jornal_26
+  - first:
+      213: -1665752155402448842
+    second: jornal_27
+  - first:
+      213: 8850164272482089175
+    second: jornal_28
+  - first:
+      213: -8502932907084198492
+    second: jornal_29
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: jornal_0
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 123
+        width: 269
+        height: 180
+      alignment: 8
+      pivot: {x: 1, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5c9956c3946484dc0800000000000000
+      internalID: -3654593817251309115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: jornal_1
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 271
+        width: 55
+        height: 17
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c8578d13c319afc90800000000000000
+      internalID: -7135230971894794868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: jornal_2
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 271
+        width: 55
+        height: 17
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 560ab52a846d2b450800000000000000
+      internalID: 6103176052490346597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: jornal_3
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 271
+        width: 55
+        height: 17
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c21d14f046510bb50800000000000000
+      internalID: 6606804172849402156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: jornal_4
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 239
+        width: 55
+        height: 17
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 445d114dacaf679e0800000000000000
+      internalID: -1623834866572208828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: jornal_5
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 239
+        width: 55
+        height: 17
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a4216f3c0780d6140800000000000000
+      internalID: 4714433665343820362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: jornal_6
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 239
+        width: 55
+        height: 17
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 83447f0e8bc67a720800000000000000
+      internalID: 2857372029893952568
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: jornal_7
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 207
+        width: 55
+        height: 17
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a30ab9ac089bfde0800000000000000
+      internalID: -1298276887411686492
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: jornal_8
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 207
+        width: 55
+        height: 17
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9416123c4af29ad90800000000000000
+      internalID: -7086080153995878071
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: jornal_9
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 207
+        width: 55
+        height: 17
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae1190fca9be99f70800000000000000
+      internalID: 9194639164384547306
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: jornal_10
+      rect:
+        serializedVersion: 2
+        x: 306
+        y: 178
+        width: 45
+        height: 10
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5997c36622b037290800000000000000
+      internalID: -7893953479478314603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: jornal_24
+      rect:
+        serializedVersion: 2
+        x: 372
+        y: 178
+        width: 94
+        height: 10
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd5b8efc86b2ce5f0800000000000000
+      internalID: -726157710748764709
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: jornal_29
+      rect:
+        serializedVersion: 2
+        x: 305
+        y: 146
+        width: 52
+        height: 10
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ad444c42938ff980800000000000000
+      internalID: -8502932907084198492
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: jornal_11
+      rect:
+        serializedVersion: 2
+        x: 496
+        y: 271
+        width: 55
+        height: 17
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3956829b1d7b6f499b6cbd74b0394f4
+      internalID: 5480198181418321421
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: jornal_12
+      rect:
+        serializedVersion: 2
+        x: 496
+        y: 239
+        width: 55
+        height: 17
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8778307ed5ef925439203b0dc3a3f307
+      internalID: -6423482844303178268
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: jornal_13
+      rect:
+        serializedVersion: 2
+        x: 496
+        y: 207
+        width: 55
+        height: 17
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6354bde3403a51b42ae2850dbb6de2ed
+      internalID: -4417826384951975922
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: jornal_14
+      rect:
+        serializedVersion: 2
+        x: 421
+        y: 141
+        width: 132
+        height: 17
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3095b677c07c2ce42ba0173960bb4648
+      internalID: -6450153908424866562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: jornal_15
+      rect:
+        serializedVersion: 2
+        x: 421
+        y: 109
+        width: 113
+        height: 17
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 749640cde415c6f4c905d92f2e63a8c2
+      internalID: 2745380963627507802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: jornal_16
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 81
+        width: 125
+        height: 13
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b0fd96fde1bf68438cfadf3362188b8
+      internalID: 1934912102545018581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: jornal_17
+      rect:
+        serializedVersion: 2
+        x: 421
+        y: 49
+        width: 171
+        height: 13
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13280407a54c3f246b37b8281bc77eb1
+      internalID: -5946239965912715966
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: jornal_18
+      rect:
+        serializedVersion: 2
+        x: 305
+        y: 112
+        width: 30
+        height: 12
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 290be1b00eac87a42bd8e87635615928
+      internalID: 7013840890485340840
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: jornal_19
+      rect:
+        serializedVersion: 2
+        x: 355
+        y: 113
+        width: 24
+        height: 11
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b661d7f098361254999f42d4f1c6ab9a
+      internalID: -6648587398842132612
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: jornal_20
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 78
+        width: 15
+        height: 17
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab3e4d97fae2dc5468e696b70e416243
+      internalID: 292771217580197550
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: jornal_21
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 78
+        width: 15
+        height: 17
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ff7f23f6404f3d4f982fb64b2e51bc1
+      internalID: -3066350341009716627
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: jornal_22
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 78
+        width: 15
+        height: 17
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d573c1e650f03a7449935ba115e4cbd0
+      internalID: 1862988292360516183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: jornal_23
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 78
+        width: 15
+        height: 17
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d90f4957d433fac46b93270b1ddacfca
+      internalID: 5242387544354658746
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: jornal_25
+      rect:
+        serializedVersion: 2
+        x: 307
+        y: 130
+        width: 7
+        height: 7
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45161895c7b5de442baaad1faec621b0
+      internalID: -634281991804093330
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: jornal_26
+      rect:
+        serializedVersion: 2
+        x: 326
+        y: 130
+        width: 5
+        height: 7
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2555269103c5be94ca25c5ee557c1249
+      internalID: 2183127218407313547
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: jornal_27
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 78
+        width: 15
+        height: 17
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8274207a6ced1f1469890b4b06a015a9
+      internalID: -1665752155402448842
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: jornal_28
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 78
+        width: 15
+        height: 17
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 952f5420bc8081e4c94d3adddd95341c
+      internalID: 8850164272482089175
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: jornal_30
+      rect:
+        serializedVersion: 2
+        x: 369
+        y: 79
+        width: 15
+        height: 17
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94e8cf1ec4991e844bcedd3f4bb30fb7
+      internalID: -565413655
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bar_1
+      rect:
+        serializedVersion: 2
+        x: 289
+        y: 63
+        width: 2
+        height: 6
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c402fcc78fd2de429f75ecbd79f36f1
+      internalID: -1256150547
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bar_4
+      rect:
+        serializedVersion: 2
+        x: 301
+        y: 63
+        width: 2
+        height: 12
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30c73425c9c343d41bf5177976d3660c
+      internalID: -753853935
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bar_3
+      rect:
+        serializedVersion: 2
+        x: 297
+        y: 63
+        width: 2
+        height: 10
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8e0d6907af861e459722a8e801766ce
+      internalID: 288462705
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bar_2
+      rect:
+        serializedVersion: 2
+        x: 293
+        y: 63
+        width: 2
+        height: 8
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 21638ccd9be2cb74db4f84ca3aef3b96
+      internalID: -1755513823
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: jornal_31
+      rect:
+        serializedVersion: 2
+        x: 321
+        y: 64
+        width: 13
+        height: 5
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eac086199c9f72e4e8611258f9e8236d
+      internalID: -857088026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: jornal_32
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 58
+        width: 132
+        height: 27
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db007ac9bfb087b4eb410eb2f4cf7eb4
+      internalID: -1316834373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: jornal_33
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 95
+        width: 110
+        height: 13
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89826f4cfadf2584e891683b0dfe83df
+      internalID: 1397364401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: jornal_34
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 42
+        width: 110
+        height: 13
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 926753b7195315846adf0be326b74a6b
+      internalID: -401235448
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: jornal_35
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 69
+        width: 110
+        height: 13
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b3746fe446561b4b94876db9bbb9175
+      internalID: 705741706
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 01159cf4ed4d79349a7ec1c19492d328
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      bar_1: -1256150547
+      bar_2: -1755513823
+      bar_3: 288462705
+      bar_4: -753853935
+      jornal_0: -3654593817251309115
+      jornal_1: -7135230971894794868
+      jornal_10: -7893953479478314603
+      jornal_11: 5480198181418321421
+      jornal_12: -6423482844303178268
+      jornal_13: -4417826384951975922
+      jornal_14: -6450153908424866562
+      jornal_15: 2745380963627507802
+      jornal_16: 1934912102545018581
+      jornal_17: -5946239965912715966
+      jornal_18: 7013840890485340840
+      jornal_19: -6648587398842132612
+      jornal_2: 6103176052490346597
+      jornal_20: 292771217580197550
+      jornal_21: -3066350341009716627
+      jornal_22: 1862988292360516183
+      jornal_23: 5242387544354658746
+      jornal_24: -726157710748764709
+      jornal_25: -634281991804093330
+      jornal_26: 2183127218407313547
+      jornal_27: -1665752155402448842
+      jornal_28: 8850164272482089175
+      jornal_29: -8502932907084198492
+      jornal_3: 6606804172849402156
+      jornal_30: -565413655
+      jornal_31: -857088026
+      jornal_32: -1316834373
+      jornal_33: 1397364401
+      jornal_34: -401235448
+      jornal_35: 705741706
+      jornal_36: 1418527730
+      jornal_37: 1901293788
+      jornal_4: -1623834866572208828
+      jornal_5: 4714433665343820362
+      jornal_6: 2857372029893952568
+      jornal_7: -1298276887411686492
+      jornal_8: -7086080153995878071
+      jornal_9: 9194639164384547306
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

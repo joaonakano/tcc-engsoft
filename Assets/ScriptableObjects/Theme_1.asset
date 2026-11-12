@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38442b458b072fa4b854d9bffd3c5d67, type: 3}
+  m_Name: Theme_1
+  m_EditorClassIdentifier: Assembly-CSharp::LevelTheme
+  background: {fileID: 4398321253867683501, guid: 40ca9761a3e48de49894101502fc6b0a, type: 3}
+  boardLeft: {fileID: 6590435383929342489, guid: 6c9c191174e8c3d45a96a0a8d9f3081b, type: 3}
+  boardRight: {fileID: -2096601858478831480, guid: 6c9c191174e8c3d45a96a0a8d9f3081b, type: 3}
+  pointerSprite: {fileID: -6694079926635714480, guid: 86490bae4d424cb43b575a91bf7234c9, type: 3}
+  progressBarMaterial: {fileID: 2100000, guid: 0ed146a32c5450149a0b66e1f1d34665, type: 2}
+  dispenserAnimator: {fileID: 22100000, guid: ce4d4c5150c04fe4ebaf05b1e77ca56a, type: 2}

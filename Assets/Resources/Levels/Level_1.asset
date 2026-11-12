@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1b2c3d4e5f60718293a4b5c6d7e8f90, type: 3}
+  m_Name: Level_1
+  m_EditorClassIdentifier: 
+  id: Level_1
+  displayName: I Want You Back
+  beatmap: {fileID: 11400000, guid: c59ac1c31f3bb4f48a832525ee923155, type: 2}
+  theme: {fileID: 11400000, guid: 5526c68ff22199a47b4112d287955afd, type: 2}
+  noteEntries:
+  - prefab: {fileID: 2281683776329374312, guid: 2cf664c4cae6eb147991dfc186a29db4, type: 3}
+    weight: 90
+  - prefab: {fileID: 2281683776329374312, guid: 2adfc2407980f904cbfd371a48753bff, type: 3}
+    weight: 15
+  - prefab: {fileID: 3067606317898309313, guid: e2b132f07fbc0f345a232e2faee26393, type: 3}
+    weight: 1

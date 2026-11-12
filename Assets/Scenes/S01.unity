@@ -210,151 +210,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!1001 &418818418
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 859677747791415412, guid: dfcbd27b2fa7c7243bd9c15657ab94ee, type: 3}
-      propertyPath: wipeEnd
-      value: 
-      objectReference: {fileID: 8300000, guid: 1c7e978b3fd03024290bbd3822b9c31d, type: 3}
-    - target: {fileID: 859677747791415412, guid: dfcbd27b2fa7c7243bd9c15657ab94ee, type: 3}
-      propertyPath: wipeStart
-      value: 
-      objectReference: {fileID: 8300000, guid: 6130e6f8da2d335458167af16e2548bc, type: 3}
-    - target: {fileID: 859677747791415412, guid: dfcbd27b2fa7c7243bd9c15657ab94ee, type: 3}
-      propertyPath: onWipeOutComplete.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 859677747791415412, guid: dfcbd27b2fa7c7243bd9c15657ab94ee, type: 3}
-      propertyPath: onWipeOutComplete.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 859677747791415412, guid: dfcbd27b2fa7c7243bd9c15657ab94ee, type: 3}
-      propertyPath: onWipeOutComplete.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 829729916}
-    - target: {fileID: 859677747791415412, guid: dfcbd27b2fa7c7243bd9c15657ab94ee, type: 3}
-      propertyPath: onWipeOutComplete.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 859677747791415412, guid: dfcbd27b2fa7c7243bd9c15657ab94ee, type: 3}
-      propertyPath: onWipeOutComplete.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: StartFinalScore
-      objectReference: {fileID: 0}
-    - target: {fileID: 859677747791415412, guid: dfcbd27b2fa7c7243bd9c15657ab94ee, type: 3}
-      propertyPath: onWipeOutComplete.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: FinalScoreController, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 859677747791415412, guid: dfcbd27b2fa7c7243bd9c15657ab94ee, type: 3}
-      propertyPath: onWipeOutComplete.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 1336398902136664646, guid: dfcbd27b2fa7c7243bd9c15657ab94ee, type: 3}
-      propertyPath: m_Pivot.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1336398902136664646, guid: dfcbd27b2fa7c7243bd9c15657ab94ee, type: 3}
-      propertyPath: m_Pivot.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1336398902136664646, guid: dfcbd27b2fa7c7243bd9c15657ab94ee, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1336398902136664646, guid: dfcbd27b2fa7c7243bd9c15657ab94ee, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1336398902136664646, guid: dfcbd27b2fa7c7243bd9c15657ab94ee, type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1336398902136664646, guid: dfcbd27b2fa7c7243bd9c15657ab94ee, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1336398902136664646, guid: dfcbd27b2fa7c7243bd9c15657ab94ee, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1336398902136664646, guid: dfcbd27b2fa7c7243bd9c15657ab94ee, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1336398902136664646, guid: dfcbd27b2fa7c7243bd9c15657ab94ee, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1336398902136664646, guid: dfcbd27b2fa7c7243bd9c15657ab94ee, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1336398902136664646, guid: dfcbd27b2fa7c7243bd9c15657ab94ee, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1336398902136664646, guid: dfcbd27b2fa7c7243bd9c15657ab94ee, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1336398902136664646, guid: dfcbd27b2fa7c7243bd9c15657ab94ee, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1336398902136664646, guid: dfcbd27b2fa7c7243bd9c15657ab94ee, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1336398902136664646, guid: dfcbd27b2fa7c7243bd9c15657ab94ee, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1336398902136664646, guid: dfcbd27b2fa7c7243bd9c15657ab94ee, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1336398902136664646, guid: dfcbd27b2fa7c7243bd9c15657ab94ee, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1336398902136664646, guid: dfcbd27b2fa7c7243bd9c15657ab94ee, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1336398902136664646, guid: dfcbd27b2fa7c7243bd9c15657ab94ee, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1336398902136664646, guid: dfcbd27b2fa7c7243bd9c15657ab94ee, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7175587735348633767, guid: dfcbd27b2fa7c7243bd9c15657ab94ee, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7175587735348633767, guid: dfcbd27b2fa7c7243bd9c15657ab94ee, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7175587735348633767, guid: dfcbd27b2fa7c7243bd9c15657ab94ee, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8931204599791610453, guid: dfcbd27b2fa7c7243bd9c15657ab94ee, type: 3}
-      propertyPath: m_Name
-      value: WipeEffect
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: dfcbd27b2fa7c7243bd9c15657ab94ee, type: 3}
 --- !u!1 &538425461
 GameObject:
   m_ObjectHideFlags: 0
@@ -627,7 +482,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FinalScoreController
   liquid: {fileID: 665509617}
   scoreHudAnimator: {fileID: 771950741}
-  wipeController: {fileID: 2063660543}
   mlDisplay: {fileID: 829729918}
   maxY: 3
   fillDuration: 5
@@ -1165,10 +1019,10 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.03147877
-    y: 0.03846154
-    width: 0.9370425
-    height: 0.9230769
+    x: 0
+    y: 0.055555556
+    width: 0.33333334
+    height: 0.3333333
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
@@ -1545,17 +1399,6 @@ SpriteMask:
   m_IsCustomRangeActive: 0
   m_SpriteSortPoint: 0
   m_MaskSource: 0
---- !u!114 &2063660543 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 859677747791415412, guid: dfcbd27b2fa7c7243bd9c15657ab94ee, type: 3}
-  m_PrefabInstance: {fileID: 418818418}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36348c054d706fe46918a857a64e9525, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::WipeController
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -1563,4 +1406,3 @@ SceneRoots:
   - {fileID: 1424951774}
   - {fileID: 829729917}
   - {fileID: 1147805892}
-  - {fileID: 418818418}

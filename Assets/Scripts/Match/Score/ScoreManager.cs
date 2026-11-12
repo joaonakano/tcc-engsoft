@@ -1,57 +1,89 @@
 using UnityEngine;
 
+/// <summary>Pontuação da partida. Reage a MatchEvents.Judged; não é chamado pelo HitManager.</summary>
 public class ScoreManager : MonoBehaviour
 {
-    public static ScoreManager Instance { get; private set; }
+    /// <summary>ScoreManager da cena atual.</summary>
+    public static ScoreManager Current { get; private set; }
 
-    [Header("Refer�ncias")]
+    [Header("Referencias")]
     [SerializeField] private ScoreDisplayController scoreDisplay;
 
-    [Header("Pontua��o")]
+    [Header("Pontuacao")]
     [SerializeField] private int perfectPoints = 5;
     [SerializeField] private int goodPoints = 2;
 
+    [Header("Estrelas")]
+    [Tooltip("Fração do score máximo para 1, 2 e 3 estrelas. Esta é a ÚNICA definição: a tela de resultado e a seleção de fase mostram o que for decidido aqui")]
+    [SerializeField] private float[] starThresholds = { 0.30f, 0.55f, 0.80f };
+
     public int CurrentScore { get; private set; }
-    public int MaxPossibleScore { get; private set; }
 
-    private void Awake()
+    /// <summary>Pontuação de uma partida perfeita (todas as notas no PERFECT).</summary>
+    public int MaxPossibleScore
     {
-        Instance = this;
+        get
+        {
+            var beatmap = SongManager.Current != null ? SongManager.Current.Beatmap : null;
+            return beatmap != null ? beatmap.NoteCount * perfectPoints : 0;
+        }
     }
 
-    private void Start()
+    private void Awake() => Current = this;
+
+    private void OnDestroy()
     {
-        CurrentScore = 0;
-        UpdateUI();
+        if (Current == this) Current = null;
     }
 
-    public void ConfigureForSong(int totalNotes)
+    private bool failed;
+
+    private void OnEnable()
     {
-        MaxPossibleScore = totalNotes * perfectPoints;
+        MatchEvents.Judged += OnJudged;
+        MatchEvents.Failed += OnFailed;
     }
 
-    public void AddScore(int amount)
+    private void OnFailed() => failed = true;
+    private void OnDisable()
     {
-        CurrentScore += amount;
-        UpdateUI();
+        MatchEvents.Judged -= OnJudged;
+        MatchEvents.Failed -= OnFailed;
     }
 
-    // e chamado quando termina a partida
+    private void Start() => RefreshDisplay();
+
+    private void RefreshDisplay()
+    {
+        if (scoreDisplay != null) scoreDisplay.UpdateScoreUI(CurrentScore);
+    }
+
+    private void OnJudged(Judgement judgement)
+    {
+        int points = judgement switch
+        {
+            Judgement.Perfect => perfectPoints,
+            Judgement.Good => goodPoints,
+            _ => 0
+        };
+
+        if (points == 0) return;
+
+        CurrentScore += points;
+        RefreshDisplay();
+    }
+
+    /// <summary>Chamado ao fim da partida: calcula estrelas e entrega o resultado ao GameSession.</summary>
     public void SaveResult()
     {
-        GameResult.Score = CurrentScore;
-        GameResult.MaxScore = MaxPossibleScore;
-    }
+        int max = MaxPossibleScore;
+        float percent = max > 0 ? (float)CurrentScore / max : 0f;
 
-    public int GetPerfectPoints() => perfectPoints;
-    public int GetGoodPoints() => goodPoints;
+        int stars = 0;
+        for (int i = 0; i < starThresholds.Length; i++)
+            if (percent >= starThresholds[i]) stars = i + 1;
 
-
-    private void UpdateUI()
-    {
-        if (scoreDisplay != null)
-        {
-            scoreDisplay.UpdateScoreUI(CurrentScore);
-        }
+        // Perdeu = 0 estrelas e nada é salvo, mesmo que a pontuação parcial alcançasse algum limiar
+        GameSession.SaveResult(CurrentScore, max, failed ? 0 : stars, failed);
     }
 }

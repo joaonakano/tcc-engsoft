@@ -1,40 +1,25 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.Video;
 
+/// <summary>Ao fim do v√≠deo de introdu√ß√£o, vai para o menu.</summary>
+[RequireComponent(typeof(VideoPlayer))]
 public class VideoSceneLoader : MonoBehaviour
 {
+    [SerializeField] private string nextScene = Scenes.Menu;
+
     private VideoPlayer videoPlayer;
 
-    [SerializeField]
-    private string menuSceneName = "MenuScene";
-
-    void Start()
+    private void Start()
     {
         videoPlayer = GetComponent<VideoPlayer>();
-
-        if (videoPlayer != null)
-        {
-            // Inscreve o mÈtodo no evento de fim de vÌdeo
-            videoPlayer.loopPointReached += OnVideoFinished;
-        }
-        else
-        {
-            Debug.LogError("Nenhum componente VideoPlayer encontrado neste GameObject!");
-        }
+        videoPlayer.loopPointReached += OnVideoFinished;
     }
 
-    // MÈtodo chamado automaticamente quando o vÌdeo acaba
-    private void OnVideoFinished(VideoPlayer vp)
-    {
-        SceneManager.LoadScene(menuSceneName);
-    }
+    private void OnVideoFinished(VideoPlayer vp) => SceneTransition.Load(nextScene);
 
-    void OnDestroy()
+    private void OnDestroy()
     {
         if (videoPlayer != null)
-        {
             videoPlayer.loopPointReached -= OnVideoFinished;
-        }
     }
 }

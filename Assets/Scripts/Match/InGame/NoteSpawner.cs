@@ -16,8 +16,12 @@ public class NoteSpawner : MonoBehaviour
     public SongManager songManager;
     public HitManager hitManager;
 
-    [Header("Frutas")]
+    [Header("Frutas (padrão, se o level não definir)")]
     public List<GameObject> notePrefabs = new();
+
+    private readonly List<GameObject> validPrefabs = new();
+    private float[] cumulativeWeights;   // soma acumulada dos pesos, alinhada com validPrefabs
+    private float totalWeight;
 
     [Header("Exaustores")]
     public Animator leftExaustorAnimator;
@@ -51,7 +55,7 @@ public class NoteSpawner : MonoBehaviour
     private static readonly int SpawnHash = Animator.StringToHash("spawn");
 
     private BeatmapAsset beatmap;
-    private readonly List<GameObject> validPrefabs = new();
+
     private readonly List<NoteController> active = new(32);
 
     private double[] spawnTimes;
@@ -62,6 +66,64 @@ public class NoteSpawner : MonoBehaviour
     // =========================================================
     // PRÉ-CARGA (chamada pelo GameManager antes do wipe abrir)
     // =========================================================
+    private void BuildPrefabTable()
+    {
+        validPrefabs.Clear();
+        var weights = new List<float>();
+
+        LevelData level = GameSession.Level;
+        bool useLevel = level != null && level.noteEntries != null && level.noteEntries.Count > 0;
+
+        if (useLevel)
+        {
+            foreach (NoteSpawnEntry e in level.noteEntries)
+            {
+                if (e == null || e.prefab == null || e.weight <= 0f) continue;
+                if (e.prefab.GetComponent<NoteController>() == null)
+                {
+                    Debug.LogWarning($"NoteSpawner: prefab '{e.prefab.name}' sem NoteController, ignorado.");
+                    continue;
+                }
+                validPrefabs.Add(e.prefab);
+                weights.Add(e.weight);
+            }
+        }
+
+        // Fallback: lista da cena, todos com o mesmo peso
+        if (validPrefabs.Count == 0)
+        {
+            foreach (GameObject p in notePrefabs)
+            {
+                if (p == null) continue;
+                if (p.GetComponent<NoteController>() == null)
+                {
+                    Debug.LogWarning($"NoteSpawner: prefab '{p.name}' sem NoteController, ignorado.");
+                    continue;
+                }
+                validPrefabs.Add(p);
+                weights.Add(1f);
+            }
+        }
+
+        cumulativeWeights = new float[weights.Count];
+        totalWeight = 0f;
+        for (int i = 0; i < weights.Count; i++)
+        {
+            totalWeight += weights[i];
+            cumulativeWeights[i] = totalWeight;
+        }
+    }
+
+    private GameObject PickPrefab()
+    {
+        if (validPrefabs.Count == 1) return validPrefabs[0];
+
+        float r = Random.value * totalWeight;
+        for (int i = 0; i < cumulativeWeights.Length; i++)
+            if (r < cumulativeWeights[i]) return validPrefabs[i];
+
+        return validPrefabs[validPrefabs.Count - 1]; // segurança contra arredondamento
+    }
 
     public IEnumerator PrepareRoutine()
     {
@@ -74,17 +136,7 @@ public class NoteSpawner : MonoBehaviour
             yield break;
         }
 
-        validPrefabs.Clear();
-        foreach (GameObject p in notePrefabs)
-        {
-            if (p == null) continue;
-            if (p.GetComponent<NoteController>() == null)
-            {
-                Debug.LogWarning($"NoteSpawner: prefab '{p.name}' sem NoteController, ignorado.");
-                continue;
-            }
-            validPrefabs.Add(p);
-        }
+        BuildPrefabTable();
 
         if (validPrefabs.Count == 0)
         {
@@ -126,9 +178,6 @@ public class NoteSpawner : MonoBehaviour
         if (hitManager != null)
             yield return StartCoroutine(hitManager.PrewarmRoutine(warmPos, warmupVisibleFrames));
 
-        if (ScoreManager.Instance != null)
-            ScoreManager.Instance.ConfigureForSong(n);
-
         nextSpawnIndex = 0;
         nextExhaustIndex = 0;
         active.Clear();
@@ -164,6 +213,10 @@ public class NoteSpawner : MonoBehaviour
 
         double songTime = songManager.GetSongTime();
         int count = beatmap.NoteCount;
+
+        // Frutas resolvidas pelo HitManager (cortadas/apodrecidas) saem da lista ANTES de novos spawns,
+        // para uma instância reaproveitada do pool nunca ficar duplicada.
+        active.RemoveAll(n => n == null || n.IsResolved());
 
         // Exaustor: dispara antes da fruta nascer
         while (nextExhaustIndex < count && songTime >= exhaustTimes[nextExhaustIndex])
@@ -215,7 +268,7 @@ public class NoteSpawner : MonoBehaviour
 
     private void SpawnNote(int index, double songTime, double songBeat)
     {
-        GameObject prefab = validPrefabs[Random.Range(0, validPrefabs.Count)];
+        GameObject prefab = PickPrefab();
         LaneType lane = beatmap.LaneOf(index);
         float x = lane == LaneType.Left ? spawnXLeft : spawnXRight;
 
@@ -236,14 +289,5 @@ public class NoteSpawner : MonoBehaviour
 
         if (hitManager != null)
             hitManager.RegisterNote(controller, lane);
-    }
-
-    /// <summary>Chamado pelo HitManager quando a fruta foi cortada ou apodreceu.</summary>
-    public void Despawn(NoteController note)
-    {
-        if (note == null) return;
-
-        active.Remove(note);
-        PoolService.Release(note.gameObject);
     }
 }

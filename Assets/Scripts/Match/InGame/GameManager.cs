@@ -1,66 +1,40 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
+/// <summary>
+/// Orquestra a partida: prepara tudo com a tela coberta, começa a música quando a tela abre
+/// e leva para o Score quando a música acaba.
+/// </summary>
 public class GameManager : MonoBehaviour
 {
     [Header("Referências")]
-    [SerializeField] private WipeController _wipeController;
     [SerializeField] private InGameMenuController _menuController;
-    [SerializeField] private CursorManager _cursorManager;
-    [SerializeField] private string nextSceneName = "G01";
     [SerializeField] private SongManager songManager;
     [SerializeField] private NoteSpawner noteSpawner;
 
     [Header("Configurações")]
-    [Tooltip("Espera extra depois da pré-carga, antes do wipe abrir")]
-    [SerializeField]
-    private float startDelay = 0.5f;
+    [SerializeField] private TransitionType transitionType = TransitionType.Loading;
+    [Tooltip("Espera extra depois da tela abrir, antes de a música começar")]
+    [SerializeField] private float startDelay = 0.5f;
 
-    private bool matchEnded = false;
+    private bool matchEnded;
 
     private void Start()
     {
-        if (songManager == null) Debug.LogError("GameManager: SongManager não foi configurado.");
-        if (noteSpawner == null) Debug.LogError("GameManager: NoteSpawner não foi configurado.");
-        if (_wipeController == null) Debug.LogError("GameManager: WipeController não foi configurado.");
-        if (_menuController == null) Debug.LogError("GameManager: InGameMenuController não foi configurado.");
-        if (_cursorManager == null) Debug.LogError("GameManager: CursorManager não foi configurado.");
-
-        _cursorManager.HabilitarCursor(false);
-
+        GameCursor.Show(false);
         StartCoroutine(StartMatchSequence());
     }
 
     private void Update()
     {
-        if (matchEnded) return;
-
-        if (songManager != null && songManager.HasFinished)
-        {
+        if (!matchEnded && songManager.HasFinished)
             EndMatch();
-        }
-    }
-
-    private void EndMatch()
-    {
-        matchEnded = true;
-
-        ScoreManager.Instance.SaveResult();
-        _wipeController.StartWipeIn(OnMatchEnded);
     }
 
     private IEnumerator StartMatchSequence()
     {
-        // 1) PRÉ-CARGA: clip na memória, notas pré-calculadas, pools aquecidos.
-        //    Tudo isso acontece com a tela ainda coberta, ANTES da música existir.
-        yield return StartCoroutine(songManager.PrepareRoutine());
-        yield return StartCoroutine(noteSpawner.PrepareRoutine());
-
-        // 2) Limpa o lixo da pré-carga agora, para o GC não rodar no meio da música
-        yield return null;
-        System.GC.Collect();
-        yield return null;
+        // 1) A pré-carga conta como "loading": a tinta só sai quando ela termina
+        yield return SceneTransition.Track(PrepareMatch());
 
         if (!songManager.IsReady || !noteSpawner.IsReady)
         {
@@ -68,24 +42,31 @@ public class GameManager : MonoBehaviour
             yield break;
         }
 
+        // 2) Espera a tela abrir por completo
+        yield return SceneTransition.WaitForIdle();
         yield return new WaitForSeconds(startDelay);
 
-        // 3) A música só começa quando a tela abre (songDelay do SongManager vira o "ready, set, go")
-        _wipeController.StartWipeOut(() =>
-        {
-            _menuController.Liberar();
-            songManager.StartSong();
-            OnMatchStarted();
-        });
+        // 3) A música só começa agora (songDelay do SongManager vira o "ready, set, go")
+        _menuController.Liberar();
+        songManager.StartSong();
     }
 
-    public void OnMatchStarted()
+    private IEnumerator PrepareMatch()
     {
-        Debug.Log("MATCH STARTED");
+        // clip na memória, notas pré-calculadas, pools aquecidos
+        yield return songManager.PrepareRoutine();
+        yield return noteSpawner.PrepareRoutine();
+
+        // Limpa o lixo da pré-carga agora, para o GC não rodar no meio da música
+        yield return null;
+        System.GC.Collect();
+        yield return null;
     }
 
-    public void OnMatchEnded()
+    private void EndMatch()
     {
-        SceneManager.LoadScene(nextSceneName);
+        matchEnded = true;
+        ScoreManager.Current.SaveResult();
+        SceneTransition.Load(Scenes.Score, transitionType);
     }
 }

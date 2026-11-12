@@ -1,67 +1,52 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.SceneManagement;
 
+/// <summary>Menu de pausa da partida.</summary>
 public class InGameMenuController : MonoBehaviour
 {
-    [Header("ReferÍncias")]
+    [Header("Referencias")]
     [SerializeField] private Animator _menuAnimator;
     [SerializeField] private Animator _settingsAnimator;
-    [SerializeField] private WipeController _wipeController;
-    [SerializeField] private string _menuSceneName = "M01";
-    [SerializeField] private CursorManager _cursorManager;
     [SerializeField] private AudioSource _backgroundAudioSource;
     [SerializeField] private GrayscaleFilter _filter;
+    public SongManager _songManager;
 
+    [Header("SFX")]
     [SerializeField] private AudioClip firstMenuClip;
     [SerializeField] private AudioClip secondMenuClip;
 
-    public SongManager _songManager;
-
-    private bool _isMenuOpen = false;
-    private bool _menuLiberado = false;
+    [Header("Navega√ß√£o")]
+    [SerializeField] private TransitionType transitionType = TransitionType.Loading;
 
     private static readonly int IsOpenHash = Animator.StringToHash("IsOpen");
-    private bool _isSettingsOpen = false;
 
+    private bool _isMenuOpen;
+    private bool _isSettingsOpen;
+    private bool _menuLiberado;
+
+    private void Start() => Audio.RegisterMusic(_backgroundAudioSource);
+
+    /// <summary>Chamado pelo GameManager quando a partida come√ßa (antes disso o menu n√£o abre).</summary>
     public void Liberar() => _menuLiberado = true;
 
-    private void Start()
-    {
-        if (_menuAnimator == null)
-            Debug.LogError("Menu Animator n„o foi configurado no InGameMenuController.");
-        if (_songManager == null)
-            Debug.LogError("SongManager n„o foi configurado no InGameMenuController.");
-        if (_wipeController == null)
-            Debug.LogError("WipeController n„o foi configurado no InGameMenuController.");
-        if (_cursorManager == null)
-            Debug.LogError("CursorManager n„o foi configurado no InGameMenuController.");
-    }
-
+    // Ligado ao input de pausa
     public void AbrirMenu(InputAction.CallbackContext context)
     {
-        if (!context.performed) return;
-        if (_wipeController.IsTransitioning) return;
+        if (!context.performed || SceneTransition.IsBusy) return;
 
-        if (_isMenuOpen)
-            FecharMenu();
-        else
-            AbrirMenuInterno();
+        if (_isMenuOpen) FecharMenu();
+        else AbrirMenuInterno();
     }
 
     private void AbrirMenuInterno()
     {
-        if (!_menuLiberado) return;
-        if (_songManager == null || _menuAnimator == null) return;
-        if (!_songManager.CanPause) return;
+        if (!_menuLiberado || !_songManager.CanPause) return;
 
-        _filter?.Show();
-
+        if (_filter != null) _filter.Show();
         _songManager.PauseSong();
-        _cursorManager.HabilitarCursor(true);
+        GameCursor.Show(true);
         _backgroundAudioSource.Play();
-
-        SFXManager.Instance?.PlaySFX(firstMenuClip);
+        Audio.PlaySfx(firstMenuClip);
 
         _menuAnimator.ResetTrigger("MenuClosing");
         _menuAnimator.SetTrigger("MenuOpening");
@@ -70,53 +55,35 @@ public class InGameMenuController : MonoBehaviour
 
     public void FecharMenu()
     {
-        if (!_isMenuOpen || _songManager == null || _menuAnimator == null) return;
-        if (_wipeController.IsTransitioning) return;
+        if (!_isMenuOpen || SceneTransition.IsBusy) return;
 
-        _filter?.Hide();
-
-        _cursorManager.HabilitarCursor(false);
+        if (_filter != null) _filter.Hide();
+        GameCursor.Show(false);
         _backgroundAudioSource.Stop();
-
-        SFXManager.Instance?.PlaySFX(firstMenuClip);
+        Audio.PlaySfx(firstMenuClip);
 
         _menuAnimator.ResetTrigger("MenuOpening");
         _menuAnimator.SetTrigger("MenuClosing");
         _isMenuOpen = false;
 
         SetSettingsOpen(false);
-
         _songManager.UnpauseSong();
     }
 
-    public void RestartarLevel()
-    {
-        _wipeController.StartWipeIn(() =>
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        });
-        
-    }
+    public void RestartarLevel() => GameSession.Retry(transitionType);
 
-    public void VoltarMenuInicial()
-    {
-        _wipeController.StartWipeIn(() =>
-        {
-            SceneManager.LoadScene(_menuSceneName);
-        });
-    }
+    public void VoltarMenuInicial() => SceneTransition.Load(Scenes.Menu, transitionType);
 
     public void AbrirSettings()
     {
         if (_settingsAnimator == null) return;
-        SFXManager.Instance?.PlaySFX(secondMenuClip);
+        Audio.PlaySfx(secondMenuClip);
         SetSettingsOpen(!_isSettingsOpen);
     }
 
     private void SetSettingsOpen(bool open)
     {
-        if (_settingsAnimator == null) return;
-        if (_isSettingsOpen == open) return;          // nada mudou, n„o mexe no Animator
+        if (_settingsAnimator == null || _isSettingsOpen == open) return;
 
         _isSettingsOpen = open;
         _settingsAnimator.SetBool(IsOpenHash, open);

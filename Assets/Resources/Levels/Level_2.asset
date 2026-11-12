@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1b2c3d4e5f60718293a4b5c6d7e8f90, type: 3}
+  m_Name: Level_2
+  m_EditorClassIdentifier: 
+  id: Level_2
+  displayName: Chess
+  beatmap: {fileID: 11400000, guid: 7de02562c57e74ccc9510ed7070af013, type: 2}
+  theme: {fileID: 11400000, guid: eb449835fa889fb4ab18cc0f455b3d95, type: 2}
+  noteEntries:
+  - prefab: {fileID: 2281683776329374312, guid: bf8449d2e45bb1149b61198fe2b0a641, type: 3}
+    weight: 90
+  - prefab: {fileID: 3067606317898309313, guid: c8ff2f62728ca4c4bb29c66468d1df5c, type: 3}
+    weight: 10
+  - prefab: {fileID: 2281683776329374312, guid: 3e309ec948d9fb0498470f9994b5f31a, type: 3}
+    weight: 1

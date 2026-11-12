@@ -1,32 +1,52 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
+/// <summary>Dispara triggers de vários Animators, cada um com seu delay (ex.: bordas e botões do menu).</summary>
 public class AnimationManager : MonoBehaviour
 {
-    [Header("Referencias")]
-    [SerializeField] private Animator[] _animators;
-    [SerializeField] private float _animationDelay = 0.5f;
-
-    private void Start()
+    [Serializable]
+    public class AnimationEntry
     {
-        if (_animators == null || _animators.Length == 0)
-            Debug.LogError("AnimationManager: Animators n�o foram configurados.");
+        public string id;                      // ex: "Borders", "MenuButtons"
+        public Animator animator;
+        public string triggerName = "Start";
+        public float delay = 0f;               // segundos até disparar
     }
 
-    private IEnumerator PlayAnimationCoroutine()
+    [SerializeField] private AnimationEntry[] _animations;
+
+    /// <summary>Dispara todas respeitando cada delay.</summary>
+    public void PlayAll()
     {
-        yield return new WaitForSeconds(_animationDelay);
-        PlayStartAnimation();
+        foreach (var entry in _animations)
+            StartCoroutine(PlayAfterDelay(entry));
     }
 
-    public void PlayStartAnimation()
+    /// <summary>Dispara uma pelo id, com o delay configurado.</summary>
+    public void Play(string id)
     {
-        foreach (var animator in _animators)
-        {
-            if (animator != null)
-            {
-                animator.SetTrigger("Start");
-            }
-        }
+        var entry = Find(id);
+        if (entry != null) StartCoroutine(PlayAfterDelay(entry));
+    }
+
+    private IEnumerator PlayAfterDelay(AnimationEntry entry)
+    {
+        if (entry.delay > 0f)
+            yield return new WaitForSeconds(entry.delay);
+
+        if (entry.animator == null)
+            Debug.LogWarning($"AnimationManager: animator nulo em '{entry.id}'.", this);
+        else
+            entry.animator.SetTrigger(entry.triggerName);
+    }
+
+    private AnimationEntry Find(string id)
+    {
+        foreach (var entry in _animations)
+            if (entry.id == id) return entry;
+
+        Debug.LogWarning($"AnimationManager: id '{id}' não encontrado.", this);
+        return null;
     }
 }

@@ -2,7 +2,7 @@ using UnityEngine;
 
 /// <summary>
 /// Mesmos campos serializados de antes (as referências no prefab continuam valendo).
-/// Mudanças: volta ao pool em vez de Destroy, e não faz FindFirstObjectByType a cada corte.
+/// Mudanças: volta ao pool em vez de Destroy.
 /// </summary>
 public class SlicedFruit : MonoBehaviour
 {
@@ -33,7 +33,7 @@ public class SlicedFruit : MonoBehaviour
     public void Initialize()
     {
         if (songManager == null)
-            songManager = FindFirstObjectByType<SongManager>(); // só na 1ª vez; a instância é reutilizada
+            songManager = SongManager.Current;
 
         // --- Metade Esquerda ---
         float forceXLeft = Random.Range(minHorizontalForce, maxHorizontalForce);
