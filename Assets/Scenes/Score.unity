@@ -1240,6 +1240,7 @@ GameObject:
   - component: {fileID: 1804143581}
   - component: {fileID: 1804143580}
   - component: {fileID: 1804143579}
+  - component: {fileID: 1804143582}
   m_Layer: 5
   m_Name: Replay
   m_TagString: Untagged
@@ -1360,6 +1361,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1804143577}
   m_CullTransparentMesh: 1
+--- !u!114 &1804143582
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1804143577}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38b505374bab0f64e8fe08ce63c162a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ButtonAutoDeselect
 --- !u!1 &1948979665
 GameObject:
   m_ObjectHideFlags: 0
@@ -1523,6 +1536,7 @@ GameObject:
   - component: {fileID: 2019946861}
   - component: {fileID: 2019946860}
   - component: {fileID: 2019946859}
+  - component: {fileID: 2019946862}
   m_Layer: 5
   m_Name: Advance
   m_TagString: Untagged
@@ -1643,6 +1657,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2019946857}
   m_CullTransparentMesh: 1
+--- !u!114 &2019946862
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2019946857}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38b505374bab0f64e8fe08ce63c162a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ButtonAutoDeselect
 --- !u!1 &2035127150
 GameObject:
   m_ObjectHideFlags: 0
@@ -1770,7 +1796,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: f9c857c3b241d31408a62cf818e39274, type: 3}
+  m_Resource: {fileID: 8300000, guid: 400272af6df3bde4f9331b75f9dc63d3, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1

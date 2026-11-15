@@ -18,6 +18,7 @@ public class SettingsTabs : MonoBehaviour
         public GameObject selectedMarker;
     }
 
+    [SerializeField] private AudioClip changeTabSfx;
     [SerializeField] private Tab[] tabs;
     [SerializeField] private int startIndex = 0;
 
@@ -44,6 +45,9 @@ public class SettingsTabs : MonoBehaviour
     {
         if (index < 0 || index >= tabs.Length) return;
 
+        // Só toca o som quando o jogador troca de aba (não na seleção inicial)
+        bool playSfx = Current != -1;
+
         for (int i = 0; i < tabs.Length; i++)
         {
             bool on = i == index;
@@ -52,5 +56,6 @@ public class SettingsTabs : MonoBehaviour
         }
 
         Current = index;
+        if (playSfx) Audio.PlaySfx(changeTabSfx);
     }
 }

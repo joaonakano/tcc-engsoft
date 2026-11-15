@@ -120,6 +120,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -128,7 +141,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
+        y: 288
         width: 48
         height: 48
       alignment: 0
@@ -150,7 +163,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 48
-        y: 0
+        y: 288
         width: 48
         height: 48
       alignment: 0
@@ -172,7 +185,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 96
-        y: 0
+        y: 288
         width: 48
         height: 48
       alignment: 0
@@ -194,7 +207,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 144
-        y: 0
+        y: 288
         width: 48
         height: 48
       alignment: 0
@@ -216,7 +229,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 192
-        y: 0
+        y: 288
         width: 48
         height: 48
       alignment: 0
@@ -238,7 +251,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 240
-        y: 0
+        y: 288
         width: 48
         height: 48
       alignment: 0
@@ -260,7 +273,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 288
-        y: 0
+        y: 288
         width: 48
         height: 48
       alignment: 0
@@ -282,7 +295,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 336
-        y: 0
+        y: 288
         width: 48
         height: 48
       alignment: 0
@@ -304,7 +317,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 384
-        y: 0
+        y: 288
         width: 48
         height: 48
       alignment: 0
@@ -325,8 +338,8 @@ TextureImporter:
       name: fruit-animation_9
       rect:
         serializedVersion: 2
-        x: 432
-        y: 0
+        x: 0
+        y: 240
         width: 48
         height: 48
       alignment: 0
@@ -347,8 +360,8 @@ TextureImporter:
       name: fruit-animation_10
       rect:
         serializedVersion: 2
-        x: 480
-        y: 0
+        x: 48
+        y: 240
         width: 48
         height: 48
       alignment: 0
@@ -369,8 +382,8 @@ TextureImporter:
       name: fruit-animation_11
       rect:
         serializedVersion: 2
-        x: 528
-        y: 0
+        x: 96
+        y: 240
         width: 48
         height: 48
       alignment: 0
@@ -391,8 +404,8 @@ TextureImporter:
       name: fruit-animation_12
       rect:
         serializedVersion: 2
-        x: 576
-        y: 0
+        x: 144
+        y: 240
         width: 48
         height: 48
       alignment: 0
@@ -413,8 +426,8 @@ TextureImporter:
       name: fruit-animation_13
       rect:
         serializedVersion: 2
-        x: 624
-        y: 0
+        x: 192
+        y: 240
         width: 48
         height: 48
       alignment: 0
@@ -435,8 +448,8 @@ TextureImporter:
       name: fruit-animation_14
       rect:
         serializedVersion: 2
-        x: 672
-        y: 0
+        x: 240
+        y: 240
         width: 48
         height: 48
       alignment: 0
@@ -457,8 +470,8 @@ TextureImporter:
       name: fruit-animation_15
       rect:
         serializedVersion: 2
-        x: 720
-        y: 0
+        x: 288
+        y: 240
         width: 48
         height: 48
       alignment: 0
@@ -479,8 +492,8 @@ TextureImporter:
       name: fruit-animation_16
       rect:
         serializedVersion: 2
-        x: 768
-        y: 0
+        x: 336
+        y: 240
         width: 48
         height: 48
       alignment: 0
@@ -501,8 +514,8 @@ TextureImporter:
       name: fruit-animation_17
       rect:
         serializedVersion: 2
-        x: 816
-        y: 0
+        x: 384
+        y: 240
         width: 48
         height: 48
       alignment: 0
@@ -523,8 +536,8 @@ TextureImporter:
       name: fruit-animation_18
       rect:
         serializedVersion: 2
-        x: 864
-        y: 0
+        x: 0
+        y: 192
         width: 48
         height: 48
       alignment: 0
@@ -545,8 +558,8 @@ TextureImporter:
       name: fruit-animation_19
       rect:
         serializedVersion: 2
-        x: 912
-        y: 0
+        x: 48
+        y: 192
         width: 48
         height: 48
       alignment: 0
@@ -567,8 +580,8 @@ TextureImporter:
       name: fruit-animation_20
       rect:
         serializedVersion: 2
-        x: 960
-        y: 0
+        x: 96
+        y: 192
         width: 48
         height: 48
       alignment: 0
@@ -589,8 +602,8 @@ TextureImporter:
       name: fruit-animation_21
       rect:
         serializedVersion: 2
-        x: 1008
-        y: 0
+        x: 144
+        y: 192
         width: 48
         height: 48
       alignment: 0
@@ -611,8 +624,8 @@ TextureImporter:
       name: fruit-animation_22
       rect:
         serializedVersion: 2
-        x: 1056
-        y: 0
+        x: 192
+        y: 192
         width: 48
         height: 48
       alignment: 0
@@ -633,8 +646,8 @@ TextureImporter:
       name: fruit-animation_23
       rect:
         serializedVersion: 2
-        x: 1104
-        y: 0
+        x: 240
+        y: 192
         width: 48
         height: 48
       alignment: 0
@@ -655,8 +668,8 @@ TextureImporter:
       name: fruit-animation_24
       rect:
         serializedVersion: 2
-        x: 1152
-        y: 0
+        x: 288
+        y: 192
         width: 48
         height: 48
       alignment: 0
@@ -677,8 +690,8 @@ TextureImporter:
       name: fruit-animation_25
       rect:
         serializedVersion: 2
-        x: 1200
-        y: 0
+        x: 336
+        y: 192
         width: 48
         height: 48
       alignment: 0
@@ -699,8 +712,8 @@ TextureImporter:
       name: fruit-animation_26
       rect:
         serializedVersion: 2
-        x: 1248
-        y: 0
+        x: 0
+        y: 144
         width: 48
         height: 48
       alignment: 0
@@ -721,8 +734,8 @@ TextureImporter:
       name: fruit-animation_27
       rect:
         serializedVersion: 2
-        x: 1296
-        y: 0
+        x: 48
+        y: 144
         width: 48
         height: 48
       alignment: 0
@@ -743,8 +756,8 @@ TextureImporter:
       name: fruit-animation_28
       rect:
         serializedVersion: 2
-        x: 1344
-        y: 0
+        x: 96
+        y: 144
         width: 48
         height: 48
       alignment: 0
@@ -765,8 +778,8 @@ TextureImporter:
       name: fruit-animation_29
       rect:
         serializedVersion: 2
-        x: 1392
-        y: 0
+        x: 144
+        y: 144
         width: 48
         height: 48
       alignment: 0
@@ -779,6 +792,468 @@ TextureImporter:
       bones: []
       spriteID: b8b2ca4767199c747a4b906cbec33945
       internalID: 356725361
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fruit-animation_30
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 144
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 290654a2f4581d54091baab64edf5543
+      internalID: -1526830247
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fruit-animation_31
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 96
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 853c163a823492245b6fddacc0ab7b39
+      internalID: 366989293
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fruit-animation_32
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 96
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da7dc195439083649ab7bd9a5bd7a748
+      internalID: 514466821
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fruit-animation_33
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 96
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 411a94a489b99a945b96e59bc25d07cf
+      internalID: 1742073385
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fruit-animation_34
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 96
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89348aaa5b593b047a49f2955d5eebfb
+      internalID: -18202909
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fruit-animation_35
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 96
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57adfb2a9157af14281d0330b9045493
+      internalID: 1145842649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fruit-animation_36
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 48
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69b17dd55e34e8f4a97a16b7b207cda1
+      internalID: -1980761526
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fruit-animation_37
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 48
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 243a55c0353dba54ab7f185cc2d537d2
+      internalID: -1773734993
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fruit-animation_38
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 48
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20d415b8005537c429873b484845b2d1
+      internalID: 1404456516
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fruit-animation_39
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 48
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9aba8d9627fdc934681f2ccc1010854c
+      internalID: 438112152
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fruit-animation_40
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 48
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7703b065341a03a429ba9b360d7adddc
+      internalID: -1326807134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fruit-animation_41
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 48
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4027155799086fa4d878d5ff4ddc0dba
+      internalID: -1412545760
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fruit-animation_42
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 48
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ebf13a79c3fd3240bdfd82a847af6c6
+      internalID: 601767219
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fruit-animation_43
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 48
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15141bbfb2824b34a815f0ada6fa38ae
+      internalID: -662194354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fruit-animation_44
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e13b551c6ad1f274292197c85d3bf3a6
+      internalID: -1962180769
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fruit-animation_45
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 0
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f0c78c4e40e38dd418eb6877c14b3517
+      internalID: -1650063410
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fruit-animation_46
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f0f635f61a00be4ea9bed92173ab480
+      internalID: 1953958298
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fruit-animation_47
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 0
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b5e8286a0aaec64b8c76573b2052c7a
+      internalID: -1570559324
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fruit-animation_48
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89f47b25f083d454cb433eeb4e73f208
+      internalID: -2057759121
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fruit-animation_49
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 0
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e84be0fbbd32e5a408868e93fba1203c
+      internalID: 595151178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fruit-animation_50
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 0
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8bba9ee30639acf4787ca96a6478b451
+      internalID: 1701129749
       vertices: []
       indices: 
       edges: []
@@ -797,7 +1272,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries:
       - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":48.0,"y":48.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":48.0,"y":48.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":1,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       fruit-animation_0: 4218361647312874373
       fruit-animation_1: 5138285525729069685
@@ -823,8 +1298,29 @@ TextureImporter:
       fruit-animation_28: 434552311
       fruit-animation_29: 356725361
       fruit-animation_3: -921380199029978223
+      fruit-animation_30: -1526830247
+      fruit-animation_31: 366989293
+      fruit-animation_32: 514466821
+      fruit-animation_33: 1742073385
+      fruit-animation_34: -18202909
+      fruit-animation_35: 1145842649
+      fruit-animation_36: -1980761526
+      fruit-animation_37: -1773734993
+      fruit-animation_38: 1404456516
+      fruit-animation_39: 438112152
       fruit-animation_4: -651115117609081943
+      fruit-animation_40: -1326807134
+      fruit-animation_41: -1412545760
+      fruit-animation_42: 601767219
+      fruit-animation_43: -662194354
+      fruit-animation_44: -1962180769
+      fruit-animation_45: -1650063410
+      fruit-animation_46: 1953958298
+      fruit-animation_47: -1570559324
+      fruit-animation_48: -2057759121
+      fruit-animation_49: 595151178
       fruit-animation_5: 8221698973049596460
+      fruit-animation_50: 1701129749
       fruit-animation_6: 1496178885053335877
       fruit-animation_7: 7588741735987877976
       fruit-animation_8: -8759556936258199569
