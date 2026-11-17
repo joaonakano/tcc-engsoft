@@ -26,12 +26,23 @@ public static class ArduinoPortFinder
     /// </summary>
     public static List<string> GetCandidates(string preferred)
     {
-        string[] all;
-        try { all = SerialPort.GetPortNames(); }
-        catch (Exception) { return new List<string>(); }
+        var all = new List<string>();
+        try { all.AddRange(SerialPort.GetPortNames()); }
+        catch (Exception) { }
 
         bool windows = Application.platform == RuntimePlatform.WindowsEditor
                     || Application.platform == RuntimePlatform.WindowsPlayer;
+        bool mac = Application.platform == RuntimePlatform.OSXEditor
+                || Application.platform == RuntimePlatform.OSXPlayer;
+
+        if (mac)
+        {
+            // O GetPortNames do Mono no Mac só devolve /dev/tty.* (nunca /dev/cu.*), então lista /dev/cu.* direto.
+            // No Mac deve-se abrir o cu.*: o tty.* fica bloqueado esperando o sinal DCD.
+            try { all.AddRange(System.IO.Directory.GetFiles("/dev", "cu.*")); }
+            catch (Exception) { }
+            all = all.Select(p => p.StartsWith("/dev/tty.", StringComparison.Ordinal) ? "/dev/cu." + p.Substring(9) : p).ToList();
+        }
 
         // Windows: só existe COMx, então testa todas. Mac/Linux: só portas USB (ignora Bluetooth, debug-console...)
         IEnumerable<string> list = windows
