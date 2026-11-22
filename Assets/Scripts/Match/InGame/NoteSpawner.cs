@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public enum ScrollMode
 {
@@ -33,16 +34,17 @@ public class NoteSpawner : MonoBehaviour
     public ScrollMode scrollMode = ScrollMode.ConstantTime;
     [Tooltip("Altura onde a fruta nasce")]
     public float spawnY = 6f;
-    [Tooltip("Y DESTINO: onde a fruta esta no momento exato do PERFECT")]
-    public float targetY = -3f;
+    [Tooltip("Y do HIT: onde o CENTRO da fruta está no instante exato da nota (o beat da música). É aqui que o golpe deve parecer acertar.")]
+    [FormerlySerializedAs("targetY")]
+    public float hitY = -3f;
+    [Tooltip("Y FINAL: até onde a fruta pode cair. Passando do hit ela segue na mesma velocidade e para aqui (se estiver abaixo do hit, na prática nunca para). Use um valor ACIMA de hitY para a fruta travar antes.")]
+    public float endY = -6f;
     public float spawnXLeft = -3.76f;
     public float spawnXRight = 1.83f;
-    [Tooltip("ConstantTime: tempo (s) de spawnY até targetY")]
+    [Tooltip("ConstantTime: tempo (s) de spawnY até hitY")]
     public float fallDuration = 0.4f;
-    [Tooltip("BeatScaled: quantos beats a fruta leva de spawnY até targetY")]
+    [Tooltip("BeatScaled: quantos beats a fruta leva de spawnY até hitY")]
     public float fallBeats = 1f;
-    [Tooltip("Depois de passar do alvo a fruta segue caindo até ser marcada como erro (em vez de parar no alvo)")]
-    public bool continueFallingPastTarget = true;
 
     [Header("Pré-carga")]
     [Tooltip("Frames em que cada instância fica visível durante o prewarm (sobe sprites/shaders pra GPU). Faça com a tela coberta pelo wipe. 0 = desliga.")]
@@ -249,14 +251,42 @@ public class NoteSpawner : MonoBehaviour
 
     private float ComputeY(NoteController note, double songTime, double songBeat)
     {
-        float t = scrollMode == ScrollMode.ConstantTime
-            ? (float)((note.TargetTime - songTime) / fallDuration)
-            : (float)((note.TargetBeat - songBeat) / fallBeats);
+        return YFromProgress(ProgressOf(note.TargetTime, note.TargetBeat, songTime, songBeat));
+    }
 
-        // t = 1 -> spawnY, t = 0 -> targetY, t < 0 -> já passou do alvo
-        if (!continueFallingPastTarget && t < 0f) t = 0f;
+    // t = 1 -> spawnY, t = 0 -> hitY, t < 0 -> já passou do hit
+    private float ProgressOf(double targetTime, double targetBeat, double songTime, double songBeat)
+    {
+        return scrollMode == ScrollMode.ConstantTime
+            ? (float)((targetTime - songTime) / fallDuration)
+            : (float)((targetBeat - songBeat) / fallBeats);
+    }
 
-        return targetY + (spawnY - targetY) * t;
+    private float YFromProgress(float t)
+    {
+        float y = hitY + (spawnY - hitY) * t;
+        if (t < 0f) y = Mathf.Max(y, Mathf.Min(endY, hitY)); // para no Y final
+        return y;
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        float xl = Mathf.Min(spawnXLeft, spawnXRight) - 1f;
+        float xr = Mathf.Max(spawnXLeft, spawnXRight) + 1f;
+
+        DrawLine(spawnY, xl, xr, Color.cyan);
+        DrawLine(hitY, xl, xr, Color.green);
+        DrawLine(Mathf.Min(endY, hitY), xl, xr, Color.red);
+
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(new Vector3(spawnXLeft, hitY, 0f), 0.3f);
+        Gizmos.DrawWireSphere(new Vector3(spawnXRight, hitY, 0f), 0.3f);
+    }
+
+    private static void DrawLine(float y, float xl, float xr, Color c)
+    {
+        Gizmos.color = c;
+        Gizmos.DrawLine(new Vector3(xl, y, 0f), new Vector3(xr, y, 0f));
     }
 
     private void TriggerExhaust(LaneType lane)
@@ -276,10 +306,7 @@ public class NoteSpawner : MonoBehaviour
         double targetBeat = beatmap.noteBeats[index];
 
         // Já nasce na posição correta (mesmo se o frame atrasou), sem "pulo" no primeiro frame
-        float t = scrollMode == ScrollMode.ConstantTime
-            ? (float)((targetTime - songTime) / fallDuration)
-            : (float)((targetBeat - songBeat) / fallBeats);
-        float y = targetY + (spawnY - targetY) * t;
+        float y = YFromProgress(ProgressOf(targetTime, targetBeat, songTime, songBeat));
 
         GameObject obj = PoolService.Spawn(prefab, new Vector3(x, y, 0f), Quaternion.identity);
         NoteController controller = obj.GetComponent<NoteController>();

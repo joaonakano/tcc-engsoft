@@ -21,11 +21,13 @@ public class HitManager : MonoBehaviour
     public InputActionReference rightActionRef;
     [SerializeField] private ArduinoUSBInput usbInput;
 
-    [Header("Timing (segundos, relativo ao momento em que a fruta chega no Y destino)")]
-    [Tooltip("PERFECT: fruta no Y destino +- esse valor")]
-    public float perfectWindow = 0.05f;
-    [Tooltip("GOOD: ate esse valor antes/depois do destino")]
-    public float goodWindow = 0.12f;
+    [Header("Timing (segundos, relativo ao instante da nota = fruta no Hit Y do NoteSpawner)")]
+    [Tooltip("PERFECT: até esse valor ANTES de o centro da fruta chegar no Hit Y")]
+    public float perfectEarlyWindow = 0.07f;
+    [Tooltip("PERFECT: até esse valor DEPOIS de o centro da fruta chegar no Hit Y")]
+    public float perfectLateWindow = 0.07f;
+    [Tooltip("GOOD: ate esse valor antes/depois do instante da nota")]
+    public float goodWindow = 0.15f;
     [Tooltip("Golpe mais cedo que goodWindow, mas dentro disso = erro de precipitacao. Mais cedo ainda = ignorado")]
     public float earlyWindow = 0.30f;
     [Tooltip("Calibração de latência de SAÍDA de áudio/tela (+ = considera o golpe mais tarde). A latência do INPUT do teclado já é compensada automaticamente.")]
@@ -185,7 +187,7 @@ public class HitManager : MonoBehaviour
         queue.Dequeue();
 
         if (error < -goodWindow) Resolve(note, Judgement.Early);
-        else if (System.Math.Abs(error) <= perfectWindow) Resolve(note, Judgement.Perfect);
+        else if (error >= -perfectEarlyWindow && error <= perfectLateWindow) Resolve(note, Judgement.Perfect);
         else Resolve(note, Judgement.Good);
     }
 

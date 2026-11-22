@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6a957ae5cbb3e469694e3c6e7b23ba10, type: 3}
-  m_Name: whatsapp_Beatmap
+  m_Name: ost-003-whatsapp_Beatmap
   m_EditorClassIdentifier: Assembly-CSharp::BeatmapAsset
-  songTitle: whatsapp
+  songTitle: ost-003-whatsapp
   clip: {fileID: 8300000, guid: 0326367628f616e4db122724ddc9c603, type: 3}
   songOffset: 0
   noteTimes:

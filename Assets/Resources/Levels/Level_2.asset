@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: Level_2
   displayName: Chess
-  beatmap: {fileID: 11400000, guid: 7de02562c57e74ccc9510ed7070af013, type: 2}
+  beatmap: {fileID: 11400000, guid: 7cd07657a025fd348aea8e935547b73e, type: 2}
   theme: {fileID: 11400000, guid: eb449835fa889fb4ab18cc0f455b3d95, type: 2}
   noteEntries:
   - prefab: {fileID: 2281683776329374312, guid: bf8449d2e45bb1149b61198fe2b0a641, type: 3}
@@ -23,3 +23,6 @@ MonoBehaviour:
     weight: 10
   - prefab: {fileID: 2281683776329374312, guid: 3e309ec948d9fb0498470f9994b5f31a, type: 3}
     weight: 1
+  unlockRequirements:
+  - level: {fileID: 11400000, guid: b1000000000000000000000000000001, type: 2}
+    stars: 1

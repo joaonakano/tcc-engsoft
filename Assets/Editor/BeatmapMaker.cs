@@ -20,21 +20,28 @@ public static class BeatmapBaker
     private const NoteName LeftNote = NoteName.C;
     private const NoteName RightNote = NoteName.D;
 
-    [MenuItem("Assets/Beatmap/Bake MIDI -> BeatmapAsset")]
-    private static void BakeSelected()
+    [MenuItem("Assets/Beatmap/Bake MIDI -> BeatmapAsset (so MIDI)")]
+    private static void BakeSelected() => BakeAll(false);
+
+    // Recomendado: alinha cada nota aos ataques reais do áudio (corrige BPM que muda/derrapa no FL Studio)
+    [MenuItem("Assets/Beatmap/Bake MIDI + Alinhar ao Audio")]
+    private static void BakeSelectedAligned() => BakeAll(true);
+
+    [MenuItem("Assets/Beatmap/Bake MIDI -> BeatmapAsset (so MIDI)", true)]
+    [MenuItem("Assets/Beatmap/Bake MIDI + Alinhar ao Audio", true)]
+    private static bool ValidateBake() => Selection.assetGUIDs.Length > 0;
+
+    private static void BakeAll(bool align)
     {
         foreach (string guid in Selection.assetGUIDs)
         {
             string path = AssetDatabase.GUIDToAssetPath(guid);
             if (string.IsNullOrEmpty(path) || AssetDatabase.IsValidFolder(path)) continue;
-            Bake(path);
+            Bake(path, align);
         }
     }
 
-    [MenuItem("Assets/Beatmap/Bake MIDI -> BeatmapAsset", true)]
-    private static bool ValidateBake() => Selection.assetGUIDs.Length > 0;
-
-    private static void Bake(string path)
+    private static void Bake(string path, bool align)
     {
         MidiFile midi;
         try
@@ -138,6 +145,28 @@ public static class BeatmapBaker
                 asset.clip = AssetDatabase.LoadAssetAtPath<AudioClip>(AssetDatabase.GUIDToAssetPath(clips[0]));
         }
 
+        // ---------- alinhamento ao áudio ----------
+        string alignInfo = "";
+        if (align)
+        {
+            double[] midiTimes = times.ToArray();
+            var rep = BeatmapAudioAligner.Align(asset.clip, midiTimes);
+            if (rep.ok)
+            {
+                times = midiTimes.ToList();
+                beats = times.Select(t => asset.SecondsToBeats(t)).ToList();
+                asset.noteTimes = times.ToArray();
+                asset.noteBeats = beats.ToArray();
+                alignInfo = $"\nAlinhado ao áudio: {rep.matched}/{rep.notes} notas casaram com um ataque ({rep.onsets} onsets detectados) | " +
+                            $"deslocamento médio {rep.meanAbsShift * 1000:0.#} ms, máx {rep.maxAbsShift * 1000:0.#} ms | " +
+                            $"deriva MIDI->áudio de {rep.minDrift * 1000:0.#} a {rep.maxDrift * 1000:0.#} ms";
+            }
+            else
+            {
+                Debug.LogWarning($"[BeatmapBaker] Alinhamento ao áudio ignorado: {rep.error}.");
+            }
+        }
+
         if (created) AssetDatabase.CreateAsset(asset, outPath);
         else EditorUtility.SetDirty(asset);
         AssetDatabase.SaveAssets();
@@ -153,7 +182,7 @@ public static class BeatmapBaker
 
         Debug.Log($"[BeatmapBaker] OK -> {outPath}\n" +
                   $"Notas: {times.Count} (esq {left} / dir {right}) | {bpmInfo} | PPQ {ppq} | {span}\n" +
-                  (asset.clip != null ? $"Clip: {asset.clip.name}" : "ATENÇÃO: arraste o AudioClip para o campo 'clip' do asset."),
+                  (asset.clip != null ? $"Clip: {asset.clip.name}" : "ATENÇÃO: arraste o AudioClip para o campo 'clip' do asset.") + alignInfo,
                   asset);
 
         if (segments.Count == 1)

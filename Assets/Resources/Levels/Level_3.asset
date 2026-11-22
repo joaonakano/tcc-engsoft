@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: Level_3
   displayName: Whatsapp
-  beatmap: {fileID: 11400000, guid: 78a17723e76f2e847b1b0ec9a1d295ed, type: 2}
+  beatmap: {fileID: 11400000, guid: 8952bc97eaf05a1419d740e24a4d31ea, type: 2}
   theme: {fileID: 11400000, guid: 9b271b977dcafb040a19c832c267e525, type: 2}
   noteEntries:
   - prefab: {fileID: 2281683776329374312, guid: 3e309ec948d9fb0498470f9994b5f31a, type: 3}
@@ -23,3 +23,6 @@ MonoBehaviour:
     weight: 15
   - prefab: {fileID: 3067606317898309313, guid: e2b132f07fbc0f345a232e2faee26393, type: 3}
     weight: 1
+  unlockRequirements:
+  - level: {fileID: 11400000, guid: b1000000000000000000000000000002, type: 2}
+    stars: 1

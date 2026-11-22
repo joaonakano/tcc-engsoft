@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6a957ae5cbb3e469694e3c6e7b23ba10, type: 3}
-  m_Name: chess-remaster_Beatmap
+  m_Name: ost-002-chess_Beatmap
   m_EditorClassIdentifier: Assembly-CSharp::BeatmapAsset
-  songTitle: chess-remaster
+  songTitle: ost-002-chess
   clip: {fileID: 8300000, guid: 3ebbbde0d9ee13741af33a51e39f19ef, type: 3}
   songOffset: 0
   noteTimes:

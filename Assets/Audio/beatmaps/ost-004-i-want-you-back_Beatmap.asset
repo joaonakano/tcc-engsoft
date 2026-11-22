@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6a957ae5cbb3e469694e3c6e7b23ba10, type: 3}
-  m_Name: i-want-you-back_Beatmap
+  m_Name: ost-004-i-want-you-back_Beatmap
   m_EditorClassIdentifier: Assembly-CSharp::BeatmapAsset
-  songTitle: i-want-you-back
+  songTitle: ost-004-i-want-you-back
   clip: {fileID: 8300000, guid: 6d1158f053c5cef40a0cae581e8309b7, type: 3}
   songOffset: 0
   noteTimes:

@@ -20,6 +20,10 @@ public class LevelCard : MonoBehaviour,
     [SerializeField] private Sprite starFull;
     [SerializeField] private Sprite starEmpty;
 
+    [Header("Bloqueio")]
+    [Tooltip("Objeto com o overlay cinza + cadeado, filho do card. Fica ativo enquanto a fase estiver bloqueada.")]
+    [SerializeField] private GameObject lockOverlay;
+
     [Header("Clique")]
     public UnityEvent onClick;
 
@@ -27,21 +31,36 @@ public class LevelCard : MonoBehaviour,
     [SerializeField] private TransitionType transitionType = TransitionType.Loading;
 
     private bool interactable;
+    private bool locked;
     private bool hovering;
     private bool pressing;
 
     public string LevelId => levelId;
+    public bool IsLocked => locked;
 
     private void OnEnable()
     {
+        RefreshLock();
         RefreshStars();
+        UpdateVisual();
+    }
+
+    // ---------- Bloqueio ----------
+    public void RefreshLock()
+    {
+        LevelData level = Resources.Load<LevelData>("Levels/" + levelId);
+        locked = level != null && !level.IsUnlocked;
+
+        if (lockOverlay != null) lockOverlay.SetActive(locked);
+        if (locked) pressing = false;
         UpdateVisual();
     }
 
     // ---------- Estrelas ----------
     public void RefreshStars()
     {
-        int earned = GameSession.BestStars(levelId);
+        LevelData level = Resources.Load<LevelData>("Levels/" + levelId);
+        int earned = GameSession.BestStars(level != null ? level.Key : levelId);
         SetStars(earned);
     }
 
@@ -78,7 +97,7 @@ public class LevelCard : MonoBehaviour,
     }
     public void OnPointerDown(PointerEventData e)
     {
-        if (!interactable) return;
+        if (!interactable || locked) return;
         pressing = true;
         UpdateVisual();
     }
@@ -93,7 +112,7 @@ public class LevelCard : MonoBehaviour,
 
     public void OnPointerClick(PointerEventData e)
     {
-        if (!interactable) return;
+        if (!interactable || locked) return;
         onClick.Invoke();
         GameSession.StartLevel(levelId, transitionType);
     }
@@ -102,7 +121,7 @@ public class LevelCard : MonoBehaviour,
     {
         if (background == null) return;
 
-        if (!interactable)      background.sprite = normalSprite;
+        if (!interactable || locked) background.sprite = normalSprite;
         else if (pressing)      background.sprite = pressedSprite;
         else if (hovering)      background.sprite = highlightSprite;
         else                    background.sprite = normalSprite;

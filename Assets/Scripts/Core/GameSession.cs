@@ -32,6 +32,7 @@ public static class GameSession
 
         var level = LevelData.Find(levelId);
         if (level == null) return;
+        if (!level.IsUnlocked) return; // fase bloqueada
 
         Level = level;
         SceneTransition.Load(Scenes.Level, transition);
@@ -39,7 +40,7 @@ public static class GameSession
 
     public static void Retry(TransitionType transition = TransitionType.Loading)
     {
-        if (Level != null) StartLevel(Level.id, transition);
+        if (Level != null) StartLevel(Level.name, transition);
     }
 
     /// <summary>Chamado ao fim da partida. Só sobrescreve as estrelas salvas se forem melhores e se o jogador não perdeu.</summary>
@@ -50,9 +51,11 @@ public static class GameSession
         Stars = stars;
         Failed = failed;
 
-        if (!failed && Level != null && stars > BestStars(Level.id))
+        stars = Mathf.Clamp(stars, 0, 3);
+
+        if (!failed && Level != null && stars > BestStars(Level.Key))
         {
-            PlayerPrefs.SetInt(StarsKey(Level.id), stars);
+            PlayerPrefs.SetInt(StarsKey(Level.Key), stars);
             PlayerPrefs.Save();
         }
     }

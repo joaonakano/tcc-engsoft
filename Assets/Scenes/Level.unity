@@ -1555,8 +1555,9 @@ MonoBehaviour:
   leftActionRef: {fileID: 8529580086089024627, guid: e1fcf75a242d1a643b11a40fe9701a4e, type: 3}
   rightActionRef: {fileID: 1673267669760871434, guid: e1fcf75a242d1a643b11a40fe9701a4e, type: 3}
   usbInput: {fileID: 388267489}
-  perfectWindow: 0.03
-  goodWindow: 0.1
+  perfectEarlyWindow: 0.07
+  perfectLateWindow: 0.07
+  goodWindow: 0.15
   earlyWindow: 0.3
   hitOffset: 0
   perfectSfx: {fileID: 8300000, guid: 07f408cab618a274ebdea1ce017a6bcb, type: 3}
