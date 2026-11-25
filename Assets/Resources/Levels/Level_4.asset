@@ -13,14 +13,16 @@ MonoBehaviour:
   m_Name: Level_4
   m_EditorClassIdentifier: 
   id: Level_4
-  displayName: Caguei
-  beatmap: {fileID: 11400000, guid: 39a514780d160444882bd1b536f8bbef, type: 2}
-  theme: {fileID: 11400000, guid: 9b271b977dcafb040a19c832c267e525, type: 2}
+  displayName: Flames
+  beatmap: {fileID: 11400000, guid: 61ab803493fc9484f8ecd0740b91fe2d, type: 2}
+  theme: {fileID: 11400000, guid: 3db44c48b040b454ca9559dc0582541f, type: 2}
   noteEntries:
   - prefab: {fileID: 2281683776329374312, guid: 3e309ec948d9fb0498470f9994b5f31a, type: 3}
     weight: 90
+  - prefab: {fileID: 2281683776329374312, guid: 5f41e4b302a86a54e88068dd4f8c15ca, type: 3}
+    weight: 20
   - prefab: {fileID: 2281683776329374312, guid: 2adfc2407980f904cbfd371a48753bff, type: 3}
-    weight: 15
+    weight: 10
   - prefab: {fileID: 3067606317898309313, guid: e2b132f07fbc0f345a232e2faee26393, type: 3}
     weight: 1
   unlockRequirements:

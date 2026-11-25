@@ -24,6 +24,8 @@ public class StarResultController : MonoBehaviour
 
     [Header("SFX")]
     [SerializeField] private AudioSource scoreThemeSource;
+    [Tooltip("Som tocado quando cada estrela cheia aparece (pop up)")]
+    [SerializeField] private AudioClip starPopSfx;
 
     [Header("Teste (opcional)")]
     [Tooltip("Se marcado, ignora o GameSession e usa os valores abaixo")]
@@ -203,6 +205,8 @@ public class StarResultController : MonoBehaviour
 
         filled.localScale = baseScale * filledStartScale;
         filled.gameObject.SetActive(true);
+
+        Audio.PlaySfx(starPopSfx);
 
         // Crescimento: pequena → overshoot (ease out)
         float elapsed = 0f;

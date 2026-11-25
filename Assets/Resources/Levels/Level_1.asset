@@ -13,13 +13,16 @@ MonoBehaviour:
   m_Name: Level_1
   m_EditorClassIdentifier: 
   id: Level_1
-  displayName: I Want You Back
-  beatmap: {fileID: 11400000, guid: 32511ae316164cc45bbc4a371c96baed, type: 2}
+  displayName: Easy
+  beatmap: {fileID: 11400000, guid: 2c7bf36abc3de054e83b4936964ec413, type: 2}
   theme: {fileID: 11400000, guid: 5526c68ff22199a47b4112d287955afd, type: 2}
   noteEntries:
   - prefab: {fileID: 2281683776329374312, guid: 2cf664c4cae6eb147991dfc186a29db4, type: 3}
     weight: 90
   - prefab: {fileID: 2281683776329374312, guid: 2adfc2407980f904cbfd371a48753bff, type: 3}
-    weight: 15
+    weight: 20
   - prefab: {fileID: 3067606317898309313, guid: e2b132f07fbc0f345a232e2faee26393, type: 3}
-    weight: 1
+    weight: 15
+  - prefab: {fileID: 2281683776329374312, guid: 5f41e4b302a86a54e88068dd4f8c15ca, type: 3}
+    weight: 5
+  unlockRequirements: []

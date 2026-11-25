@@ -1712,7 +1712,8 @@ MonoBehaviour:
     filledStar: {fileID: 906024145}
     requiredPercent: 0.8
   scoreThemeSource: {fileID: 2035127154}
-  useTestScore: 0
+  starPopSfx: {fileID: 8300000, guid: 27601902df5897d43af6abe132869c6e, type: 3}
+  useTestScore: 1
   testScore: 801
   testMaxScore: 1000
   emptyY: -6.33

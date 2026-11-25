@@ -17,8 +17,8 @@ using Melanchall.DryWetMidi.MusicTheory;
 public static class BeatmapBaker
 {
     // Mapeamento de lanes (qualquer oitava)
-    private const NoteName LeftNote = NoteName.C;
-    private const NoteName RightNote = NoteName.D;
+    private const NoteName LeftNote = NoteName.D;
+    private const NoteName RightNote = NoteName.C;
 
     [MenuItem("Assets/Beatmap/Bake MIDI -> BeatmapAsset (so MIDI)")]
     private static void BakeSelected() => BakeAll(false);

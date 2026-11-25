@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Level_2
   m_EditorClassIdentifier: 
   id: Level_2
-  displayName: Chess
-  beatmap: {fileID: 11400000, guid: 7cd07657a025fd348aea8e935547b73e, type: 2}
+  displayName: Mid
+  beatmap: {fileID: 11400000, guid: 0f6b8f5ee25277b4caf9d213f822e003, type: 2}
   theme: {fileID: 11400000, guid: eb449835fa889fb4ab18cc0f455b3d95, type: 2}
   noteEntries:
   - prefab: {fileID: 2281683776329374312, guid: bf8449d2e45bb1149b61198fe2b0a641, type: 3}

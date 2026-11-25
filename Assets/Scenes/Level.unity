@@ -1556,7 +1556,7 @@ MonoBehaviour:
   rightActionRef: {fileID: 1673267669760871434, guid: e1fcf75a242d1a643b11a40fe9701a4e, type: 3}
   usbInput: {fileID: 388267489}
   perfectEarlyWindow: 0.07
-  perfectLateWindow: 0.07
+  perfectLateWindow: 0.1
   goodWindow: 0.15
   earlyWindow: 0.3
   hitOffset: 0
@@ -4261,12 +4261,12 @@ MonoBehaviour:
   exhaustLeadTime: 0.4
   scrollMode: 0
   spawnY: 3
-  targetY: -2.98
+  hitY: -2.96
+  endY: -5.97
   spawnXLeft: -2.7
   spawnXRight: 2.74
   fallDuration: 0.6
   fallBeats: 1
-  continueFallingPastTarget: 1
   warmupVisibleFrames: 2
   lingerTime: 0.3
 --- !u!1 &1146470602
@@ -5441,7 +5441,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SongManager
   musicSource: {fileID: 1511418450}
-  beatmap: {fileID: 11400000, guid: c59ac1c31f3bb4f48a832525ee923155, type: 2}
+  beatmap: {fileID: 11400000, guid: 3f1ebaefbeb8dca4a940d77a7897f782, type: 2}
   songDelay: 1.5
 --- !u!82 &1511418450
 AudioSource:
@@ -5454,7 +5454,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: 6d1158f053c5cef40a0cae581e8309b7, type: 3}
+  m_Resource: {fileID: 8300000, guid: 1a9e5286b4452fd4ab7cf5adeec9cc19, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.3
   m_Pitch: 1
